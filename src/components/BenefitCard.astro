@@ -1,0 +1,10 @@
+---
+const { audience, title, description } = Astro.props;
+---
+
+<article class="benefit-card" data-reveal>
+  <p class="benefit-card__audience">{audience}</p>
+  <h3>{title}</h3>
+  <p>{description}</p>
+</article>
+

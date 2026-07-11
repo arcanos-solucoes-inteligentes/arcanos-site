@@ -1,0 +1,30 @@
+---
+const { company } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <img
+        class="site-footer__brand-image"
+        src={company.brandLogo}
+        alt="Logo oficial da Arcanos no rodapé."
+        width="260"
+        height="60"
+      />
+      <p>{company.legalName}</p>
+      <p>{company.footerNote}</p>
+    </div>
+
+    <div class="site-footer__links">
+      <a href="/">Início</a>
+      <a href="#contato">Contato</a>
+      <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
+    </div>
+  </div>
+
+  <div class="container site-footer__meta">
+    <p>&copy; {year} Arcanos. Todos os direitos reservados.</p>
+  </div>
+</footer>

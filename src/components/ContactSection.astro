@@ -1,0 +1,36 @@
+---
+const { company } = Astro.props;
+---
+
+<section class="contact-section" id="contato">
+  <div class="container contact-section__grid">
+    <div data-reveal>
+      <p class="eyebrow">Contato</p>
+      <h2>Quer conhecer melhor a Arcanos?</h2>
+      <p>
+        Se você quiser conhecer melhor nossa visão, entender o que estamos construindo ou iniciar
+        uma conversa conosco, entre em contato.
+      </p>
+      <p>
+        Contato nesta etapa:
+        <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
+      </p>
+      <div class="contact-section__actions">
+        <a class="button" href={`mailto:${company.contactEmail}`}>Enviar e-mail</a>
+      </div>
+    </div>
+
+    <aside class="contact-card contact-card--accent" data-reveal>
+      <h3>Fale com a Arcanos</h3>
+      <ul class="contact-card__list">
+        <li>Apresentação institucional da Arcanos.</li>
+        <li>Visão, proposta e direcionamento desta fase inicial.</li>
+        <li>Canal direto para conhecer melhor a iniciativa.</li>
+      </ul>
+      <p>
+        E-mail para contato:
+        <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
+      </p>
+    </aside>
+  </div>
+</section>

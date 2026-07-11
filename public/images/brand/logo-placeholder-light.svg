@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder do logo claro da Arcanos</title>
+  <desc id="desc">Arte provisória para indicar a posição do logo da Arcanos em fundo escuro.</desc>
+  <rect width="320" height="80" rx="18" fill="#ffffff" opacity="0.06" />
+  <g transform="translate(18 16)">
+    <rect width="48" height="48" rx="14" fill="#071225" />
+    <path d="M12 34 24 10l12 24" fill="none" stroke="#E9A522" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+    <path d="M17 26h14" fill="none" stroke="#F4B942" stroke-linecap="round" stroke-width="4" />
+  </g>
+  <text x="84" y="35" fill="#FFFFFF" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">
+    ARCANOS
+  </text>
+  <text x="84" y="56" fill="#DDE4F0" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="12" letter-spacing="1.2">
+    PLACEHOLDER TEMPORARIO DE MARCA
+  </text>
+</svg>
+

@@ -1,0 +1,9 @@
+---
+const { title, description, accent = false } = Astro.props;
+---
+
+<article class:list={["info-card", accent && "info-card--accent"]} data-reveal>
+  <h3>{title}</h3>
+  <p>{description}</p>
+</article>
+

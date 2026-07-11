@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 180" role="img" aria-labelledby="title desc">
+  <title id="title">Logo da Arcanos</title>
+  <desc id="desc">Logo Arcanos Solucoes Inteligentes em fundo transparente.</desc>
+  <defs>
+    <linearGradient id="lockup-gold" x1="18" y1="128" x2="762" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d88900" />
+      <stop offset="0.45" stop-color="#f4b942" />
+      <stop offset="1" stop-color="#ffd978" />
+    </linearGradient>
+    <linearGradient id="lockup-silver" x1="34" y1="144" x2="520" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8c0ce" />
+      <stop offset="0.48" stop-color="#ffffff" />
+      <stop offset="1" stop-color="#dfe5ef" />
+    </linearGradient>
+    <filter id="lockup-shadow" x="-10%" y="-18%" width="130%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#020817" flood-opacity="0.2" />
+    </filter>
+  </defs>
+  <g filter="url(#lockup-shadow)">
+    <g transform="translate(10 8)">
+      <path
+        d="M26 100 A52 52 0 1 1 114 100"
+        fill="none"
+        stroke="url(#lockup-gold)"
+        stroke-linecap="round"
+        stroke-width="10"
+      />
+      <path
+        d="M38 122 L70 44 L102 122"
+        fill="none"
+        stroke="url(#lockup-silver)"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="10"
+      />
+      <path
+        d="M55 95 Q70 104 85 95"
+        fill="none"
+        stroke="url(#lockup-gold)"
+        stroke-linecap="round"
+        stroke-width="10"
+      />
+    </g>
+    <text
+      x="162"
+      y="88"
+      fill="url(#lockup-silver)"
+      font-family="'Trebuchet MS', 'Segoe UI', sans-serif"
+      font-size="60"
+      font-weight="600"
+      letter-spacing="0.22em"
+    >
+      ARCANOS
+    </text>
+    <text
+      x="164"
+      y="136"
+      fill="url(#lockup-gold)"
+      font-family="'Trebuchet MS', 'Segoe UI', sans-serif"
+      font-size="20"
+      font-weight="700"
+      letter-spacing="0.42em"
+    >
+      SOLUCOES INTELIGENTES
+    </text>
+  </g>
+</svg>

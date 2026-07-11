@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder Open Graph Arcanos</title>
+  <desc id="desc">Imagem social provisória da Arcanos com fundo azul-marinho e destaque dourado.</desc>
+  <rect width="1200" height="630" fill="#071225" />
+  <circle cx="980" cy="150" r="180" fill="#E9A522" opacity="0.14" />
+  <path d="M144 406 280 134l136 272" fill="none" stroke="#E9A522" stroke-linecap="round" stroke-linejoin="round" stroke-width="28" />
+  <path d="M204 316h156" fill="none" stroke="#F4B942" stroke-linecap="round" stroke-width="22" />
+  <text x="480" y="258" fill="#FFFFFF" font-family="Palatino Linotype, Georgia, serif" font-size="74">
+    Arcanos
+  </text>
+  <text x="480" y="330" fill="#DDE4F0" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="32">
+    Plataforma inteligente para gestao condominial
+  </text>
+  <text x="480" y="394" fill="#F4B942" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24">
+    Placeholder visual para Open Graph
+  </text>
+</svg>
+

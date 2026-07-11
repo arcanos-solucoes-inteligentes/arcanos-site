@@ -1,0 +1,51 @@
+---
+interface ScreenshotItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  filename: string;
+}
+
+const { items } = Astro.props as { items: ScreenshotItem[] };
+const [firstItem] = items;
+---
+
+<section class="gallery" id="galeria">
+  <div class="gallery__preview" data-gallery-preview data-reveal>
+    <img
+      src={firstItem.image}
+      alt={firstItem.alt}
+      width="960"
+      height="540"
+      data-gallery-image
+    />
+    <div class="gallery__preview-copy">
+      <p class="eyebrow">Visuais do produto</p>
+      <h3 data-gallery-title>{firstItem.title}</h3>
+      <p data-gallery-description>{firstItem.description}</p>
+      <p class="gallery__filename" data-gallery-filename>Arquivo planejado: {firstItem.filename}</p>
+      <p class="gallery__note">Visual demonstrativo baseado na estrutura atual do produto.</p>
+    </div>
+  </div>
+
+  <div class="gallery__thumbs" role="list">
+    {items.map((item, index) => (
+      <button
+        class:list={["gallery__thumb", index === 0 && "is-active"]}
+        type="button"
+        data-gallery-thumb
+        data-image={item.image}
+        data-title={item.title}
+        data-description={item.description}
+        data-alt={item.alt}
+        data-filename={item.filename}
+        aria-pressed={index === 0 ? "true" : "false"}
+      >
+        <span>{item.title}</span>
+        <small>{item.filename}</small>
+      </button>
+    ))}
+  </div>
+</section>

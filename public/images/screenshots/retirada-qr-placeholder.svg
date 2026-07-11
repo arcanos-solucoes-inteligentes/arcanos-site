@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Visual demonstrativo de retirada por QR Code</title>
+  <desc id="desc">Mockup do fluxo de retirada assistida por QR Code.</desc>
+  <rect width="960" height="540" rx="32" fill="#091427" />
+  <rect x="54" y="54" width="852" height="432" rx="28" fill="#10203F" />
+  <rect x="92" y="92" width="350" height="356" rx="30" fill="#F8FAFE" />
+  <rect x="478" y="92" width="390" height="164" rx="26" fill="#FFFFFF" />
+  <rect x="478" y="278" width="390" height="170" rx="26" fill="#FFF7E6" />
+  <rect x="190" y="126" width="154" height="266" rx="24" fill="#FFFFFF" stroke="#DDE4F0" />
+  <rect x="214" y="164" width="106" height="106" rx="12" fill="#0D1A35" />
+  <path d="M228 178h24v24h-24zM282 178h24v24h-24zM228 232h24v24h-24zM268 218h14v14h-14zM292 218h14v38h-14zM254 202h14v54h-14z" fill="#F4B942" />
+  <rect x="214" y="294" width="106" height="18" rx="9" fill="#EEF3FB" />
+  <rect x="214" y="326" width="82" height="18" rx="9" fill="#EEF3FB" />
+  <text x="512" y="138" fill="#8D98AB" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Fluxo de retirada</text>
+  <text x="512" y="182" fill="#10203F" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="30" font-weight="700">QR Code validado em segundos</text>
+  <text x="512" y="220" fill="#354052" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="16">Morador apresenta codigo, portaria confirma e o historico e atualizado.</text>
+  <text x="512" y="324" fill="#B97700" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Registro gerado</text>
+  <text x="512" y="366" fill="#10203F" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="28" font-weight="700">Retirada concluida</text>
+  <rect x="512" y="390" width="162" height="18" rx="9" fill="#E9A522" />
+  <rect x="92" y="92" width="350" height="38" rx="19" fill="#FFFFFF" opacity="0.06" />
+</svg>

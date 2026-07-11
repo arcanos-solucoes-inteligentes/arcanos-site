@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Open Graph da Arcanos</title>
+  <desc id="desc">Arte social institucional da Arcanos com fundo azul-marinho, rastro dourado e mensagem principal.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05101f" />
+      <stop offset="0.58" stop-color="#0a1a34" />
+      <stop offset="1" stop-color="#12305f" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.22" r="0.4">
+      <stop offset="0" stop-color="#f4b942" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#f4b942" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d88900" />
+      <stop offset="0.52" stop-color="#f4b942" />
+      <stop offset="1" stop-color="#ffd978" />
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b8c0ce" />
+      <stop offset="0.48" stop-color="#ffffff" />
+      <stop offset="1" stop-color="#dfe5ef" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <g opacity="0.92">
+    <path d="M802 498c96-130 184-170 318-208" fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-width="14" />
+    <path d="M858 556c114-158 212-208 336-248" fill="none" stroke="#f4b942" stroke-linecap="round" stroke-opacity="0.84" stroke-width="9" />
+  </g>
+  <g transform="translate(94 112)">
+    <path d="M0 166 A106 106 0 1 1 178 166" fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-width="16" />
+    <path d="M24 210 L89 54 L154 210" fill="none" stroke="url(#silver)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+    <path d="M56 154 Q89 176 122 154" fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-width="16" />
+  </g>
+  <text x="330" y="218" fill="#ffffff" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="84" font-weight="600" letter-spacing="0.22em">
+    ARCANOS
+  </text>
+  <text x="334" y="278" fill="#f4b942" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="28" font-weight="700" letter-spacing="0.42em">
+    SOLUCOES INTELIGENTES
+  </text>
+  <text x="94" y="412" fill="#ffffff" font-family="Palatino Linotype, Georgia, serif" font-size="70" font-weight="700">
+    Tecnologia humanizada para
+  </text>
+  <text x="94" y="486" fill="#f4b942" font-family="Palatino Linotype, Georgia, serif" font-size="70" font-weight="700">
+    operacao condominial.
+  </text>
+  <text x="94" y="548" fill="#dfe5ef" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="28">
+    Portaria, moradores e administracao conectados por uma plataforma clara, leve e integrada.
+  </text>
+</svg>

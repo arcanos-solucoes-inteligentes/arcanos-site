@@ -1,0 +1,56 @@
+---
+interface NavigationItem {
+  label: string;
+  href: string;
+}
+
+interface CompanySummary {
+  name: string;
+  brandLogo: string;
+}
+
+const { items, company } = Astro.props as {
+  items: NavigationItem[];
+  company: CompanySummary;
+};
+---
+
+<header class="site-header" data-site-header>
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label={`Página inicial da ${company.name}`}>
+      <img
+        class="brand__image"
+        src={company.brandLogo}
+        alt="Logo oficial da Arcanos."
+        width="260"
+        height="60"
+      />
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-menu-toggle
+    >
+      Menu
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Navegação principal" data-menu-panel>
+      <button class="menu-close" type="button" data-menu-close>
+        Fechar
+      </button>
+
+      <ul>
+        {items.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+
+      <a class="button button--small" href="#contato">Entrar em contato</a>
+    </nav>
+  </div>
+</header>

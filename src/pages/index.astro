@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ContactSection from "../components/ContactSection.astro";
+import { siteConfig } from "../data/company.js";
+
+const heroHighlights = [
+  "Quem somos e a visão da Arcanos.",
+  "Nosso objetivo no contexto operacional.",
+  "O que já desenvolvemos, na prática."
+];
+
+const whatWeDo = [
+  {
+    title: "Aplicativo operacional",
+    description:
+      "Desenvolvemos uma solução voltada à rotina condominial, com foco em tornar a operação mais organizada, clara e funcional."
+  },
+  {
+    title: "Foco em encomendas",
+    description:
+      "Um dos principais focos do aplicativo foi a gestão de encomendas, buscando melhorar registro, acompanhamento e retirada."
+  },
+  {
+    title: "Soluções personalizadas",
+    description:
+      "Fazemos aplicações personalizadas para o seu negócio, construídas de acordo com cada necessidade, com foco em eficiência, clareza e utilidade prática."
+  }
+];
+---
+
+<BaseLayout>
+  <Hero company={siteConfig} highlights={heroHighlights} />
+
+  <section class="section section--dark" id="quem-somos">
+    <div class="container two-column">
+      <div data-reveal>
+        <SectionTitle
+          eyebrow="Quem somos"
+          title="A Arcanos nasceu com o objetivo de ajudar a automatizar processos manuais para melhorar a performance do seu negócio."
+          intro="Somos uma iniciativa que entende a tecnologia como ferramenta de clareza, organização e aproximação entre pessoas, processos e informação."
+        />
+      </div>
+      <div class="stack" data-reveal>
+        <p>
+          Desenvolvemos aplicações personalizadas, construídas para atender às necessidades
+          específicas de cada operação, com mais clareza, eficiência e inteligência.
+        </p>
+        <p>
+          Nossa proposta é criar soluções que reduzam fricções operacionais, automatizem tarefas
+          manuais e tragam mais eficiência para negócios que precisam de organização,
+          previsibilidade e visibilidade no dia a dia.
+        </p>
+        <p>
+          Acreditamos que tecnologia só faz sentido quando gera valor real, simplifica a operação
+          e melhora a experiência de quem usa.
+        </p>
+        <blockquote class="brand-spotlight__quote">
+          <p>{siteConfig.brandQuote}</p>
+          <cite>Arcanos. Tecnologia humanizada.</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tinted" id="objetivo">
+    <div class="container two-column">
+      <div data-reveal>
+        <SectionTitle
+          eyebrow="Objetivo"
+          title="Levar mais eficiência, organização e clareza para a operação."
+          intro="Nosso objetivo é ajudar a transformar processos manuais em fluxos mais inteligentes, organizados e confiáveis, usando tecnologia para ampliar a leitura da operação e apoiar melhores decisões."
+        />
+      </div>
+      <div class="stack" data-reveal>
+        <div class="highlight-row">
+          <span class="highlight-row__dot"></span>
+          <p>Automatizar processos manuais.</p>
+        </div>
+        <div class="highlight-row">
+          <span class="highlight-row__dot"></span>
+          <p>Melhorar a organização operacional.</p>
+        </div>
+        <div class="highlight-row">
+          <span class="highlight-row__dot"></span>
+          <p>Aproximar tecnologia, pessoas e informação.</p>
+        </div>
+        <div class="highlight-row">
+          <span class="highlight-row__dot"></span>
+          <p>Criar soluções com impacto prático no dia a dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light" id="o-que-fazemos">
+    <div class="container">
+      <SectionTitle
+        eyebrow="O que fazemos"
+        title="Transformamos necessidades operacionais em soluções aplicadas."
+        intro="Hoje, já colocamos essa visão em prática no desenvolvimento de soluções alinhadas à realidade operacional dos nossos clientes."
+      />
+      <div class="stack" data-reveal>
+        <p class="support-note support-note--lead">
+          Desenvolvemos um aplicativo para operação condominial no Condomínio TEG Vila Guilherme,
+          com atenção especial à gestão de encomendas.
+        </p>
+      </div>
+      <div class="card-grid card-grid--three">
+        {whatWeDo.map((item) => (
+          <article class="info-card" data-reveal>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactSection company={siteConfig} />
+</BaseLayout>

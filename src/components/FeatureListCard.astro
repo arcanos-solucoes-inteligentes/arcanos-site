@@ -1,0 +1,21 @@
+---
+interface FeatureListCardProps {
+  eyebrow: string;
+  title: string;
+  description: string;
+  bullets: string[];
+}
+
+const { eyebrow, title, description, bullets } = Astro.props as FeatureListCardProps;
+---
+
+<article class="feature-list-card" data-reveal>
+  <p class="feature-list-card__eyebrow">{eyebrow}</p>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <ul class="feature-list-card__list">
+    {bullets.map((bullet) => (
+      <li>{bullet}</li>
+    ))}
+  </ul>
+</article>

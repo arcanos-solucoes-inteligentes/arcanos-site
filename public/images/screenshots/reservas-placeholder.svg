@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Visual demonstrativo de reservas</title>
+  <desc id="desc">Mockup do fluxo de reservas de areas comuns.</desc>
+  <rect width="960" height="540" rx="32" fill="#081226" />
+  <rect x="34" y="34" width="892" height="472" rx="28" fill="#F8FAFE" />
+  <rect x="54" y="58" width="852" height="62" rx="18" fill="#10203F" />
+  <rect x="54" y="144" width="560" height="336" rx="24" fill="#FFFFFF" stroke="#DDE4F0" />
+  <rect x="636" y="144" width="270" height="336" rx="24" fill="#FFF7E6" />
+  <text x="84" y="98" fill="#FFFFFF" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">Reservas de areas comuns</text>
+  <text x="84" y="178" fill="#10203F" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="22" font-weight="700">Calendario do mes</text>
+  <g fill="#10203F" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14">
+    <text x="88" y="214">S</text><text x="160" y="214">T</text><text x="232" y="214">Q</text><text x="304" y="214">Q</text><text x="376" y="214">S</text><text x="448" y="214">S</text><text x="520" y="214">D</text>
+  </g>
+  <g>
+    <rect x="84" y="232" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="156" y="232" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="228" y="232" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="300" y="232" width="60" height="48" rx="12" fill="#FFF1D3" />
+    <rect x="372" y="232" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="444" y="232" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="516" y="232" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="84" y="292" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="156" y="292" width="60" height="48" rx="12" fill="#DDF6F2" />
+    <rect x="228" y="292" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="300" y="292" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="372" y="292" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="444" y="292" width="60" height="48" rx="12" fill="#F7FAFF" />
+    <rect x="516" y="292" width="60" height="48" rx="12" fill="#FFF1D3" />
+  </g>
+  <text x="664" y="184" fill="#B97700" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15">Espaco selecionado</text>
+  <text x="664" y="224" fill="#10203F" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="28" font-weight="700">Salao gourmet</text>
+  <rect x="664" y="252" width="206" height="16" rx="8" fill="#FFFFFF" opacity="0.6" />
+  <rect x="664" y="282" width="182" height="16" rx="8" fill="#FFFFFF" opacity="0.6" />
+  <rect x="664" y="336" width="160" height="18" rx="9" fill="#E9A522" />
+  <rect x="664" y="370" width="130" height="18" rx="9" fill="#10203F" opacity="0.12" />
+</svg>
