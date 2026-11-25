@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { featureGroups } from "../data/site.js";
+---
+
+<BaseLayout
+  path="/funcionalidades/"
+  title="Funcionalidades | CondoSmart, gestão de condomínios"
+  description="Encomendas com leitura de etiqueta, retirada por QR Code, visitantes, reservas, comunicados, ouvidoria, relatórios e auditoria. Conheça os módulos do CondoSmart."
+>
+  <PageHead
+    kicker="Funcionalidades"
+    title="Tudo o que a rotina do condomínio pede, em módulos."
+    lead="Cada condomínio liga os módulos do seu plano. A portaria, o síndico e os moradores veem apenas o que é da sua função."
+  />
+
+  <section class="sec">
+    <div class="wrap">
+      {featureGroups.map((g) => (
+        <div class="fgroup" id={g.id}>
+          <div class="fgroup__head">
+            <h2 class="h3" style="font-size:1.45rem">{g.title}</h2>
+            <p>{g.summary}</p>
+          </div>
+          <ul class="flist">
+            {g.features.map((f) => (
+              <li>
+                <h3>
+                  {f.name}
+                  {f.tag && <span class="tag">{f.tag}</span>}
+                  {f.status === "em-breve" && <span class="tag tag--breve">Em breve</span>}
+                </h3>
+                <p>{f.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec sec--branco">
+    <div class="wrap split">
+      <div>
+        <h2 class="h2">Funciona no aparelho que o condomínio já tem.</h2>
+        <p class="lead muted" style="margin-top:1rem">
+          O CondoSmart roda no navegador e pode ser instalado na tela inicial do celular, sem passar pela loja de aplicativos.
+        </p>
+      </div>
+      <ul class="checks">
+        <li>Celular ou tablet com câmera para a portaria</li>
+        <li>Computador para o síndico e a administração</li>
+        <li>Qualquer celular para os moradores</li>
+        <li>Interface em português, inglês, espanhol ou chinês</li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

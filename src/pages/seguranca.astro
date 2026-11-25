@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { trustPoints, company } from "../data/site.js";
+
+const rights = [
+  { name: "Acesso e portabilidade", text: "O morador pode exportar os próprios dados pelo aplicativo." },
+  { name: "Exclusão", text: "O pedido de exclusão entra numa fila com prazo; os registros que a lei exige guardar são anonimizados." },
+  { name: "Retenção de fotos", text: "Fotos de encomendas têm prazo de guarda e são apagadas automaticamente depois dele." },
+  { name: "Consentimento", text: "O aceite dos termos e da política de privacidade fica registrado com data e hora." }
+];
+---
+
+<BaseLayout
+  path="/seguranca/"
+  title="Segurança e LGPD | CondoSmart"
+  description="Como o CondoSmart protege os dados dos moradores: isolamento por condomínio, acesso por função, trilha de auditoria e direitos do titular previstos na LGPD."
+>
+  <PageHead
+    kicker="Segurança e LGPD"
+    title="O síndico responde pelos dados dos moradores. O sistema precisa ajudar."
+    lead="CPF, placa, foto e horário de entrada são dados pessoais. O CondoSmart foi construído para que cada pessoa veja só o que a função exige, e para que tudo fique registrado."
+  />
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="trust">
+        {trustPoints.map((t) => (<div><h3>{t.title}</h3><p>{t.text}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--branco">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <h2 class="h2">Direitos do titular, no próprio aplicativo.</h2>
+        <p class="lead muted" style="margin-top:1rem">
+          A LGPD garante ao morador saber quais dados o condomínio guarda e pedir a exclusão. No CondoSmart, isso não depende de e-mail para o síndico.
+        </p>
+      </div>
+      <ul class="roles">
+        {rights.map((r) => (<li><b>{r.name}</b><p>{r.text}</p></li>))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap" style="max-width:48rem">
+      <h2 class="h3" style="font-size:1.35rem">Dúvidas sobre tratamento de dados</h2>
+      <p class="muted" style="margin-top:.75rem">
+        Para questões sobre privacidade, contratos de tratamento de dados (DPA) ou o exercício de direitos do titular,
+        escreva para <a class="link" href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>.
+      </p>
+      <!-- TODO(jurídico): publicar a Política de Privacidade e indicar o encarregado (DPO) antes do lançamento. -->
+    </div>
+  </section>
+
+  <CtaBand title="Quer ver como os dados ficam separados na prática?" text="Mostramos na demonstração o que cada perfil enxerga: portaria, síndico e morador." />
+</BaseLayout>

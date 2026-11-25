@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { plans, faq } from "../data/site.js";
+// TODO(comercial): publicar valores quando o catálogo de planos for aprovado
+// na Plataforma Deus. Até lá, o preço é por proposta.
+---
+
+<BaseLayout
+  path="/planos/"
+  title="Planos | CondoSmart"
+  description="Planos do CondoSmart para condomínios em autogestão, condomínios com portaria e administradoras. Pague pelos módulos que o condomínio usa."
+>
+  <PageHead
+    kicker="Planos"
+    title="O plano acompanha o tamanho e a rotina do condomínio."
+    lead="O valor considera o número de unidades e os módulos ligados. Sem custo de instalação de equipamentos."
+  />
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="plans">
+        {plans.map((p) => (
+          <article class={p.highlight ? "plan plan--hi" : "plan"}>
+            <h2 class="h3" style="font-size:1.4rem">{p.name}</h2>
+            <p class="plan__fit">{p.fit}</p>
+            <p>{p.text}</p>
+            <ul class="checks">{p.items.map((i) => <li>{i}</li>)}</ul>
+            <p class="plan__price">Sob proposta<small>Calculado pelo número de unidades</small></p>
+            <a class={p.highlight ? "btn btn--ouro" : "btn btn--linha"} href={`/contato/?plano=${p.id}`}>Pedir proposta</a>
+          </article>
+        ))}
+      </div>
+      <p class="muted mt-2">Módulos adicionais, como controle de acesso e botão de pânico, podem ser ligados em qualquer plano.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--branco">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h2">Antes de contratar</h2></div>
+      <div class="faq">
+        {faq.slice(0, 5).map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

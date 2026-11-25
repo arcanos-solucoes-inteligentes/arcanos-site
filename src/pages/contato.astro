@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import { company } from "../data/site.js";
+// TODO(marketing): trocar o envio por mailto por um formulário com CRM
+// (ex.: HubSpot ou RD Station) para não depender do cliente de e-mail do visitante.
+---
+
+<BaseLayout
+  path="/contato/"
+  title="Agendar demonstração | CondoSmart"
+  description="Agende uma demonstração do CondoSmart para o seu condomínio ou administradora."
+>
+  <PageHead kicker="Demonstração" title="Mostramos o CondoSmart com a rotina do seu condomínio." />
+
+  <section class="sec">
+    <div class="wrap contact">
+      <div>
+        <h2 class="h3" style="font-size:1.3rem">Como funciona</h2>
+        <ul class="checks" style="margin-top:1rem">
+          <li>Conversa de 30 minutos, por vídeo ou presencial</li>
+          <li>Demonstração com os fluxos que você usa hoje</li>
+          <li>Proposta pelo número de unidades e módulos</li>
+        </ul>
+        <p class="muted mt-2">Prefere e-mail? Escreva para <a class="link" href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>.</p>
+        <p class="muted" style="margin-top:1rem">Já é cliente e precisa de ajuda com o acesso? Veja a página <a class="link" href="/entrar/">Entrar</a>.</p>
+      </div>
+
+      <form class="form" data-contact-form data-to={company.contactEmail} novalidate>
+        <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required /></div>
+        <div class="field">
+          <label for="funcao">Sua função</label>
+          <select id="funcao" name="funcao" required>
+            <option value="">Selecione</option>
+            <option>Síndico</option>
+            <option>Síndico profissional</option>
+            <option>Administradora</option>
+            <option>Membro do conselho</option>
+            <option>Morador</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field"><label for="condominio">Condomínio ou administradora</label><input id="condominio" name="condominio" autocomplete="organization" required /></div>
+        <div class="field">
+          <label for="unidades">Número de unidades</label>
+          <select id="unidades" name="unidades">
+            <option>Até 40</option>
+            <option>41 a 150</option>
+            <option>151 a 400</option>
+            <option>Mais de 400</option>
+            <option>Carteira com vários condomínios</option>
+          </select>
+        </div>
+        <div class="field field--full"><label for="telefone">Telefone ou WhatsApp</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" /></div>
+        <div class="field field--full">
+          <label for="mensagem">O que mais pesa hoje no condomínio?</label>
+          <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+          <small>Opcional. Ex.: encomendas acumulando, reservas no papel, comunicados que ninguém lê.</small>
+        </div>
+        <div class="form__foot">
+          <p>Usamos estes dados apenas para responder ao seu pedido de demonstração.</p>
+          <button class="btn btn--ouro" type="submit">Pedir demonstração</button>
+        </div>
+        <p class="field--full muted" data-sent hidden role="status">Abrimos o seu aplicativo de e-mail com a mensagem pronta. É só enviar.</p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
