@@ -1,0 +1,34 @@
+---
+import ProductVideo from "./ProductVideo.astro";
+import { productMedia } from "../data/site.js";
+const video = productMedia === "video";
+const vagas = ["S1-01","S1-02","S1-03","S1-04","S1-05","S1-06","S1-07","S1-08","S1-09","S1-10","S1-11","S1-12"];
+---
+
+<div class="split" style="align-items:center">
+  <div>
+    <h2 class="h2">O mapa da garagem, sem planta em CAD.</h2>
+    <p class="lead muted" style="margin-top:1rem">
+      Envie a planta ou deixe o sistema desenhar uma. Cada vaga mostra quem tem direito a ela hoje,
+      e o sorteio sai do mesmo mapa, pronto para imprimir na ata.
+    </p>
+    <ul class="checks mt-2">
+      <li>Busca da vaga pelo código, com a unidade e a situação</li>
+      <li>Livre, atribuída, visitante, manutenção ou bloqueada</li>
+      <li>Cessão entre moradores e fila de espera</li>
+    </ul>
+  </div>
+  {video ? (
+    <div class="panel">
+      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>CondoSmart · Mapa da garagem</em></div>
+      <ProductVideo name="vagas" width="1440" height="900" label="Mapa da garagem no CondoSmart: busca pela vaga S1-08, destacada no mapa como atribuída ao apartamento 101." />
+    </div>
+  ) : (
+    <div class="panel" role="img" aria-label="Mapa da garagem desenhado: uma fileira de vagas com a S1-08 destacada.">
+      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>CondoSmart · Mapa da garagem</em></div>
+      <div class="garagem" aria-hidden="true">
+        {vagas.map((v) => <span class={v === "S1-08" ? "on" : v > "S1-10" ? "livre" : ""}>{v}</span>)}
+      </div>
+    </div>
+  )}
+</div>

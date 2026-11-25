@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHead from "../components/PageHead.astro";
 import CtaBand from "../components/CtaBand.astro";
+import VagasShowcase from "../components/VagasShowcase.astro";
 import { featureGroups } from "../data/site.js";
 ---
 
@@ -41,7 +42,13 @@ import { featureGroups } from "../data/site.js";
     </div>
   </section>
 
-  <section class="sec sec--branco">
+  <section class="sec sec--branco" id="mapa-da-garagem">
+    <div class="wrap">
+      <VagasShowcase />
+    </div>
+  </section>
+
+  <section class="sec">
     <div class="wrap split">
       <div>
         <h2 class="h2">Funciona no aparelho que o condomínio já tem.</h2>
