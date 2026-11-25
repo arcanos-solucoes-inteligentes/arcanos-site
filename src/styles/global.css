@@ -256,7 +256,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pill { font-size: .66rem; font-weight: 700; padding: .12rem .45rem; border-radius: 999px; background: #fdf1d7; color: #7a5200; white-space: nowrap; }
 .pill--ok { background: #dcf2e6; color: #13623e; }
 .pill--late { background: #fde2df; color: #9b2316; }
-.qr { width: 8.5rem; height: 8.5rem; margin: .5rem auto; }
+.visor { margin: .5rem 0; padding: .9rem; border-radius: 10px; background: #1a2a48; position: relative; }
+.visor::before { content: ""; position: absolute; inset: .4rem; border: 2px solid rgba(244,185,66,.6); border-radius: 8px; pointer-events: none; }
+.qr { width: 7rem; height: 7rem; margin: 0 auto; border-radius: 4px; }
 .scanner { margin: .2rem 0; height: 9rem; border-radius: 10px; background: #1a2a48; position: relative; overflow: hidden; }
 .scanner__label { position: absolute; inset: 1.4rem 1.6rem; background: #f2efe6; border-radius: 4px; padding: .5rem; font-size: .62rem; color: #333; line-height: 1.35; }
 .scanner__label i { display: block; height: 1.3rem; margin-top: .35rem; background: repeating-linear-gradient(90deg, #222 0 2px, transparent 2px 4px, #222 4px 5px, transparent 5px 8px); }

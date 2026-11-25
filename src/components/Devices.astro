@@ -1,7 +1,7 @@
 ---
 // Telas do produto desenhadas em HTML (não são capturas). Os dados são fictícios.
 // TODO(marketing): substituir por capturas reais do condomínio DEMO quando aprovadas.
-// QR ilustrativo: 21x21 módulos com os três marcadores de canto; não codifica nada.
+// QR ilustrativo (o QR fixo da portaria, visto pela câmera do morador): 21x21 módulos com os três marcadores de canto; não codifica nada.
 const N = 21;
 let seed = 11;
 const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
@@ -11,7 +11,7 @@ for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (!inFinder(x, y) && r
 const finders = [[0, 0], [14, 0], [0, 14]];
 ---
 
-<div class="devices" role="img" aria-label="Duas telas do CondoSmart: a portaria lendo a etiqueta de uma encomenda e o morador com o QR Code de retirada.">
+<div class="devices" role="img" aria-label="Duas telas do CondoSmart: a portaria lendo a etiqueta de uma encomenda e o morador escaneando o QR Code da portaria para retirar.">
   <div class="phone phone--tilt" aria-hidden="true">
     <div class="phone__screen">
       <div class="scr__bar"><small>Portaria</small><b>Modo Expresso</b></div>
@@ -37,7 +37,7 @@ const finders = [[0, 0], [14, 0], [0, 14]];
         <div class="scr__card">
           <div class="scr__row"><b>Correios</b><span class="pill">Na portaria</span></div>
           <span class="muted">Chegou hoje, 14:32</span>
-          <svg class="qr" viewBox="-1 -1 23 23" aria-hidden="true">
+          <div class="visor"><svg class="qr" viewBox="-1 -1 23 23" aria-hidden="true">
             <rect x="-1" y="-1" width="23" height="23" fill="#fff" />
             {cells.map(([x, y]) => <rect x={x} y={y} width="1.02" height="1.02" fill="#0e1a30" />)}
             {finders.map(([x, y]) => (
@@ -47,8 +47,8 @@ const finders = [[0, 0], [14, 0], [0, 14]];
                 <rect x={x + 2} y={y + 2} width="3" height="3" fill="#0e1a30" />
               </g>
             ))}
-          </svg>
-          <p class="muted" style="text-align:center">Mostre na portaria para retirar</p>
+          </svg></div>
+          <p class="muted" style="text-align:center">Aponte para o QR Code da portaria</p>
         </div>
         <div class="scr__card">
           <div class="scr__row"><b>Mercado Livre</b><span class="pill pill--ok">Retirada</span></div>

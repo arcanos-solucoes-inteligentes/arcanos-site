@@ -65,7 +65,7 @@ export const audiences = [
     id: "portaria",
     name: "Portaria",
     pain: "Fila de entregador, interfone tocando e um pacote sem nome legível na etiqueta.",
-    gain: "O porteiro aponta a câmera para a etiqueta, confere a unidade sugerida e o morador é avisado na hora. Na retirada, um QR Code fecha o registro.",
+    gain: "O porteiro aponta a câmera para a etiqueta, confere a unidade sugerida e o morador é avisado na hora. Na retirada, o morador escaneia o QR Code da portaria e o porteiro confirma.",
     points: [
       "Modo Expresso para registrar várias encomendas em sequência",
       "Visitantes e prestadores com horários permitidos",
@@ -76,7 +76,7 @@ export const audiences = [
     id: "morador",
     name: "Morador",
     pain: "Descer até a portaria para perguntar se chegou alguma coisa.",
-    gain: "O aviso chega no celular, com foto, e a retirada é feita com QR Code. Reservas, visitantes e comunicados ficam no mesmo app.",
+    gain: "O aviso chega no celular, com foto, e a retirada é feita escaneando o QR Code da portaria. Reservas, visitantes e comunicados ficam no mesmo app.",
     points: [
       "Instala como aplicativo pelo navegador, sem loja",
       "Em português, inglês, espanhol ou chinês",
@@ -97,7 +97,7 @@ export const packageJourney = [
   },
   {
     title: "Retirada com QR Code",
-    text: "O morador mostra o QR, o porteiro confirma e a baixa sai com nome, data e hora. Terceiros podem retirar com autorização."
+    text: "O morador escaneia no app o QR Code da portaria, o porteiro confirma e a baixa sai com nome, data e hora. Terceiros podem retirar com autorização."
   },
   {
     title: "Nada fica esquecido",
@@ -116,7 +116,7 @@ export const featureGroups = [
     features: [
       { name: "Recebimento de encomendas", text: "Cadastro com foto, unidade, destinatário e transportadora. Busca por unidade com ou sem bloco." },
       { name: "Modo Expresso", text: "Leitura da etiqueta pela câmera do celular ou tablet para registrar pacotes em sequência." },
-      { name: "Retirada por QR Code", text: "Baixa confirmada pelo porteiro, com retirada por terceiros autorizados." },
+      { name: "Retirada por QR Code", text: "O morador escaneia o QR Code fixo da portaria e o porteiro confirma a baixa. Terceiros autorizados também podem retirar." },
       { name: "Encomendas especiais", text: "Fluxo próprio para correspondência judicial, medicamentos e itens que exigem cuidado." },
       { name: "Visitantes e prestadores", text: "Autorização prévia pelo morador e horários permitidos para prestadores, inclusive feriados." },
       { name: "Chaves, achados e perdidos", text: "Empréstimo de chaves e itens encontrados com até três fotos e aviso aos moradores." },
