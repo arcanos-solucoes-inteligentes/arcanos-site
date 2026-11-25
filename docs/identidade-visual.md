@@ -10,7 +10,7 @@
 - Cinza-claro de apoio para fundos e divisoes
 - Cinza-escuro para textos secundarios
 
-Os valores estao centralizados em `src/styles/tokens.css`.
+Os valores estao centralizados no `:root` de `src/styles/global.css`. O uso de cada cor e a tipografia atual (Red Hat Display/Text) estao em `docs/proposta-reposicionamento.md`.
 
 ## Uso do dourado
 
