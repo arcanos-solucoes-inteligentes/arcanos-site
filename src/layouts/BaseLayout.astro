@@ -1,56 +1,39 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { navigationItems } from "../data/navigation.js";
-import { siteConfig } from "../data/company.js";
-import globalStylesUrl from "../styles/global.css?url";
+import { company } from "../data/site.js";
+import "../styles/global.css";
 
 const {
-  title = siteConfig.title,
-  description = siteConfig.description,
-  image = siteConfig.ogImage,
+  title = company.title,
+  description = company.description,
+  image = company.ogImage,
   path = "/",
   noIndex = false
 } = Astro.props;
 
-const canonicalUrl = new URL(path, siteConfig.siteUrl).toString();
-const socialImage = new URL(image, siteConfig.siteUrl).toString();
+const canonicalUrl = new URL(path, company.siteUrl).toString();
+const socialImage = new URL(image, company.siteUrl).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
-      "@id": `${siteConfig.siteUrl}/#organization`,
-      name: siteConfig.legalName,
-      alternateName: siteConfig.name,
-      url: siteConfig.siteUrl,
-      description,
-      logo: new URL(siteConfig.brandLogo, siteConfig.siteUrl).toString()
+      "@id": `${company.siteUrl}/#organization`,
+      name: company.legalName,
+      alternateName: company.name,
+      url: company.siteUrl,
+      email: company.contactEmail,
+      logo: new URL(company.brandLogo, company.siteUrl).toString()
     },
     {
-      "@type": "WebSite",
-      "@id": `${siteConfig.siteUrl}/#website`,
-      url: siteConfig.siteUrl,
-      name: siteConfig.name,
-      description,
-      publisher: {
-        "@id": `${siteConfig.siteUrl}/#organization`
-      },
-      inLanguage: "pt-BR"
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${canonicalUrl}#webpage`,
-      url: canonicalUrl,
-      name: title,
-      description,
-      isPartOf: {
-        "@id": `${siteConfig.siteUrl}/#website`
-      },
-      about: {
-        "@id": `${siteConfig.siteUrl}/#organization`
-      },
+      "@type": "SoftwareApplication",
+      name: company.product,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web, Android, iOS (PWA)",
+      description: company.description,
+      publisher: { "@id": `${company.siteUrl}/#organization` },
       inLanguage: "pt-BR"
     }
   ]
@@ -65,55 +48,42 @@ const structuredData = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#071225" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="author" content={siteConfig.name} />
-    <meta name="application-name" content={siteConfig.name} />
-    <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
-    <meta name="format-detection" content="telephone=no, address=no, email=no" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="stylesheet" href={globalStylesUrl} />
-    <link rel="icon" href={siteConfig.faviconSvg} type="image/svg+xml" />
-    <link rel="icon" href={siteConfig.faviconPng} type="image/png" sizes="32x32" />
-    <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;600;700&family=Red+Hat+Text:wght@400;500;600&display=swap"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/icons-192.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:site_name" content={`${company.product} by ${company.name}`} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:image:secure_url" content={socialImage} />
-    <meta property="og:image:type" content="image/svg+xml" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Arcanos, tecnologia humanizada para operação condominial." />
-
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImage} />
-    <meta name="twitter:image:alt" content="Arcanos, tecnologia humanizada para operação condominial." />
 
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
   </head>
 
   <body>
-    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
-    <Header items={navigationItems} company={siteConfig} />
-    <main id="main-content">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <Header path={path} />
+    <main id="conteudo">
       <slot />
     </main>
-    <Footer company={siteConfig} />
+    <Footer />
 
     <script>
       import "../scripts/navigation.js";
-      import "../scripts/animations.js";
-      import "../scripts/gallery.js";
     </script>
   </body>
 </html>

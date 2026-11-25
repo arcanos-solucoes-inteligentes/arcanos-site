@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
-  <title id="title">Placeholder do símbolo da Arcanos</title>
-  <desc id="desc">Símbolo provisório apenas para reserva de espaço visual.</desc>
-  <rect width="96" height="96" rx="24" fill="#071225" />
-  <path d="M24 66 48 18l24 48" fill="none" stroke="#E9A522" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" />
-  <path d="M34 50h28" fill="none" stroke="#F4B942" stroke-linecap="round" stroke-width="6" />
-</svg>
-
