@@ -3,9 +3,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroArt from "../components/HeroArt.astro";
 import Devices from "../components/Devices.astro";
 import AdminPanel from "../components/AdminPanel.astro";
+import DevicesVideo from "../components/DevicesVideo.astro";
+import PanelVideo from "../components/PanelVideo.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { audiences, packageJourney, featureGroups, trustPoints, onboardingSteps, faq } from "../data/site.js";
+import { productMedia, audiences, packageJourney, featureGroups, trustPoints, onboardingSteps, faq } from "../data/site.js";
 
+const video = productMedia === "video";
 const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
 ---
 
@@ -80,19 +83,35 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
       </ol>
 
       <div class="showcase">
-        <div class="showcase__copy">
-          <h3 class="h2" style="font-size:clamp(1.5rem,2.6vw,2rem)">O porteiro aponta a câmera. O sistema faz o resto.</h3>
-          <p class="lead muted" style="margin-top:1rem">
-            O Modo Expresso lê o código de barras ou o texto da etiqueta, sugere a unidade e deixa os
-            avisos para o fim do lote. Em dia de pico, ninguém digita endereço.
-          </p>
-          <ul class="checks">
-            <li>Busca a unidade com ou sem bloco, com ou sem zero à esquerda</li>
-            <li>Foto do pacote anexada ao registro</li>
-            <li>Retirada por terceiros com autorização do morador</li>
-          </ul>
-        </div>
-        <Devices />
+        {video ? (
+          <div class="showcase__copy">
+            <h3 class="h2" style="font-size:clamp(1.5rem,2.6vw,2rem)">A portaria sabe o que entregar primeiro.</h3>
+            <p class="lead muted" style="margin-top:1rem">
+              Remédios, perecíveis e correspondência judicial aparecem no topo, com o tempo de espera de cada uma.
+              Do outro lado, o morador vê a encomenda no app assim que ela é registrada.
+            </p>
+            <ul class="checks">
+              <li>Retirada urgente separada do resto, com instrução para cada tipo</li>
+              <li>Retirada pelo QR Code da portaria, confirmada pelo porteiro</li>
+              <li>Retirada por terceiros com autorização do morador</li>
+            </ul>
+            <p class="video-note">Gravado no condomínio de demonstração, com dados fictícios.</p>
+          </div>
+        ) : (
+          <div class="showcase__copy">
+            <h3 class="h2" style="font-size:clamp(1.5rem,2.6vw,2rem)">O porteiro aponta a câmera. O sistema faz o resto.</h3>
+            <p class="lead muted" style="margin-top:1rem">
+              O Modo Expresso lê o código de barras ou o texto da etiqueta, sugere a unidade e deixa os
+              avisos para o fim do lote. Em dia de pico, ninguém digita endereço.
+            </p>
+            <ul class="checks">
+              <li>Busca a unidade com ou sem bloco, com ou sem zero à esquerda</li>
+              <li>Foto do pacote anexada ao registro</li>
+              <li>Retirada por terceiros com autorização do morador</li>
+            </ul>
+          </div>
+        )}
+        {video ? <DevicesVideo /> : <Devices />}
       </div>
     </div>
   </section>
@@ -134,7 +153,7 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
           <li>Comunicados com escolha de canal: push, e-mail ou ambos</li>
         </ul>
       </div>
-      <AdminPanel />
+      {video ? <PanelVideo /> : <AdminPanel />}
     </div>
   </section>
 

@@ -49,6 +49,12 @@ Mantidas as cores da marca. O que mudou foi o **uso**:
 - **Telas do produto:** desenhadas em HTML (Modo Expresso, QR de retirada, painel do síndico) com dados fictícios, no lugar dos SVGs “placeholder”. Ficam nítidas em qualquer tela e não expõem dado real.
 - **O que foi evitado de propósito:** grade de cartões idênticos, rótulos em caixa alta sobre cada título, numeração decorativa. Só há números onde existe sequência real (jornada da encomenda e etapas de implantação).
 
+### Vídeos do produto
+
+Três trechos de 7 a 10 segundos, sem som e em loop, gravados no **condomínio DEMO local** (dados fictícios, nunca produção): a portaria (retirada urgente), o morador (encomenda que chegou hoje) e o síndico (relatório de encomendas em 90 dias). Ficam dentro das molduras de celular e de navegador, carregam só quando aparecem na tela (0,4 a 0,7 MB cada) e respeitam "reduzir movimento" e economia de dados.
+
+A chave `productMedia` em `src/data/site.js` alterna entre `"video"` e `"desenho"` (as telas desenhadas em HTML). Para regravar quando o sistema mudar: `scripts/gravacao/README.md`.
+
 ## 4. Mapa do site
 
 | Página | Objetivo | CTA principal |
@@ -82,7 +88,7 @@ Hoje o app só está montado em `https://www.arcanossolucoes.com/condosmart/teg-
 
 1. **Validar afirmações técnicas** antes de publicar: modo offline “em operações suportadas” (as fases do plano offline estão em branches não pushadas), push em produção, exportação de dados do titular pelo app, retenção automática de fotos.
 2. **Depoimento** do síndico do TEG, por escrito, com autorização de uso.
-3. **Capturas reais** do condomínio DEMO para substituir as telas desenhadas (opcional; as desenhadas já servem).
+3. **Vídeo × desenho:** escolher qual versão vai ao ar (`productMedia`).
 4. **Preços:** publicar faixa “a partir de” quando o catálogo da Plataforma Deus for fechado.
 5. **Formulário:** trocar o envio por `mailto` por um CRM (HubSpot, RD Station) para não perder lead de quem não tem cliente de e-mail configurado.
 6. **Política de Privacidade e encarregado (DPO)** publicados, com link no rodapé.

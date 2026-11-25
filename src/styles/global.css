@@ -273,6 +273,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   .phone--tilt { display: none; }
 }
 
+/* Vídeos do produto */
+.pvideo { display: block; width: 100%; height: auto; background: #0f3b3a; }
+.phone__screen--video { min-height: 0; aspect-ratio: 540 / 1168; background: #0f3b3a; }
+.phone__screen--video .pvideo { height: 100%; object-fit: cover; }
+.panel .pvideo { aspect-ratio: 1280 / 800; }
+.video-note { margin-top: 1.25rem; font-size: .88rem; color: var(--nevoa-escuro); }
+
 /* ---------- Painel (mockup desktop) ---------- */
 .panel {
   background: var(--branco); border: 1px solid var(--linha); border-radius: 14px; overflow: hidden;

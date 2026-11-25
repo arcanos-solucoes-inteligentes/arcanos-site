@@ -1,0 +1,13 @@
+{
+  "name": "arcanos-site-gravacao",
+  "private": true,
+  "type": "module",
+  "description": "Grava os trechos do CondoSmart usados no site, a partir do condomínio DEMO local.",
+  "scripts": {
+    "gravar": "node gravar.mjs"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "5.2.0",
+    "playwright": "1.56.1"
+  }
+}

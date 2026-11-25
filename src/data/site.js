@@ -29,6 +29,11 @@ export const app = {
   emergency: `${appBaseUrl}/emergencia`
 };
 
+// Como o site mostra o produto:
+//  "video"   -> trechos curtos gravados no condomínio DEMO (public/videos/)
+//  "desenho" -> telas desenhadas em HTML (components/Devices.astro e AdminPanel.astro)
+export const productMedia = "video";
+
 export const navigation = [
   { label: "Funcionalidades", href: "/funcionalidades/" },
   { label: "Para quem", href: "/#para-quem" },
