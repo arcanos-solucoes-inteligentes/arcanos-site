@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import ZeloShowcase from "../components/ZeloShowcase.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { zelo } from "../data/site.js";
+---
+
+<BaseLayout
+  path="/assistente-ia/"
+  title="Zelo, assistente de IA do condomínio | CondoSmart"
+  description="O Zelo responde pelo regimento com a fonte citada, faz reservas, autoriza visitantes e registra encomendas pelo chat, e avisa o síndico do que está pendente. Com as mesmas regras de acesso da tela e LGPD."
+>
+  <PageHead
+    kicker="Assistente de IA"
+    title="Zelo responde, faz e avisa."
+    lead={zelo.promise + " Para o morador, a portaria e o síndico, dentro do CondoSmart."}
+  />
+
+  <section class="sec sec--noite on-dark">
+    <div class="wrap">
+      <ZeloShowcase full />
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2">O que cada perfil pede ao Zelo</h2>
+        <p class="lead muted">Cada ação usa a mesma tela e as mesmas regras do app. O Zelo só monta o pedido e espera a confirmação.</p>
+      </div>
+      <div class="modrow">
+        {zelo.actions.map((a) => (
+          <div>
+            <h3 class="h3">{a.profile}</h3>
+            <ul class="checks">{a.items.map((i) => <li>{i}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--branco">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2">Uma IA que segue as regras do condomínio</h2>
+        <p class="lead muted">O síndico decide o que o Zelo pode fazer, para quem e com quais documentos.</p>
+      </div>
+      <div class="trust">
+        {zelo.safety.map((t) => (<div><h3>{t.title}</h3><p>{t.text}</p></div>))}
+      </div>
+      <ul class="checks mt-2" style="max-width:44rem">
+        {zelo.tech.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand title="Veja o Zelo respondendo pelo regimento do seu condomínio." text="Na demonstração, carregamos um regimento de exemplo e você faz as perguntas." />
+</BaseLayout>

@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHead from "../components/PageHead.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { plans, faq } from "../data/site.js";
+import { plans, faq, onboardingSteps } from "../data/site.js";
 // TODO(comercial): publicar valores quando o catálogo de planos for aprovado
 // na Plataforma Deus. Até lá, o preço é por proposta.
 ---
@@ -32,11 +32,22 @@ import { plans, faq } from "../data/site.js";
           </article>
         ))}
       </div>
-      <p class="muted mt-2">Módulos adicionais, como controle de acesso e botão de pânico, podem ser ligados em qualquer plano.</p>
+      <p class="muted mt-2">Módulos adicionais, como controle de acesso, botão de pânico e o assistente de IA, podem ser ligados em qualquer plano. As ações pelo chat fazem parte do plano Pro do assistente.</p>
     </div>
   </section>
 
   <section class="sec sec--branco">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2">Do primeiro contato à portaria operando sozinha.</h2>
+      </div>
+      <ol class="steps">
+        {onboardingSteps.map((s) => (<li><h3>{s.title}</h3><p>{s.text}</p></li>))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec">
     <div class="wrap">
       <div class="sec-head"><h2 class="h2">Antes de contratar</h2></div>
       <div class="faq">

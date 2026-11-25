@@ -1,0 +1,45 @@
+---
+import ProductVideo from "./ProductVideo.astro";
+import ZeloDrawn from "./ZeloDrawn.astro";
+import { productMedia, zelo } from "../data/site.js";
+const video = productMedia === "video";
+const { full = false } = Astro.props;
+---
+
+<div class="zelo">
+  <div class="zelo__copy">
+    <ul class="zelo__pillars">
+      {zelo.pillars.map((p) => (
+        <li>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+          <p class="zelo__ex">{p.example}</p>
+        </li>
+      ))}
+    </ul>
+    {!full && <a class="btn btn--linha zelo__more" href="/assistente-ia/">Tudo o que o Zelo faz</a>}
+  </div>
+  <div class="zelo__media">
+    {video ? (
+      <div class="devices">
+        <div class="phone">
+          <div class="phone__screen phone__screen--video">
+            <ProductVideo name="zelo_morador" width="540" height="1168" label="Zelo no celular do morador: responde o horário de silêncio citando o regimento e confirma a reserva da churrasqueira pelo chat." />
+          </div>
+        </div>
+      </div>
+    ) : (
+      <ZeloDrawn />
+    )}
+  </div>
+</div>
+
+{video && full && (
+  <div class="zelo__desk">
+    <div class="panel">
+      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>Zelo · painel do síndico</em></div>
+      <ProductVideo name="zelo_sindico" width="1320" height="960" label="Zelo no painel do síndico: pendências da administração e resumo do condomínio no mês." />
+    </div>
+    <p class="video-note">Gravado no condomínio de demonstração, com dados fictícios.</p>
+  </div>
+)}

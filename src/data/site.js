@@ -36,10 +36,9 @@ export const productMedia = "video";
 
 export const navigation = [
   { label: "Funcionalidades", href: "/funcionalidades/" },
-  { label: "Para quem", href: "/#para-quem" },
+  { label: "Assistente IA", href: "/assistente-ia/" },
   { label: "Segurança e LGPD", href: "/seguranca/" },
-  { label: "Planos", href: "/planos/" },
-  { label: "Contato", href: "/contato/" }
+  { label: "Planos", href: "/planos/" }
 ];
 
 // Perfis de comprador. Cada um com a dor que reconhece e o que o CondoSmart muda.
@@ -52,7 +51,8 @@ export const audiences = [
     points: [
       "Relatórios de encomendas, acessos, reservas e equipe da portaria",
       "Comunicados enviados por push e e-mail",
-      "Ouvidoria com protocolo, inclusive anônima"
+      "Ouvidoria com protocolo, inclusive anônima",
+      "Pergunte ao Zelo o que está pendente e receba o resumo do mês"
     ]
   },
   {
@@ -85,7 +85,8 @@ export const audiences = [
     points: [
       "Instala como aplicativo pelo navegador, sem loja",
       "Em português, inglês, espanhol ou chinês",
-      "Cada morador vê só os dados da própria unidade"
+      "Cada morador vê só os dados da própria unidade",
+      "Pergunte ao Zelo e ele responde pelo regimento ou faz a reserva"
     ]
   }
 ];
@@ -136,7 +137,8 @@ export const featureGroups = [
       { name: "Comunicados", text: "Avisos com envio por push e e-mail, escolhidos pelo síndico a cada comunicado." },
       { name: "Reservas de áreas comuns", text: "Regras por espaço, convidados, vistoria, períodos, fila de espera e validação pela administração." },
       { name: "Manutenção e chamados", text: "O morador abre o chamado e acompanha o andamento até a conclusão." },
-      { name: "Vagas de garagem e sorteio", text: "Cadastro de vagas por unidade e sorteio auditável." },
+      { name: "Vagas de garagem e sorteio", text: "Cadastro de vagas por unidade, cessão entre moradores, fila de espera e sorteio auditável com impressão para a ata." },
+      { name: "Mapa da garagem", text: "Planta da garagem com cada vaga marcada e a situação de hoje: livre, atribuída, visitante ou em manutenção. Sem planta? O sistema desenha uma." },
       { name: "Veículos, pets e ausências", text: "Cadastros que a portaria consulta na hora em que precisa." },
       { name: "Ouvidoria", text: "Relatos com protocolo e senha de acompanhamento. O anonimato é o padrão." },
       { name: "Botão de pânico", text: "Alerta de emergência do morador para a portaria e o síndico.", tag: "Módulo adicional" }
@@ -156,13 +158,24 @@ export const featureGroups = [
     ]
   },
   {
+    id: "assistente",
+    title: "Assistente de IA (Zelo)",
+    summary: "Um assistente que conhece as regras do condomínio e o próprio app, e faz pelo usuário o que a função dele permite.",
+    features: [
+      { name: "Responde pelo regimento", text: "Perguntas sobre normas respondidas a partir do regimento, da convenção e dos comunicados, sempre com a fonte citada." },
+      { name: "Ensina a usar o app", text: "Respostas prontas sobre cada tela, por perfil, revisadas e ajustáveis pelo condomínio." },
+      { name: "Faz pelo chat", text: "Reservar espaço, autorizar visitante, abrir chamado, registrar encomenda, aprovar reserva, publicar comunicado e mais, sempre com confirmação.", tag: "Plano Pro" },
+      { name: "Resumo para o síndico", text: "Pendências e números do mês numa pergunta: encomendas, reservas, chamados e visitantes." },
+      { name: "Avisa o que se repete", text: "Quando vários moradores relatam o mesmo problema, o síndico recebe um alerta. O relatório de uso mostra o que mais perguntam." },
+      { name: "Seguro por desenho", text: "Quem não pode na tela não pode no chat. Nada é gravado sem confirmação e dado pessoal não vai para o modelo." }
+    ]
+  },
+  {
     id: "em-breve",
     title: "Em desenvolvimento",
-    summary: "Ainda não estão disponíveis. Avisamos os clientes quando forem liberados.",
+    summary: "Ainda não está disponível. Avisamos os clientes quando for liberado.",
     features: [
-      { name: "Assistente de IA", text: "Perguntas em linguagem natural sobre encomendas, reservas e normas do condomínio.", status: "em-breve" },
-      { name: "Avisos por WhatsApp", text: "Alerta de encomenda e de atraso pelo WhatsApp.", status: "em-breve" },
-      { name: "Mapa de vagas", text: "Planta da garagem com a ocupação de cada vaga.", status: "em-breve" }
+      { name: "Avisos por WhatsApp", text: "Alerta de encomenda e de atraso pelo WhatsApp.", status: "em-breve" }
     ]
   }
 ];
@@ -253,3 +266,45 @@ export const faq = [
     a: "Use o botão Entrar no topo do site. Ele leva para a tela de acesso do CondoSmart, onde também é possível recuperar a senha."
   }
 ];
+
+// Assistente de IA (Zelo). Resumo da documentação do produto:
+// condominio-api/docs/ASSISTENTE-ACOES-E-LGPD.md, ASSISTENTE-GUARDRAILS.md e ASSISTENTE-BEDROCK.md.
+export const zelo = {
+  name: "Zelo",
+  promise: "Um assistente que conhece as regras do condomínio e faz o que a sua função permite.",
+  pillars: [
+    {
+      title: "Responde",
+      text: "Normas do regimento, da convenção e dos comunicados, sempre com a fonte citada. Dúvidas sobre o app com respostas revisadas para cada perfil.",
+      example: "“Até que horas posso fazer barulho?” → regimento interno, art. 5."
+    },
+    {
+      title: "Faz",
+      text: "Monta um cartão com o pedido, pergunta só o que falta e grava depois que a pessoa confirma.",
+      example: "“Quero reservar a churrasqueira no sábado à noite” → reserva confirmada."
+    },
+    {
+      title: "Avisa",
+      text: "Resumo do mês e pendências para o síndico. Alerta quando vários moradores relatam o mesmo problema e relatório do que mais perguntam.",
+      example: "“O que está pendente?” → reservas, chamados e encomendas atrasadas."
+    }
+  ],
+  actions: [
+    { profile: "Morador", items: ["Reservar e cancelar espaço", "Autorizar visitante e retirada por terceiro", "Abrir chamado", "Ver encomendas e reservas", "Cadastrar pet e veículo", "Avisar ausência"] },
+    { profile: "Portaria", items: ["Registrar encomenda", "Entrada e saída de visitante", "Empréstimo e devolução de chave", "Convidados de reserva", "Registrar achado"] },
+    { profile: "Síndico e administração", items: ["Pendências e resumo do mês", "Aprovar ou recusar reserva", "Atualizar chamado", "Publicar comunicado com push e e-mail", "Reservar em nome do morador", "Cadastrar morador, bloco e unidade"] }
+  ],
+  safety: [
+    { title: "Mesmas regras da tela", text: "O Zelo não tem permissão própria. Antes de cada ação ele confere as mesmas regras de acesso da tela correspondente." },
+    { title: "Nada sem confirmação", text: "Nada é gravado antes do botão de confirmar. Clique duplo não grava duas vezes e há limite de ações por hora." },
+    { title: "Fora do alcance do chat", text: "Excluir registros, senha, permissões, módulos, pagamentos e pedidos de LGPD só pela tela." },
+    { title: "Dado pessoal protegido", text: "CPF, telefone, e-mail e placa são mascarados e nunca vão para o modelo de linguagem. O morador não consulta dados de outra unidade." },
+    { title: "Emergência não espera a IA", text: "Pedidos de socorro são reconhecidos antes de qualquer processamento e direcionam para 190, 192 e 193." },
+    { title: "LGPD", text: "Histórico na exportação dos dados do titular, botão para apagar o próprio histórico e documentos com visibilidade por público." }
+  ],
+  tech: [
+    "Modelos de linguagem que rodam em São Paulo por padrão, pela AWS",
+    "Ações pelo chat no plano Pro do assistente; respostas no plano Essencial",
+    "Testado com conjunto-ouro de perguntas e casos de ataque (injeção, terceiros, fora do escopo)"
+  ]
+};

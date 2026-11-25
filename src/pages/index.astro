@@ -6,7 +6,8 @@ import AdminPanel from "../components/AdminPanel.astro";
 import DevicesVideo from "../components/DevicesVideo.astro";
 import PanelVideo from "../components/PanelVideo.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { productMedia, audiences, packageJourney, featureGroups, trustPoints, onboardingSteps, faq } from "../data/site.js";
+import ZeloShowcase from "../components/ZeloShowcase.astro";
+import { productMedia, audiences, packageJourney, featureGroups, trustPoints, faq } from "../data/site.js";
 
 const video = productMedia === "video";
 const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
@@ -20,7 +21,8 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
         <h1 class="display">O condomínio em ordem, do portão ao apartamento.</h1>
         <p class="lead">
           CondoSmart é a plataforma da Arcanos para síndicos, administradoras e portarias.
-          Encomendas, visitantes, reservas e comunicados num só lugar, com o registro de cada ação.
+          Encomendas, visitantes, reservas e comunicados num só lugar, com o Zelo, um assistente
+          de IA que responde pelo regimento e faz o que cada um pode fazer.
         </p>
         <div class="hero__ctas">
           <a class="btn btn--ouro" href="/contato/">Agendar demonstração</a>
@@ -32,7 +34,7 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
     </div>
     <div class="hero__strip">
       <ul class="wrap">
-        <li><strong>Sem instalação</strong>Funciona no navegador do celular, tablet ou computador.</li>
+        <li><strong>Assistente de IA</strong>Responde pelo regimento e faz pelo chat.</li>
         <li><strong>Módulos por contrato</strong>Ligue só o que o condomínio usa.</li>
         <li><strong>Dados isolados</strong>Cada condomínio separado, com LGPD aplicada.</li>
         <li><strong>Em operação real</strong>Nasceu numa portaria em São Paulo.</li>
@@ -68,8 +70,20 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
     </div>
   </section>
 
-  <!-- 3. A jornada da encomenda -->
-  <section class="sec sec--noite on-dark">
+  <!-- 3. Zelo -->
+  <section class="sec sec--noite on-dark" id="zelo">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Assistente de IA</p>
+        <h2 class="h2">Conheça o Zelo. Ele leu o regimento e sabe usar o app.</h2>
+        <p class="lead muted">O morador pergunta, a portaria pede, o síndico consulta. O Zelo responde com a fonte e faz o que a função de cada um permite, sempre com confirmação.</p>
+      </div>
+      <ZeloShowcase />
+    </div>
+  </section>
+
+  <!-- 4. A jornada da encomenda -->
+  <section class="sec sec--noite on-dark sec--fundo">
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">Encomendas</p>
@@ -190,19 +204,6 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
         <li><span>Em uso</span><b>Encomendas, reservas, comunicados e relatórios</b></li>
         <li><span>Como evolui</span><b>Melhorias a partir do uso diário</b></li>
       </ul>
-    </div>
-  </section>
-
-  <!-- 8. Implantação -->
-  <section class="sec sec--branco">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="kicker">Implantação</p>
-        <h2 class="h2">Do primeiro contato à portaria operando sozinha.</h2>
-      </div>
-      <ol class="steps">
-        {onboardingSteps.map((s) => (<li><h3>{s.title}</h3><p>{s.text}</p></li>))}
-      </ol>
     </div>
   </section>
 

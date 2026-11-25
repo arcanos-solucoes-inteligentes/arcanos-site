@@ -112,14 +112,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .brand__product { font-family: var(--f-display); font-weight: 600; font-size: .95rem; color: var(--nevoa-escuro); padding-left: .7rem; border-left: 1px solid var(--linha-escura); }
 .nav { display: flex; align-items: center; gap: 1.6rem; margin-left: auto; }
 .nav__links { display: flex; gap: 1.5rem; }
-.nav__links a { text-decoration: none; font-size: .97rem; color: #d6dbe5; }
+.nav__links a { text-decoration: none; font-size: .97rem; color: #d6dbe5; white-space: nowrap; }
 .nav__links a:hover, .nav__links a[aria-current="page"] { color: var(--branco); }
 .nav__links a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--ouro); padding-bottom: .2rem; }
 .nav__cta { display: flex; gap: .6rem; }
 .nav__cta .btn--linha { color: var(--branco); border-color: rgba(255,255,255,.35); }
 .menu-btn { display: none; margin-left: auto; background: none; border: 1px solid rgba(255,255,255,.3); color: var(--branco); border-radius: var(--r-ui); padding: .5rem .85rem; font: 600 .95rem var(--f-display); }
 
-@media (max-width: 1060px) {
+@media (max-width: 1180px) {
   .menu-btn { display: inline-flex; }
   .brand__product { display: none; }
   .nav {
@@ -277,8 +277,27 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pvideo { display: block; width: 100%; height: auto; background: #0f3b3a; }
 .phone__screen--video { min-height: 0; aspect-ratio: 540 / 1168; background: #0f3b3a; }
 .phone__screen--video .pvideo { height: 100%; object-fit: cover; }
-.panel .pvideo { aspect-ratio: 1280 / 800; }
 .video-note { margin-top: 1.25rem; font-size: .88rem; color: var(--nevoa-escuro); }
+
+/* ---------- Zelo ---------- */
+.sec--fundo { background: var(--abismo); border-top: 1px solid var(--linha-escura); }
+.zelo { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; }
+.zelo__pillars { display: grid; gap: 1.75rem; counter-reset: none; }
+.zelo__pillars li { padding-left: 1.25rem; border-left: 2px solid var(--ouro); }
+.zelo__pillars h3 { font-size: 1.35rem; margin-bottom: .35rem; }
+.zelo__pillars p { color: var(--nevoa-escuro); }
+.zelo__ex { margin-top: .45rem; font-size: .95rem; color: var(--ouro-claro) !important; }
+.zelo__more { margin-top: 2rem; color: var(--branco); border-color: rgba(255,255,255,.4); }
+.zelo__desk { margin-top: 3.5rem; max-width: 52rem; margin-inline: auto; }
+.chat { gap: .6rem; }
+.chat__me { justify-self: end; max-width: 85%; background: var(--noite); color: var(--branco); padding: .5rem .7rem; border-radius: 12px 12px 2px 12px; }
+.chat__bot { display: grid; gap: .15rem; max-width: 92%; background: var(--branco); border: 1px solid var(--linha); padding: .55rem .7rem; border-radius: 12px 12px 12px 2px; }
+.chat__src { justify-self: start; margin-top: .35rem; font-size: .68rem; font-weight: 600; padding: .1rem .45rem; border-radius: 999px; background: #e4efec; color: #1f4f47; }
+.garagem { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem; padding: 2rem 1.25rem; background: #f3f5f8; }
+.garagem span { display: grid; place-items: center; height: 4.5rem; border: 1px solid #6f8a86; background: #93a8a4; font: 600 .7rem var(--f-text); color: var(--tinta); border-radius: 3px; }
+.garagem span.livre { background: #a7cdb6; }
+.garagem span.on { outline: 3px solid var(--tinta); background: #6f8a86; color: var(--branco); }
+@media (max-width: 960px) { .zelo { grid-template-columns: 1fr; } }
 
 /* ---------- Painel (mockup desktop) ---------- */
 .panel {
@@ -331,6 +350,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .modrow h3 { margin-bottom: .5rem; }
 .modrow p { color: var(--nevoa); margin-bottom: 1rem; }
 .modrow ul li { padding: .3rem 0; font-size: .98rem; }
+.modrow .checks li { padding: .55rem 0 .55rem 2rem; }
+.modrow .checks li::before { top: .9rem; }
 @media (max-width: 860px) {
   .modrow { grid-template-columns: 1fr; }
   .modrow > div, .modrow > div + div { padding: 1.75rem 0; border-left: 0; border-bottom: 1px solid var(--linha); }
