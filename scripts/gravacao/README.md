@@ -9,11 +9,17 @@ em produção: lá aparecem nomes, unidades e fotos de moradores reais.
 | `portaria` | porteiro do DEMO | `/porteiro` (retirada urgente) | celular 390×844 @2x |
 | `morador` | morador A-101 do DEMO | `/morador` (encomendas + detalhe) | celular 390×844 @2x |
 | `sindico` | síndica do DEMO | `/admin/relatorios` → Encomendas, 90 dias | 1280×800 @2x |
+| `zelo_morador` | morador A-101 | `/assistente`: pergunta do regimento + reserva pelo chat | celular 390×844 @2x |
+| `zelo_sindico` | síndica | `/assistente`: pendências + resumo do mês | 880×640 @2x |
+| `vagas` | síndica | `/admin/vagas` → Mapa, busca da S1-08 | 1280×800 @2x |
 
 ## Como regravar
 
-1. Suba o banco local com o DEMO (`dados-demo/popular.sh`), a `condominio-api` (porta 5138)
-   e o `condominio-web` (porta 5173), de preferência a partir da `main`.
+1. Suba o banco local com o DEMO (`dados-demo/popular.sh`), a `condominio-api` e o `condominio-web`,
+   de preferência a partir da `main`. Os endereços vêm de `BASE` (padrão `http://localhost:5174`) e
+   `API` (padrão `http://localhost:5139/api`).
+   Para as cenas do Zelo e das vagas, o DEMO precisa dos módulos `AI_ASSISTANT` (plano Pro, ações ligadas,
+   documentos de exemplo carregados) e `PARKING_MAP` (mapa publicado; "Gerar planta esquemática" no editor).
 2. Instale as ferramentas desta pasta (uma vez):
    ```bash
    npm install && npx playwright install chromium
@@ -30,6 +36,7 @@ em produção: lá aparecem nomes, unidades e fotos de moradores reais.
    ```bash
    node gravar.mjs
    ./comprimir.sh portaria 540 && ./comprimir.sh morador 540 && ./comprimir.sh sindico 1440
+   ./comprimir.sh zelo_morador 540 && ./comprimir.sh zelo_sindico 1320 && ./comprimir.sh vagas 1440
    cp final/* ../../public/videos/
    ```
 

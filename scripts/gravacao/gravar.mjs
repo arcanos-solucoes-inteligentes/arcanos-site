@@ -5,9 +5,10 @@ import { chromium } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
 
-const BASE = "http://localhost:5173";
-const SENHA = process.env.DEMO_SENHA;
-if (!SENHA) throw new Error("Defina DEMO_SENHA (ver scripts/gravacao/README.md)"); // senha das contas do DEMO (dados-demo/CREDENCIAIS-E-ROTEIRO.md)
+const BASE = process.env.BASE || "http://localhost:5174";
+const API = process.env.API || "http://localhost:5139/api";
+const SENHA = process.env.DEMO_SENHA; // senha das contas do DEMO (dados-demo/CREDENCIAIS-E-ROTEIRO.md)
+if (!SENHA) throw new Error("Defina DEMO_SENHA (ver scripts/gravacao/README.md)");
 const OUT = path.join(path.dirname(new URL(import.meta.url).pathname), "bruto");
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -55,6 +56,21 @@ async function rolarSuave(page, dy, ms) {
   }), [dy, ms]);
 }
 
+// Apaga o histórico do chat da conta (para a cena começar com a tela limpa).
+async function limparChat(email) {
+  const r = await fetch(`${API}/auth/login`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password: SENHA }) });
+  const { token } = await r.json();
+  await fetch(`${API}/assistant/history`, { method: "DELETE", headers: { Authorization: `Bearer ${token}` } });
+}
+
+async function digitar(page, texto) {
+  const campo = page.locator(".assistant-input textarea, form textarea").last();
+  await campo.click();
+  await campo.pressSequentially(texto, { delay: 38 });
+  await sleep(350);
+  await page.keyboard.press("Enter");
+}
+
 async function sessao(browser, email, vp) {
   const ctx = await browser.newContext({ viewport: vp, locale: "pt-BR", timezoneId: "America/Sao_Paulo" });
   const page = await ctx.newPage();
@@ -69,7 +85,8 @@ async function sessao(browser, email, vp) {
   return estado;
 }
 
-async function gravar(browser, nome, { email, vp, dpr, rota, cena, pronto, preparo }) {
+async function gravar(browser, nome, { email, vp, dpr, rota, cena, pronto, preparo, chat }) {
+  if (chat) await limparChat(email);
   const storageState = await sessao(browser, email, vp);
   const ctx = await browser.newContext({ viewport: vp, deviceScaleFactor: dpr, storageState, locale: "pt-BR", timezoneId: "America/Sao_Paulo" });
   await ctx.addInitScript((css) => {
@@ -142,6 +159,51 @@ const cenas = {
       await sleep(700);
       await tocar(page, page.getByText("Livros", { exact: false }).first());
       await sleep(2600);
+    }
+  },
+  zelo_morador: {
+    email: process.env.DEMO_MORADOR, vp: { width: 390, height: 844 }, dpr: 2, rota: "/assistente", chat: true,
+    cena: async (page) => {
+      await sleep(900);
+      await digitar(page, "Até que horas posso fazer barulho?");
+      await sleep(3200);
+      await digitar(page, "Quero reservar a churrasqueira no sábado à noite");
+      await sleep(2600);
+      await tocar(page, page.getByText("Jantar", { exact: true }).last());
+      await sleep(1500);
+      const confirmar = page.getByRole("button", { name: /Confirmar/ }).last();
+      if (await confirmar.isVisible().catch(() => false)) { await tocar(page, confirmar); }
+      await sleep(2600);
+    }
+  },
+  zelo_sindico: {
+    email: process.env.DEMO_SINDICA, vp: { width: 880, height: 640 }, dpr: 2, rota: "/assistente", chat: true,
+    cena: async (page) => {
+      await sleep(1000);
+      await tocar(page, page.getByText("O que está pendente?", { exact: true }).first());
+      await sleep(2800);
+      await digitar(page, "Como está o condomínio este mês?");
+      await sleep(3600);
+    }
+  },
+  vagas: {
+    email: process.env.DEMO_SINDICA, vp: { width: 1280, height: 800 }, dpr: 2, rota: "/admin/vagas",
+    preparo: async (page) => {
+      await page.getByRole("button", { name: "Mapa", exact: true }).click();
+      await sleep(2000);
+      await page.evaluate(() => window.scrollTo(0, 380));
+    },
+    cena: async (page) => {
+      await sleep(1200);
+      const busca = page.getByPlaceholder("G1-045");
+      await tocar(page, busca);
+      await busca.pressSequentially("S1-08", { delay: 110 });
+      await sleep(900);
+      await page.keyboard.press("Enter");
+      await sleep(1200);
+      const vaga = page.getByText("S1-08", { exact: true }).first();
+      if (await vaga.isVisible().catch(() => false)) await tocar(page, vaga);
+      await sleep(3000);
     }
   },
   sindico: {
