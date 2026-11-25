@@ -161,7 +161,7 @@ const cenas = {
       await sleep(2600);
     }
   },
-  zelo_morador: {
+  assistente_morador: {
     email: process.env.DEMO_MORADOR, vp: { width: 390, height: 844 }, dpr: 2, rota: "/assistente", chat: true,
     cena: async (page) => {
       await sleep(900);
@@ -176,7 +176,7 @@ const cenas = {
       await sleep(2600);
     }
   },
-  zelo_sindico: {
+  assistente_sindico: {
     email: process.env.DEMO_SINDICA, vp: { width: 880, height: 640 }, dpr: 2, rota: "/assistente", chat: true,
     cena: async (page) => {
       await sleep(1000);

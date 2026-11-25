@@ -6,7 +6,7 @@ import AdminPanel from "../components/AdminPanel.astro";
 import DevicesVideo from "../components/DevicesVideo.astro";
 import PanelVideo from "../components/PanelVideo.astro";
 import CtaBand from "../components/CtaBand.astro";
-import ZeloShowcase from "../components/ZeloShowcase.astro";
+import AssistenteShowcase from "../components/AssistenteShowcase.astro";
 import { productMedia, audiences, packageJourney, featureGroups, trustPoints, faq } from "../data/site.js";
 
 const video = productMedia === "video";
@@ -21,7 +21,7 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
         <h1 class="display">O condomínio em ordem, do portão ao apartamento.</h1>
         <p class="lead">
           CondoSmart é a plataforma da Arcanos para síndicos, administradoras e portarias.
-          Encomendas, visitantes, reservas e comunicados num só lugar, com o Zelo, um assistente
+          Encomendas, visitantes, reservas e comunicados num só lugar, com o Marquinhos, um assistente
           de IA que responde pelo regimento e faz o que cada um pode fazer.
         </p>
         <div class="hero__ctas">
@@ -70,15 +70,15 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
     </div>
   </section>
 
-  <!-- 3. Zelo -->
-  <section class="sec sec--noite on-dark" id="zelo">
+  <!-- 3. Marquinhos -->
+  <section class="sec sec--noite on-dark" id="assistente">
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">Assistente de IA</p>
-        <h2 class="h2">Conheça o Zelo. Ele leu o regimento e sabe usar o app.</h2>
-        <p class="lead muted">O morador pergunta, a portaria pede, o síndico consulta. O Zelo responde com a fonte e faz o que a função de cada um permite, sempre com confirmação.</p>
+        <h2 class="h2">Conheça o Marquinhos. Ele leu o regimento e sabe usar o app.</h2>
+        <p class="lead muted">O morador pergunta, a portaria pede, o síndico consulta. O Marquinhos responde com a fonte e faz o que a função de cada um permite, sempre com confirmação.</p>
       </div>
-      <ZeloShowcase />
+      <AssistenteShowcase />
     </div>
   </section>
 

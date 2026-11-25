@@ -1,0 +1,45 @@
+---
+import ProductVideo from "./ProductVideo.astro";
+import AssistenteDrawn from "./AssistenteDrawn.astro";
+import { productMedia, assistente } from "../data/site.js";
+const video = productMedia === "video";
+const { full = false } = Astro.props;
+---
+
+<div class="ia">
+  <div class="ia__copy">
+    <ul class="ia__pillars">
+      {assistente.pillars.map((p) => (
+        <li>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+          <p class="ia__ex">{p.example}</p>
+        </li>
+      ))}
+    </ul>
+    {!full && <a class="btn btn--linha ia__more" href="/assistente-ia/">Tudo o que o Marquinhos faz</a>}
+  </div>
+  <div class="ia__media">
+    {video ? (
+      <div class="devices">
+        <div class="phone">
+          <div class="phone__screen phone__screen--video">
+            <ProductVideo name="assistente_morador" width="540" height="1168" label="Marquinhos no celular do morador: responde o horário de silêncio citando o regimento e confirma a reserva da churrasqueira pelo chat." />
+          </div>
+        </div>
+      </div>
+    ) : (
+      <AssistenteDrawn />
+    )}
+  </div>
+</div>
+
+{video && full && (
+  <div class="ia__desk">
+    <div class="panel">
+      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>Marquinhos · painel do síndico</em></div>
+      <ProductVideo name="assistente_sindico" width="1320" height="960" label="Marquinhos no painel do síndico: pendências da administração e resumo do condomínio no mês." />
+    </div>
+    <p class="video-note">Gravado no condomínio de demonstração, com dados fictícios.</p>
+  </div>
+)}

@@ -279,16 +279,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 .phone__screen--video .pvideo { height: 100%; object-fit: cover; }
 .video-note { margin-top: 1.25rem; font-size: .88rem; color: var(--nevoa-escuro); }
 
-/* ---------- Zelo ---------- */
+/* ---------- Marquinhos ---------- */
 .sec--fundo { background: var(--abismo); border-top: 1px solid var(--linha-escura); }
-.zelo { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; }
-.zelo__pillars { display: grid; gap: 1.75rem; counter-reset: none; }
-.zelo__pillars li { padding-left: 1.25rem; border-left: 2px solid var(--ouro); }
-.zelo__pillars h3 { font-size: 1.35rem; margin-bottom: .35rem; }
-.zelo__pillars p { color: var(--nevoa-escuro); }
-.zelo__ex { margin-top: .45rem; font-size: .95rem; color: var(--ouro-claro) !important; }
-.zelo__more { margin-top: 2rem; color: var(--branco); border-color: rgba(255,255,255,.4); }
-.zelo__desk { margin-top: 3.5rem; max-width: 52rem; margin-inline: auto; }
+.ia { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; }
+.ia__pillars { display: grid; gap: 1.75rem; counter-reset: none; }
+.ia__pillars li { padding-left: 1.25rem; border-left: 2px solid var(--ouro); }
+.ia__pillars h3 { font-size: 1.35rem; margin-bottom: .35rem; }
+.ia__pillars p { color: var(--nevoa-escuro); }
+.ia__ex { margin-top: .45rem; font-size: .95rem; color: var(--ouro-claro) !important; }
+.ia__more { margin-top: 2rem; color: var(--branco); border-color: rgba(255,255,255,.4); }
+.ia__desk { margin-top: 3.5rem; max-width: 52rem; margin-inline: auto; }
 .chat { gap: .6rem; }
 .chat__me { justify-self: end; max-width: 85%; background: var(--noite); color: var(--branco); padding: .5rem .7rem; border-radius: 12px 12px 2px 12px; }
 .chat__bot { display: grid; gap: .15rem; max-width: 92%; background: var(--branco); border: 1px solid var(--linha); padding: .55rem .7rem; border-radius: 12px 12px 12px 2px; }
@@ -297,7 +297,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .garagem span { display: grid; place-items: center; height: 4.5rem; border: 1px solid #6f8a86; background: #93a8a4; font: 600 .7rem var(--f-text); color: var(--tinta); border-radius: 3px; }
 .garagem span.livre { background: #a7cdb6; }
 .garagem span.on { outline: 3px solid var(--tinta); background: #6f8a86; color: var(--branco); }
-@media (max-width: 960px) { .zelo { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .ia { grid-template-columns: 1fr; } }
 
 /* ---------- Painel (mockup desktop) ---------- */
 .panel {

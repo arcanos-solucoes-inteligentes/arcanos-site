@@ -57,9 +57,9 @@ A chave `productMedia` em `src/data/site.js` alterna entre `"video"` e `"desenho
 
 ### Foco em IA (25/11/2026)
 
-O Zelo é o diferencial que nenhum concorrente analisado tem: responde pelo regimento com a fonte, faz pelo chat o que a função permite e avisa o síndico. Ele ganhou seção logo depois de "Para quem", item no menu, página `/assistente-ia/` e menção no hero. A abertura continua na operação (portaria e encomendas), porque é o que o síndico compra; a IA é o motivo para escolher a Arcanos. Para manter a home focada, "Implantação" foi para `/planos/`.
+O Marquinhos é o diferencial que nenhum concorrente analisado tem: responde pelo regimento com a fonte, faz pelo chat o que a função permite e avisa o síndico. Ele ganhou seção logo depois de "Para quem", item no menu, página `/assistente-ia/` e menção no hero. A abertura continua na operação (portaria e encomendas), porque é o que o síndico compra; a IA é o motivo para escolher a Arcanos. Para manter a home focada, "Implantação" foi para `/planos/`.
 
-O resumo do que o Zelo faz está em `src/data/site.js` (`zelo`), tirado de `condominio-api/docs/ASSISTENTE-ACOES-E-LGPD.md`, `ASSISTENTE-GUARDRAILS.md` e `ASSISTENTE-BEDROCK.md`.
+O resumo do que o Marquinhos faz está em `src/data/site.js` (`assistente`), tirado de `condominio-api/docs/ASSISTENTE-ACOES-E-LGPD.md`, `ASSISTENTE-GUARDRAILS.md` e `ASSISTENTE-BEDROCK.md`.
 
 ## 4. Mapa do site
 
@@ -67,7 +67,7 @@ O resumo do que o Zelo faz está em `src/data/site.js` (`zelo`), tirado de `cond
 |---|---|---|
 | `/` | Convencer em 1 rolagem: promessa, para quem, encomenda, módulos, síndico, segurança, origem, implantação, FAQ | Agendar demonstração |
 | `/funcionalidades/` | Catálogo completo por área, com selo “Módulo adicional” e “Em breve” | Agendar demonstração |
-| `/assistente-ia/` | Mostrar o Zelo: o que responde, o que faz por perfil e por que é seguro | Agendar demonstração |
+| `/assistente-ia/` | Mostrar o Marquinhos: o que responde, o que faz por perfil e por que é seguro | Agendar demonstração |
 | `/seguranca/` | Responder à objeção LGPD do síndico | Agendar demonstração |
 | `/planos/` | Mostrar que existe plano para cada porte | Pedir proposta |
 | `/contato/` | Qualificar o lead (função, unidades, dor) | Pedir demonstração |
@@ -85,7 +85,7 @@ Hoje o app só está montado em `https://www.arcanossolucoes.com/condosmart/teg-
 
 ## 6. Regras de comunicação aplicadas
 
-- Nada em desenvolvimento aparece como pronto. Só os avisos por WhatsApp estão em “Em desenvolvimento”, com selo “Em breve”. O assistente de IA (Zelo) e o mapa da garagem estão na `main` (PRs #368, #382, #391, #400–#413) e foram marcados como disponíveis em 25/11/2026, a pedido.
+- Nada em desenvolvimento aparece como pronto. Só os avisos por WhatsApp estão em “Em desenvolvimento”, com selo “Em breve”. O assistente de IA (Marquinhos) e o mapa da garagem estão na `main` (PRs #368, #382, #391, #400–#413) e foram marcados como disponíveis em 25/11/2026, a pedido.
 - Nenhum número de clientes, unidades ou métrica publicado.
 - Nenhum depoimento inventado. A seção de origem usa fatos (onde, quem usa) e deixa `TODO` para um depoimento real e autorizado.
 - LGPD descrita pelo que o sistema faz, sem prometer “conformidade total”.
@@ -93,7 +93,7 @@ Hoje o app só está montado em `https://www.arcanossolucoes.com/condosmart/teg-
 
 ## 7. Pendências para aprovação dos sócios
 
-1. **Validar afirmações técnicas** antes de publicar: Zelo e mapa de vagas ligados em produção (Bedrock, plano Pro, permissão de vagas para a portaria), modo offline “em operações suportadas” (as fases do plano offline estão em branches não pushadas), push em produção, exportação de dados do titular pelo app, retenção automática de fotos.
+1. **Validar afirmações técnicas** antes de publicar: Marquinhos e mapa de vagas ligados em produção (Bedrock, plano Pro, permissão de vagas para a portaria), modo offline “em operações suportadas” (as fases do plano offline estão em branches não pushadas), push em produção, exportação de dados do titular pelo app, retenção automática de fotos.
 2. **Depoimento** do síndico do TEG, por escrito, com autorização de uso.
 3. **Vídeo × desenho:** escolher qual versão vai ao ar (`productMedia`).
 4. **Preços:** publicar faixa “a partir de” quando o catálogo da Plataforma Deus for fechado.

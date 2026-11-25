@@ -23,7 +23,7 @@
 - push notifications completas;
 - IA que aprende e corrige OCR automaticamente;
 - assistente conversacional integrado;
-- Marquinhos IA como produto disponível;
+- ~~Marquinhos IA como produto disponível~~ (liberado em 25/11/2026: o assistente de IA do site se chama Marquinhos);
 - laboratórios de machine learning;
 - OCR experimental em produção garantida;
 - integrações futuras ainda não conectadas ao produto.

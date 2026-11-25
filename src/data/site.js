@@ -52,7 +52,7 @@ export const audiences = [
       "Relatórios de encomendas, acessos, reservas e equipe da portaria",
       "Comunicados enviados por push e e-mail",
       "Ouvidoria com protocolo, inclusive anônima",
-      "Pergunte ao Zelo o que está pendente e receba o resumo do mês"
+      "Pergunte ao Marquinhos o que está pendente e receba o resumo do mês"
     ]
   },
   {
@@ -86,7 +86,7 @@ export const audiences = [
       "Instala como aplicativo pelo navegador, sem loja",
       "Em português, inglês, espanhol ou chinês",
       "Cada morador vê só os dados da própria unidade",
-      "Pergunte ao Zelo e ele responde pelo regimento ou faz a reserva"
+      "Pergunte ao Marquinhos e ele responde pelo regimento ou faz a reserva"
     ]
   }
 ];
@@ -159,7 +159,7 @@ export const featureGroups = [
   },
   {
     id: "assistente",
-    title: "Assistente de IA (Zelo)",
+    title: "Assistente de IA (Marquinhos)",
     summary: "Um assistente que conhece as regras do condomínio e o próprio app, e faz pelo usuário o que a função dele permite.",
     features: [
       { name: "Responde pelo regimento", text: "Perguntas sobre normas respondidas a partir do regimento, da convenção e dos comunicados, sempre com a fonte citada." },
@@ -267,10 +267,10 @@ export const faq = [
   }
 ];
 
-// Assistente de IA (Zelo). Resumo da documentação do produto:
+// Assistente de IA (Marquinhos). Resumo da documentação do produto:
 // condominio-api/docs/ASSISTENTE-ACOES-E-LGPD.md, ASSISTENTE-GUARDRAILS.md e ASSISTENTE-BEDROCK.md.
-export const zelo = {
-  name: "Zelo",
+export const assistente = {
+  name: "Marquinhos",
   promise: "Um assistente que conhece as regras do condomínio e faz o que a sua função permite.",
   pillars: [
     {
@@ -295,7 +295,7 @@ export const zelo = {
     { profile: "Síndico e administração", items: ["Pendências e resumo do mês", "Aprovar ou recusar reserva", "Atualizar chamado", "Publicar comunicado com push e e-mail", "Reservar em nome do morador", "Cadastrar morador, bloco e unidade"] }
   ],
   safety: [
-    { title: "Mesmas regras da tela", text: "O Zelo não tem permissão própria. Antes de cada ação ele confere as mesmas regras de acesso da tela correspondente." },
+    { title: "Mesmas regras da tela", text: "O Marquinhos não tem permissão própria. Antes de cada ação ele confere as mesmas regras de acesso da tela correspondente." },
     { title: "Nada sem confirmação", text: "Nada é gravado antes do botão de confirmar. Clique duplo não grava duas vezes e há limite de ações por hora." },
     { title: "Fora do alcance do chat", text: "Excluir registros, senha, permissões, módulos, pagamentos e pedidos de LGPD só pela tela." },
     { title: "Dado pessoal protegido", text: "CPF, telefone, e-mail e placa são mascarados e nunca vão para o modelo de linguagem. O morador não consulta dados de outra unidade." },
