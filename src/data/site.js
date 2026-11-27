@@ -164,7 +164,7 @@ export const featureGroups = [
     features: [
       { name: "Responde pelo regimento", text: "Perguntas sobre normas respondidas a partir do regimento, da convenção e dos comunicados, sempre com a fonte citada." },
       { name: "Ensina a usar o app", text: "Respostas prontas sobre cada tela, por perfil, revisadas e ajustáveis pelo condomínio." },
-      { name: "Faz pelo chat", text: "Reservar espaço, autorizar visitante, abrir chamado, registrar encomenda, aprovar reserva, publicar comunicado e mais, sempre com confirmação.", tag: "Plano Pro" },
+      { name: "Faz pelo chat", text: "Reservar espaço, autorizar visitante, abrir chamado, registrar encomenda, aprovar reserva, publicar comunicado e mais, sempre com confirmação.", tag: "Conforme o plano" },
       { name: "Resumo para o síndico", text: "Pendências e números do mês numa pergunta: encomendas, reservas, chamados e visitantes." },
       { name: "Avisa o que se repete", text: "Quando vários moradores relatam o mesmo problema, o síndico recebe um alerta. O relatório de uso mostra o que mais perguntam." },
       { name: "Seguro por desenho", text: "Quem não pode na tela não pode no chat. Nada é gravado sem confirmação e dado pessoal não vai para o modelo." }
@@ -303,8 +303,8 @@ export const assistente = {
     { title: "LGPD", text: "Histórico na exportação dos dados do titular, botão para apagar o próprio histórico e documentos com visibilidade por público." }
   ],
   tech: [
-    "Modelos de linguagem que rodam em São Paulo por padrão, pela AWS",
-    "Ações pelo chat no plano Pro do assistente; respostas no plano Essencial",
-    "Testado com conjunto-ouro de perguntas e casos de ataque (injeção, terceiros, fora do escopo)"
+    "A inteligência artificial roda em servidores no Brasil (AWS, em São Paulo)",
+    "Responder dúvidas está em todos os planos; agir pelo chat, conforme o plano contratado",
+    "Testado contra tentativas de burlar as regras ou acessar dados de outra unidade"
   ]
 };
