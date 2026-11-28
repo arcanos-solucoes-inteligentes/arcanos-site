@@ -1,17 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHead from "../components/PageHead.astro";
-import { company } from "../data/site.js";
+import { company, faixas, plans } from "../data/site.js";
 // TODO(marketing): trocar o envio por mailto por um formulário com CRM
 // (ex.: HubSpot ou RD Station) para não depender do cliente de e-mail do visitante.
 ---
 
 <BaseLayout
   path="/contato/"
-  title="Agendar demonstração | CondoSmart"
-  description="Agende uma demonstração do CondoSmart para o seu condomínio ou administradora."
+  title="Agendar demonstração | Arcondo"
+  description="Agende uma demonstração do Arcondo para o seu condomínio ou administradora."
 >
-  <PageHead kicker="Demonstração" title="Mostramos o CondoSmart com a rotina do seu condomínio." />
+  <PageHead kicker="Demonstração" title="Mostramos o Arcondo com a rotina do seu condomínio." />
 
   <section class="sec">
     <div class="wrap contact">
@@ -20,7 +20,7 @@ import { company } from "../data/site.js";
         <ul class="checks" style="margin-top:1rem">
           <li>Conversa de 30 minutos, por vídeo ou presencial</li>
           <li>Demonstração com os fluxos que você usa hoje</li>
-          <li>Proposta pelo número de unidades e módulos</li>
+          <li>Proposta pela faixa de apartamentos e pelos módulos</li>
         </ul>
         <p class="muted mt-2">Prefere e-mail? Escreva para <a class="link" href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>.</p>
         <p class="muted" style="margin-top:1rem">Já é cliente e precisa de ajuda com o acesso? Veja a página <a class="link" href="/entrar/">Entrar</a>.</p>
@@ -44,11 +44,15 @@ import { company } from "../data/site.js";
         <div class="field">
           <label for="unidades">Número de unidades</label>
           <select id="unidades" name="unidades">
-            <option>Até 40</option>
-            <option>41 a 150</option>
-            <option>151 a 400</option>
-            <option>Mais de 400</option>
+            {faixas.map((f) => <option>{f} apartamentos</option>)}
             <option>Carteira com vários condomínios</option>
+          </select>
+        </div>
+        <div class="field field--full">
+          <label for="plano">Plano de interesse</label>
+          <select id="plano" name="plano" data-plano>
+            <option value="">Ainda não sei</option>
+            {plans.map((p) => <option value={p.id}>{p.name}</option>)}
           </select>
         </div>
         <div class="field field--full"><label for="telefone">Telefone ou WhatsApp</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" /></div>

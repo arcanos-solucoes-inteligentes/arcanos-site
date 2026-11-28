@@ -45,16 +45,21 @@ document.querySelectorAll("[data-tabs]").forEach((root) => {
 // Formulário de contato: monta o e-mail com os dados preenchidos.
 const form = document.querySelector("[data-contact-form]");
 if (form) {
+  // Vindo de "Pedir proposta" (/contato/?plano=gestao), o plano já vem marcado.
+  const plano = new URLSearchParams(location.search).get("plano");
+  const sel = form.querySelector("[data-plano]");
+  if (plano && sel && [...sel.options].some((o) => o.value === plano)) sel.value = plano;
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const d = new FormData(form);
-    const subject = `Demonstração CondoSmart: ${d.get("condominio")}`;
+    const subject = `Demonstração Arcondo: ${d.get("condominio")}`;
     const body = [
       `Nome: ${d.get("nome")}`,
       `Função: ${d.get("funcao")}`,
       `Condomínio ou administradora: ${d.get("condominio")}`,
       `Número de unidades: ${d.get("unidades")}`,
+      `Plano de interesse: ${form.querySelector("[data-plano]")?.selectedOptions[0]?.text || "Ainda não sei"}`,
       `Telefone: ${d.get("telefone")}`,
       "",
       d.get("mensagem") || ""

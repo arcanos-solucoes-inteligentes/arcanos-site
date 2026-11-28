@@ -17,15 +17,16 @@ const vagas = ["S1-01","S1-02","S1-03","S1-04","S1-05","S1-06","S1-07","S1-08","
       <li>Livre, atribuída, visitante, manutenção ou bloqueada</li>
       <li>Cessão entre moradores e fila de espera</li>
     </ul>
+    <p class="fnote fnote--lg">O mapa e o sorteio funcionam sobre o módulo Gestão de vagas. Consulte a disponibilidade para o seu condomínio.</p>
   </div>
   {video ? (
     <div class="panel">
-      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>CondoSmart · Mapa da garagem</em></div>
-      <ProductVideo name="vagas" width="1440" height="900" label="Mapa da garagem no CondoSmart: busca pela vaga S1-08, destacada no mapa como atribuída ao apartamento 101." />
+      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>Arcondo · Mapa da garagem</em></div>
+      <ProductVideo name="vagas" width="1440" height="900" label="Mapa da garagem no Arcondo: busca pela vaga S1-08, destacada no mapa como atribuída ao apartamento 101." />
     </div>
   ) : (
     <div class="panel" role="img" aria-label="Mapa da garagem desenhado: uma fileira de vagas com a S1-08 destacada.">
-      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>CondoSmart · Mapa da garagem</em></div>
+      <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>Arcondo · Mapa da garagem</em></div>
       <div class="garagem" aria-hidden="true">
         {vagas.map((v) => <span class={v === "S1-08" ? "on" : v > "S1-10" ? "livre" : ""}>{v}</span>)}
       </div>

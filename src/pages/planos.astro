@@ -2,37 +2,106 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHead from "../components/PageHead.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { plans, faq, onboardingSteps } from "../data/site.js";
-// TODO(comercial): publicar valores quando o catálogo de planos for aprovado
-// na Plataforma Deus. Até lá, o preço é por proposta.
+import { plans, planMatrix, featureGroups, dependencias, implantacao, faixas, faq, onboardingSteps } from "../data/site.js";
+// Conteúdo da tabela comercial "Planos e módulos do aplicativo" (nov/2026).
+// O site não publica preços: o valor sai na proposta, pela faixa de apartamentos.
+const adicionais = featureGroups.find((g) => g.id === "adicionais");
+const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : "nivel");
 ---
 
 <BaseLayout
   path="/planos/"
-  title="Planos | CondoSmart"
-  description="Planos do CondoSmart para condomínios em autogestão, condomínios com portaria e administradoras. Pague pelos módulos que o condomínio usa."
+  title="Planos | Arcondo"
+  description="Planos Essencial, Gestão e Inteligência do Arcondo, ou um plano personalizado com os módulos que o condomínio escolher."
 >
   <PageHead
     kicker="Planos"
-    title="O plano acompanha o tamanho e a rotina do condomínio."
-    lead="O valor considera o número de unidades e os módulos ligados. Sem custo de instalação de equipamentos."
+    title="Três planos, ou um do jeito do seu condomínio."
+    lead="O valor é mensal, por condomínio, calculado pela faixa de apartamentos. Peça uma proposta e receba o valor do seu plano."
   />
 
   <section class="sec">
     <div class="wrap">
-      <div class="plans">
+      <div class="plans plans--4">
         {plans.map((p) => (
-          <article class={p.highlight ? "plan plan--hi" : "plan"}>
+          <article class={["plan", p.highlight && "plan--hi", p.custom && "plan--custom"].filter(Boolean).join(" ")}>
+            {p.highlight && <p class="plan__flag">Recomendado</p>}
             <h2 class="h3" style="font-size:1.4rem">{p.name}</h2>
             <p class="plan__fit">{p.fit}</p>
-            <p>{p.text}</p>
+            <p class="plan__mods">{p.modules}</p>
             <ul class="checks">{p.items.map((i) => <li>{i}</li>)}</ul>
-            <p class="plan__price">Sob proposta<small>Calculado pelo número de unidades</small></p>
-            <a class={p.highlight ? "btn btn--ouro" : "btn btn--linha"} href={`/contato/?plano=${p.id}`}>Pedir proposta</a>
+            <a class={p.highlight ? "btn btn--ouro" : "btn btn--linha"} href={`/contato/?plano=${p.id}`}>
+              {p.custom ? "Montar meu plano" : "Pedir proposta"}
+            </a>
           </article>
         ))}
       </div>
-      <p class="muted mt-2">Módulos adicionais, como controle de acesso, botão de pânico e o assistente de IA, podem ser ligados em qualquer plano. As ações pelo chat ficam disponíveis conforme o plano contratado.</p>
+      <div class="faixas">
+        <p>O valor depende da faixa de apartamentos do condomínio:</p>
+        <ul>{faixas.map((f) => <li>{f}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--branco" id="comparar">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2">O que vem em cada plano</h2>
+        <p class="lead muted">As funcionalidades fixas de cada plano. No Personalizado, o síndico escolhe.</p>
+      </div>
+      <p class="matrix-dica">Deslize a tabela para o lado para ver os quatro planos.</p>
+      <div class="matrix-wrap" role="region" aria-label="Comparação dos planos" tabindex="0">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Funcionalidade</th>{planMatrix.columns.map((c) => <th scope="col">{c}</th>)}</tr>
+          </thead>
+          <tbody>
+            {planMatrix.rows.map((r) => (
+              <tr>
+                <th scope="row"><b>{r.name}</b><span>{r.text}</span></th>
+                {r.values.map((v) => <td class={`v v--${marca(v)}`}>{v === "—" ? <span aria-label="Não incluído">—</span> : v}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted mt-2 matrix-note">{planMatrix.note}</p>
+    </div>
+  </section>
+
+  <section class="sec" id="adicionais">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2">Módulos adicionais</h2>
+        <p class="lead muted">{adicionais.summary}</p>
+      </div>
+      <div class="cota">
+        <div><b>Essencial</b><span>Nenhum incluído</span></div>
+        <div><b>Gestão</b><span>1 à escolha</span></div>
+        <div><b>Inteligência</b><span>2 à escolha</span></div>
+        <div><b>Personalizado</b><span>Quantos quiser</span></div>
+      </div>
+      <ul class="addons">
+        {adicionais.features.map((f) => (<li><h3>{f.name}</h3><p>{f.text}</p></li>))}
+      </ul>
+      <p class="muted mt-2">Cada opção conta como 1 módulo. Módulos além dos incluídos no plano são cobrados à parte.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--noite on-dark" id="personalizado">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="kicker">Plano personalizado</p>
+        <h2 class="h2">Escolha qualquer módulo. A gente confere se a combinação funciona.</h2>
+        <p class="lead muted" style="margin-top:1rem">
+          O Personalizado parte da base de todos os planos e soma os módulos e recursos que o síndico escolher.
+          Alguns recursos dependem de outros, e a proposta já sai com essas dependências resolvidas.
+        </p>
+        <a class="btn btn--ouro mt-2" href="/contato/?plano=personalizado">Montar meu plano</a>
+      </div>
+      <ul class="deps">
+        {dependencias.map((d) => (<li><b>{d.item}</b><p>{d.rule}</p></li>))}
+      </ul>
     </div>
   </section>
 
@@ -44,6 +113,11 @@ import { plans, faq, onboardingSteps } from "../data/site.js";
       <ol class="steps">
         {onboardingSteps.map((s) => (<li><h3>{s.title}</h3><p>{s.text}</p></li>))}
       </ol>
+      <div class="impl">
+        <h3 class="h3">A implantação inclui</h3>
+        <ul class="checks">{implantacao.items.map((i) => <li>{i}</li>)}</ul>
+        <p class="muted">{implantacao.note}</p>
+      </div>
     </div>
   </section>
 

@@ -3,14 +3,14 @@
 
 export const company = {
   name: "Arcanos",
-  product: "CondoSmart",
+  product: "Arcondo",
   legalName: "ARCANOS SOLUÇÕES INTELIGENTES LTDA",
   siteUrl: "https://arcanossolucoes.com",
   contactEmail: "contato@arcanossolucoes.com",
-  title: "CondoSmart by Arcanos | Gestão de condomínios: portaria, encomendas e moradores",
+  title: "Arcondo by Arcanos | Gestão de condomínios: portaria, encomendas e moradores",
   description:
-    "CondoSmart é a plataforma da Arcanos que organiza portaria, encomendas, visitantes, reservas e comunicados do condomínio, com rastro de cada ação e conformidade com a LGPD.",
-  brandLogo: "/images/brand/arcanos-lockup.svg",
+    "Arcondo é a plataforma da Arcanos que organiza portaria, encomendas, visitantes, reservas e comunicados do condomínio, com rastro de cada ação e conformidade com a LGPD.",
+  brandLogo: "/images/brand/arcanos-logo-horizontal.png",
   ogImage: "/images/hero/og-arcanos.svg",
   brandQuote: "Tecnologia só faz sentido quando aproxima pessoas."
 };
@@ -41,7 +41,7 @@ export const navigation = [
   { label: "Planos", href: "/planos/" }
 ];
 
-// Perfis de comprador. Cada um com a dor que reconhece e o que o CondoSmart muda.
+// Perfis de comprador. Cada um com a dor que reconhece e o que o Arcondo muda.
 export const audiences = [
   {
     id: "sindico",
@@ -111,63 +111,60 @@ export const packageJourney = [
   }
 ];
 
-// Catálogo de funcionalidades. status: "disponivel" | "em-breve".
-// Regra de comunicação (docs/conteudo-do-site.md): nada em desenvolvimento
-// é anunciado como pronto.
+// Catálogo de funcionalidades, organizado pela tabela comercial
+// ("Planos e módulos do aplicativo", nov/2026): o que vem em todos os planos, o que
+// depende do plano, os 6 módulos adicionais e o que existe no app mas ainda não está
+// na tabela. Regra de comunicação (docs/conteudo-do-site.md): nada em desenvolvimento
+// é anunciado como pronto, e o site não publica preços.
 export const featureGroups = [
   {
-    id: "portaria",
-    title: "Portaria e encomendas",
-    summary: "O coração da operação: tudo o que entra e sai do condomínio, com registro.",
+    id: "base",
+    title: "Em todos os planos",
+    summary: "O que todo condomínio recebe desde o plano Essencial.",
     features: [
-      { name: "Recebimento de encomendas", text: "Cadastro com foto, unidade, destinatário e transportadora. Busca por unidade com ou sem bloco." },
-      { name: "Modo Expresso", text: "Leitura da etiqueta pela câmera do celular ou tablet para registrar pacotes em sequência." },
-      { name: "Retirada por QR Code", text: "O morador escaneia o QR Code fixo da portaria e o porteiro confirma a baixa. Terceiros autorizados também podem retirar." },
-      { name: "Encomendas especiais", text: "Fluxo próprio para correspondência judicial, medicamentos e itens que exigem cuidado." },
-      { name: "Visitantes e prestadores", text: "Autorização prévia pelo morador e horários permitidos para prestadores, inclusive feriados." },
-      { name: "Chaves, achados e perdidos", text: "Empréstimo de chaves e itens encontrados com até três fotos e aviso aos moradores." },
-      { name: "Controle de acesso", text: "Entradas e saídas registradas por unidade, com histórico pesquisável.", tag: "Módulo adicional" }
+      { name: "Gestão de encomendas", text: "Recebimento, histórico, retirada manual e guarda, com busca por unidade com ou sem bloco." },
+      { name: "Moradores e unidades", text: "Cadastros, blocos, vínculos e permissões por função." },
+      { name: "Cadastro de veículos", text: "Veículos dos moradores, para a portaria consultar na hora." },
+      { name: "Cadastro de pets", text: "Animais vinculados aos moradores." },
+      { name: "Notificações em 4 idiomas", text: "E-mails operacionais, e o app em português, inglês, espanhol e chinês." },
+      { name: "Dashboard e relatórios", text: "Indicadores de encomendas: básicos no Essencial, gerenciais no Gestão e ampliados no Inteligência." }
     ]
   },
   {
-    id: "moradores",
-    title: "Moradores e convivência",
-    summary: "O condomínio no bolso do morador, sem precisar de mais um grupo de WhatsApp.",
+    id: "plano",
+    title: "Conforme o plano",
+    summary: "Recursos que entram a partir de um plano específico, ou à escolha no Personalizado.",
     features: [
-      { name: "Comunicados", text: "Avisos com envio por push e e-mail, escolhidos pelo síndico a cada comunicado." },
-      { name: "Reservas de áreas comuns", text: "Regras por espaço, convidados, vistoria, períodos, fila de espera e validação pela administração." },
-      { name: "Manutenção e chamados", text: "O morador abre o chamado e acompanha o andamento até a conclusão." },
-      { name: "Vagas de garagem e sorteio", text: "Cadastro de vagas por unidade, cessão entre moradores, fila de espera e sorteio auditável com impressão para a ata." },
-      { name: "Mapa da garagem", text: "Planta da garagem com cada vaga marcada e a situação de hoje: livre, atribuída, visitante ou em manutenção. Sem planta? O sistema desenha uma." },
-      { name: "Veículos, pets e ausências", text: "Cadastros que a portaria consulta na hora em que precisa." },
-      { name: "Ouvidoria", text: "Relatos com protocolo e senha de acompanhamento. O anonimato é o padrão." },
-      { name: "Botão de pânico", text: "Alerta de emergência do morador para a portaria e o síndico.", tag: "Módulo adicional" }
+      { name: "Retirada por QR Code", text: "O morador escaneia o QR Code fixo da portaria e o porteiro confirma a baixa.", tag: "Gestão e Inteligência" },
+      { name: "Analytics do morador", text: "Painel com os números e o histórico das encomendas do próprio morador.", tag: "Inteligência" },
+      { name: "Assistente de IA Marquinhos", text: "Respostas a partir de atas, convenção, regimento e documentos autorizados, com a fonte citada.", tag: "Inteligência", note: "Ativação após homologação." }
     ]
   },
   {
-    id: "gestao",
-    title: "Gestão e relatórios",
-    summary: "O que o síndico precisa para decidir e para prestar contas.",
+    id: "adicionais",
+    title: "Módulos adicionais",
+    summary: "Seis módulos para escolher. O Gestão inclui 1, o Inteligência inclui 2, e os outros podem ser contratados à parte.",
     features: [
-      { name: "Painel do síndico", text: "Encomendas pendentes, atrasadas, reservas do dia e chamados abertos numa tela." },
-      { name: "Relatórios", text: "Encomendas, portaria por porteiro, reservas, achados e perdidos e acessos, com exportação em PDF e planilha." },
-      { name: "Unidades, blocos e moradores", text: "Cadastro da estrutura do condomínio, com proprietário, inquilino e co-moradores." },
-      { name: "Permissões por função", text: "Síndico, conselho, porteiro, operador e morador enxergam só o que lhes cabe." },
-      { name: "Trilha de auditoria", text: "Quem fez o quê, quando e de onde, nas operações sensíveis." },
-      { name: "Área da administradora", text: "Visão da carteira de condomínios para administradoras e síndicos profissionais." }
+      { name: "Comunicados", text: "Publicação de avisos e informações aos moradores, por push e e-mail.", tag: "Adicional" },
+      { name: "Achados e perdidos", text: "Registro, acompanhamento e devolução de objetos, com fotos.", tag: "Adicional" },
+      { name: "Chamados e ouvidoria", text: "Solicitações e manifestações com protocolo e acompanhamento, inclusive anônimas.", tag: "Adicional" },
+      { name: "Reservas de ambientes", text: "Agendamento, cancelamento, regras por espaço e validação externa de reservas.", tag: "Adicional" },
+      { name: "Controle de acesso e visitantes", text: "Cadastro e autorização de visitantes e registro de entradas e saídas.", tag: "Adicional" },
+      { name: "Gestão de vagas", text: "Administração das vagas e dos vínculos com veículos e unidades.", tag: "Adicional" }
     ]
   },
   {
-    id: "assistente",
-    title: "Assistente de IA (Marquinhos)",
-    summary: "Um assistente que conhece as regras do condomínio e o próprio app, e faz pelo usuário o que a função dele permite.",
+    id: "outros",
+    title: "Outros recursos do aplicativo",
+    summary: "Já existem no app, mas ainda não fazem parte da tabela de planos. Consulte a disponibilidade para o seu condomínio.",
     features: [
-      { name: "Responde pelo regimento", text: "Perguntas sobre normas respondidas a partir do regimento, da convenção e dos comunicados, sempre com a fonte citada." },
-      { name: "Ensina a usar o app", text: "Respostas prontas sobre cada tela, por perfil, revisadas e ajustáveis pelo condomínio." },
-      { name: "Faz pelo chat", text: "Reservar espaço, autorizar visitante, abrir chamado, registrar encomenda, aprovar reserva, publicar comunicado e mais, sempre com confirmação.", tag: "Conforme o plano" },
-      { name: "Resumo para o síndico", text: "Pendências e números do mês numa pergunta: encomendas, reservas, chamados e visitantes." },
-      { name: "Avisa o que se repete", text: "Quando vários moradores relatam o mesmo problema, o síndico recebe um alerta. O relatório de uso mostra o que mais perguntam." },
-      { name: "Seguro por desenho", text: "Quem não pode na tela não pode no chat. Nada é gravado sem confirmação e dado pessoal não vai para o modelo." }
+      { name: "Modo Expresso", text: "Leitura da etiqueta pela câmera para registrar várias encomendas em sequência.", tag: "Consulte" },
+      { name: "Encomendas especiais", text: "Fluxo próprio para correspondência judicial e medicamentos.", tag: "Consulte" },
+      { name: "Mapa da garagem", text: "Planta da garagem com a situação de cada vaga. Sem planta? O sistema desenha uma.", tag: "Consulte", note: "Requer o módulo Gestão de vagas." },
+      { name: "Sorteio de vagas", text: "Sorteio auditável, com impressão do resultado para a ata.", tag: "Consulte", note: "Requer o módulo Gestão de vagas." },
+      { name: "Chaves", text: "Empréstimo e devolução de chaves registrados pela portaria.", tag: "Consulte" },
+      { name: "Botão de pânico", text: "Alerta de emergência do morador para a portaria e o síndico.", tag: "Consulte" },
+      { name: "Área da administradora", text: "Visão da carteira de condomínios para administradoras e síndicos profissionais.", tag: "Consulte" }
     ]
   },
   {
@@ -207,43 +204,95 @@ export const trustPoints = [
   }
 ];
 
-// Implantação: sequência real do onboarding.
+// Implantação: sequência real do onboarding (tabela comercial, item 05).
 export const onboardingSteps = [
-  { title: "Conversa e demonstração", text: "Entendemos a rotina do condomínio e mostramos o CondoSmart com os fluxos que você usa." },
-  { title: "Configuração", text: "Cadastramos blocos, unidades e áreas comuns, e ligamos os módulos do plano." },
+  { title: "Conversa e demonstração", text: "Entendemos a rotina do condomínio e mostramos o Arcondo com os fluxos que você usa." },
+  { title: "Configuração", text: "Configuramos o condomínio e fazemos uma importação de planilha padronizada com blocos, unidades e moradores." },
   { title: "Moradores convidados", text: "Cada morador recebe o convite e cria o próprio acesso. Ninguém precisa digitar 300 cadastros." },
-  { title: "Treinamento da portaria", text: "Turno a turno, no posto de trabalho, até a equipe operar sozinha." }
+  { title: "Treinamento remoto", text: "Dois treinamentos remotos de até 60 minutos e 15 dias de apoio, até a equipe operar sozinha." }
 ];
 
+export const implantacao = {
+  items: [
+    "Configuração inicial do condomínio",
+    "1 importação de planilha padronizada",
+    "2 treinamentos remotos de até 60 minutos",
+    "15 dias de apoio depois da implantação"
+  ],
+  note: "Acima de 500 apartamentos, sob consulta. Equipamentos, integrações especiais e atendimento presencial são orçados à parte."
+};
+
+// Faixas de cobrança da tabela comercial. O site mostra as faixas, nunca os valores.
+export const faixas = ["1 a 50", "51 a 100", "101 a 200", "201 a 300", "301 a 500", "501 ou mais"];
+
+// Planos da tabela comercial (Essencial, Gestão, Inteligência) e o Personalizado.
 export const plans = [
   {
-    id: "autogestao",
-    name: "Autogestão",
-    fit: "Condomínios pequenos, sem portaria 24 horas",
-    text: "Encomendas por código de barras, comunicados, reservas e ouvidoria para o síndico que administra sozinho.",
-    items: ["Encomendas com retirada por QR", "Comunicados e reservas", "Ouvidoria", "Moradores entram por convite"]
+    id: "essencial",
+    name: "Essencial",
+    fit: "A base da portaria e dos moradores",
+    modules: "Nenhum módulo adicional incluído",
+    items: ["Gestão de encomendas com retirada manual", "Moradores, unidades, veículos e pets", "Notificações por e-mail em 4 idiomas", "Dashboard e relatórios básicos"]
   },
   {
-    id: "portaria",
-    name: "Condomínio com portaria",
-    fit: "Prédios e conjuntos com equipe de portaria",
-    text: "A operação completa da portaria e do síndico, com os módulos escolhidos para a rotina do condomínio.",
-    items: ["Tudo da Autogestão", "Modo Expresso com leitura de etiqueta", "Visitantes, chaves, achados e perdidos", "Relatórios e trilha de auditoria"],
+    id: "gestao",
+    name: "Gestão",
+    fit: "Para o síndico acompanhar e decidir",
+    modules: "1 módulo adicional à escolha",
+    items: ["Tudo do Essencial", "Retirada por QR Code", "Dashboard e relatórios gerenciais", "1 módulo adicional à escolha"],
     highlight: true
   },
   {
-    id: "administradora",
-    name: "Administradoras",
-    fit: "Carteiras com vários condomínios",
-    text: "Cada condomínio com o seu plano, e a administradora acompanhando a carteira inteira.",
-    items: ["Área da administradora", "Implantação em lote", "Condições por volume", "Atendimento dedicado"]
+    id: "inteligencia",
+    name: "Inteligência",
+    fit: "A operação completa, com análise e IA",
+    modules: "2 módulos adicionais à escolha",
+    items: ["Tudo do Gestão", "Dashboard e relatórios ampliados", "Analytics do morador", "Assistente de IA Marquinhos*", "2 módulos adicionais à escolha"]
+  },
+  {
+    id: "personalizado",
+    name: "Personalizado",
+    fit: "O síndico escolhe o que entra",
+    modules: "Os módulos e recursos que o condomínio quiser",
+    items: ["A base de todos os planos", "Qualquer combinação de módulos e recursos", "Dependências conferidas na proposta", "Nível de relatórios definido na proposta"],
+    custom: true
   }
+];
+
+// Tabela "Funcionalidades fixas de cada plano" (item 03), com a coluna do Personalizado.
+export const planMatrix = {
+  columns: ["Essencial", "Gestão", "Inteligência", "Personalizado"],
+  rows: [
+    { name: "Gestão de encomendas", text: "Recebimento, histórico, retirada manual e guarda", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
+    { name: "Moradores e unidades", text: "Cadastros, blocos, vínculos e permissões", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
+    { name: "Cadastro de veículos", text: "Veículos dos moradores, sem gestão de vagas", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
+    { name: "Cadastro de pets", text: "Animais vinculados aos moradores", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
+    { name: "Notificações e 4 idiomas", text: "E-mails operacionais; português, inglês, espanhol e chinês", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
+    { name: "Retirada por QR Code", text: "Confirmação digital da retirada de encomendas", values: ["—", "Incluído", "Incluído", "À escolha"] },
+    { name: "Dashboard e relatórios", text: "Indicadores de encomendas conforme o nível do plano", values: ["Básicos", "Gerenciais", "Ampliados", "Na proposta"] },
+    { name: "Analytics do morador", text: "Painel analítico do morador", values: ["—", "—", "Incluído", "À escolha"] },
+    { name: "Assistente de IA Marquinhos", text: "Consultas a atas, convenção e documentos autorizados", values: ["—", "—", "Incluído*", "À escolha*"] },
+    { name: "Módulos adicionais incluídos", text: "Entre os 6 módulos adicionais", values: ["0", "1", "2", "Quantos quiser"] }
+  ],
+  note: "* Marquinhos: recurso fixo do Inteligência, sem ocupar a escolha de módulo. Ativação após homologação; a franquia de consultas é informada na proposta."
+};
+
+// O que depende do quê, para montar o Personalizado sem combinação que não funciona.
+// Evidência no código: PARKING_MAP fica sobre o PARKING_SPOTS (ParkingMapsController);
+// as ações do Marquinhos passam pelo [RequiresModule] do endpoint (AssistantEndpointInvoker).
+export const dependencias = [
+  { item: "Retirada por QR Code e Analytics do morador", rule: "Funcionam sobre a Gestão de encomendas, que já vem em todos os planos." },
+  { item: "Gestão de vagas", rule: "Usa o cadastro de veículos e de moradores, também incluídos em todos os planos." },
+  { item: "Mapa e sorteio de vagas", rule: "Só funcionam com o módulo Gestão de vagas contratado." },
+  { item: "Validação externa de reservas", rule: "Faz parte de Reservas de ambientes e não é contratada separadamente." },
+  { item: "Chamados e ouvidoria; Controle de acesso e visitantes", rule: "Cada par é um único módulo e vem junto." },
+  { item: "Marquinhos agindo pelo chat", rule: "Ele só reserva, autoriza visitante, abre chamado ou publica comunicado se o módulo correspondente estiver contratado. Sem esses módulos, continua respondendo pelos documentos do condomínio." }
 ];
 
 export const faq = [
   {
     q: "Precisa instalar alguma coisa?",
-    a: "Não. O CondoSmart funciona no navegador do celular, tablet ou computador, e pode ser instalado como aplicativo na tela inicial. A portaria usa o equipamento que já tem, desde que tenha câmera."
+    a: "Não. O Arcondo funciona no navegador do celular, tablet ou computador, e pode ser instalado como aplicativo na tela inicial. A portaria usa o equipamento que já tem, desde que tenha câmera."
   },
   {
     q: "Como os moradores começam a usar?",
@@ -255,7 +304,7 @@ export const faq = [
   },
   {
     q: "Posso contratar só a parte de encomendas?",
-    a: "Sim. Os módulos são ligados por condomínio. Você começa pelo que mais dói e amplia quando fizer sentido."
+    a: "Sim. O plano Essencial já cobre encomendas, moradores, veículos e pets. Os módulos adicionais entram quando fizer sentido, ou você monta um plano personalizado."
   },
   {
     q: "E se a internet da portaria cair?",
@@ -263,7 +312,7 @@ export const faq = [
   },
   {
     q: "Já tenho conta. Onde eu entro?",
-    a: "Use o botão Entrar no topo do site. Ele leva para a tela de acesso do CondoSmart, onde também é possível recuperar a senha."
+    a: "Use o botão Entrar no topo do site. Ele leva para a tela de acesso do Arcondo, onde também é possível recuperar a senha."
   }
 ];
 
@@ -304,7 +353,7 @@ export const assistente = {
   ],
   tech: [
     "A inteligência artificial roda em servidores no Brasil (AWS, em São Paulo)",
-    "Responder dúvidas está em todos os planos; agir pelo chat, conforme o plano contratado",
+    "Incluído no plano Inteligência e disponível no Personalizado; ativação após homologação",
     "Testado contra tentativas de burlar as regras ou acessar dados de outra unidade"
   ]
 };

@@ -1,5 +1,5 @@
 /* ============================================================
-   Arcanos · CondoSmart — sistema visual
+   Arcanos · Arcondo — sistema visual
    Marca escura (noite) para a promessa; papel claro para o produto.
    O dourado é o rastro: aparece onde há caminho, nunca como fundo.
    ============================================================ */
@@ -108,7 +108,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hdr__in { height: 100%; display: flex; align-items: center; gap: 2rem; }
 .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; flex-shrink: 0; }
-.brand img { height: 2.35rem; width: auto; }
+.brand img { height: 2.6rem; width: auto; }
 .brand__product { font-family: var(--f-display); font-weight: 600; font-size: .95rem; color: var(--nevoa-escuro); padding-left: .7rem; border-left: 1px solid var(--linha-escura); }
 .nav { display: flex; align-items: center; gap: 1.6rem; margin-left: auto; }
 .nav__links { display: flex; gap: 1.5rem; }
@@ -338,6 +338,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .flist p { color: var(--nevoa); font-size: .97rem; margin-top: .25rem; }
 .tag { font: 600 .74rem var(--f-text); padding: .15rem .55rem; border-radius: 999px; border: 1px solid var(--linha); color: var(--nevoa); }
 .tag--breve { border-color: #e8cf96; color: var(--ouro-texto); background: #fdf6e6; }
+.tag--plano { border-color: #b9cbe3; color: #234a78; background: #eef4fb; }
+.tag--adicionais { border-color: #e8cf96; color: var(--ouro-texto); background: #fdf6e6; }
+.tag--outros { border-style: dashed; }
+.fnote { margin-top: .35rem; font-size: .86rem; font-weight: 600; color: var(--ouro-texto); }
+.fnote--lg { margin-top: 1.25rem; font-size: .95rem; }
+.fgroup__link { display: inline-block; margin-top: .75rem; font-size: .95rem; }
 @media (max-width: 900px) {
   .fgroup { grid-template-columns: 1fr; gap: 1.25rem; }
   .flist { grid-template-columns: 1fr; }
@@ -385,6 +391,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Planos ---------- */
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+.plans--4 { grid-template-columns: repeat(4, 1fr); }
+.plan { position: relative; }
+.plan__flag { position: absolute; top: -.8rem; left: 1.5rem; background: var(--ouro); color: var(--abismo); font: 700 .78rem var(--f-display); padding: .25rem .7rem; border-radius: 999px; }
+.plan__mods { font: 600 .95rem var(--f-display); padding: .7rem 0; border-block: 1px solid var(--linha); }
+.plan--custom { border-style: dashed; border-color: #9fb0c8; background: linear-gradient(180deg, #fff, #f3f6fb); }
 .plan { background: var(--branco); border: 1px solid var(--linha); border-radius: 14px; padding: 2rem 1.75rem; display: flex; flex-direction: column; }
 .plan--hi { border: 2px solid var(--ouro); box-shadow: 0 30px 60px -35px rgba(154,106,7,.45); }
 .plan__fit { color: var(--nevoa); margin: .35rem 0 1.25rem; font-size: .97rem; }
@@ -393,7 +404,54 @@ ul { margin: 0; padding: 0; list-style: none; }
 .plan .checks { margin: 1rem 0 1.75rem; flex: 1; }
 .plan .checks li { border: 0; padding-block: .4rem; }
 .plan .checks li::before { top: .75rem; }
+@media (max-width: 1100px) { .plans--4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .plans--4 { grid-template-columns: 1fr; } }
+
+/* Faixas, comparação, módulos, dependências, implantação (página de planos) */
+.faixas { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; color: var(--nevoa); }
+.faixas ul { display: flex; flex-wrap: wrap; gap: .5rem; }
+.faixas li { font: 600 .9rem var(--f-display); color: var(--tinta); background: var(--branco); border: 1px solid var(--linha); border-radius: 999px; padding: .3rem .8rem; }
+.matrix-wrap { overflow-x: auto; border: 1px solid var(--linha); border-radius: 14px; background: var(--branco); }
+.matrix-wrap:focus-visible { outline-offset: 2px; }
+.matrix { width: 100%; min-width: 760px; border-collapse: collapse; font-size: .95rem; }
+.matrix thead th { position: sticky; top: 0; background: var(--noite); color: var(--branco); font: 600 .95rem var(--f-display); text-align: center; padding: .9rem .75rem; }
+.matrix thead th:first-child { text-align: left; padding-left: 1.25rem; }
+.matrix tbody th { text-align: left; font-weight: 400; padding: .85rem 1.25rem; width: 34%; }
+.matrix tbody th b { display: block; font: 600 1rem var(--f-display); }
+.matrix tbody th span { color: var(--nevoa); font-size: .88rem; }
+.matrix td { text-align: center; padding: .85rem .75rem; }
+.matrix tbody tr + tr > * { border-top: 1px solid var(--linha); }
+.matrix tbody tr:nth-child(even) { background: #fafbfd; }
+.matrix td:last-child, .matrix th:last-child { background: rgba(233,165,34,.06); }
+.matrix thead th:last-child { background: #1b2a47; }
+.v--sim { font-weight: 600; color: var(--verde); }
+.v--nao { color: #a3adbd; }
+.v--nivel { font-weight: 600; color: var(--tinta); }
+.matrix-note { font-size: .92rem; }
+.matrix-dica { display: none; font-size: .88rem; color: var(--nevoa); margin-bottom: .6rem; }
+@media (max-width: 800px) {
+  .matrix-dica { display: block; }
+  .matrix tbody th, .matrix thead th:first-child { position: sticky; left: 0; z-index: 1; width: 11rem; min-width: 11rem; box-shadow: 1px 0 0 var(--linha); }
+  .matrix tbody th { background: var(--branco); }
+  .matrix tbody tr:nth-child(even) th { background: #fafbfd; }
+  .matrix thead th:first-child { background: var(--noite); z-index: 2; }
+  .matrix { min-width: 640px; font-size: .9rem; }
+  .matrix tbody th span { display: none; }
+}
+.cota { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.cota > div { background: var(--branco); border: 1px solid var(--linha); border-top: 3px solid var(--ouro); border-radius: 10px; padding: .9rem 1rem; }
+.cota b { display: block; font-family: var(--f-display); } .cota span { color: var(--nevoa); font-size: .95rem; }
+.addons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.addons li { background: var(--branco); border: 1px solid var(--linha); border-radius: 12px; padding: 1.25rem 1.25rem 1.35rem; }
+.addons h3 { font-size: 1.1rem; margin-bottom: .35rem; } .addons p { color: var(--nevoa); font-size: .97rem; }
+.deps li { padding: 1rem 0 1rem 1.1rem; border-left: 3px solid var(--ouro); margin-bottom: .9rem; }
+.deps b { display: block; font-family: var(--f-display); font-size: 1.05rem; margin-bottom: .2rem; }
+.deps p { color: var(--nevoa-escuro); font-size: .97rem; }
+.impl { margin-top: 3rem; max-width: 44rem; }
+.impl .checks { margin: .75rem 0 1rem; }
+@media (max-width: 860px) { .cota { grid-template-columns: 1fr 1fr; } .addons { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .addons { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
 .faq { max-width: 52rem; }
@@ -451,7 +509,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- Footer ---------- */
 .ftr { background: var(--abismo); color: var(--nevoa-escuro); padding-block: 4rem 2rem; font-size: .95rem; }
 .ftr__in { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 2.5rem; }
-.ftr img { height: 2.4rem; width: auto; margin-bottom: 1rem; }
+.ftr img { height: 3rem; width: auto; margin-bottom: 1rem; }
 .ftr h2 { font-size: .95rem; color: var(--branco); margin-bottom: .85rem; font-weight: 600; letter-spacing: 0; }
 .ftr li { padding: .25rem 0; }
 .ftr a { text-decoration: none; }

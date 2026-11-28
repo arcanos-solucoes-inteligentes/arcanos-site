@@ -10,7 +10,7 @@ import AssistenteShowcase from "../components/AssistenteShowcase.astro";
 import { productMedia, audiences, packageJourney, featureGroups, trustPoints, faq } from "../data/site.js";
 
 const video = productMedia === "video";
-const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
+const coreGroups = ["base", "plano", "adicionais"].map((id) => featureGroups.find((g) => g.id === id));
 ---
 
 <BaseLayout path="/">
@@ -20,7 +20,7 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
       <div>
         <h1 class="display">O condomínio em ordem, do portão ao apartamento.</h1>
         <p class="lead">
-          CondoSmart é a plataforma da Arcanos para síndicos, administradoras e portarias.
+          Arcondo é a plataforma da Arcanos para síndicos, administradoras e portarias.
           Encomendas, visitantes, reservas e comunicados num só lugar, com o Marquinhos, um assistente
           de IA que responde pelo regimento e faz o que cada um pode fazer.
         </p>
@@ -28,7 +28,7 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
           <a class="btn btn--ouro" href="/contato/">Agendar demonstração</a>
           <a class="btn btn--linha" href="/funcionalidades/">Ver funcionalidades</a>
         </div>
-        <p class="hero__note">Já usa o CondoSmart? <a class="link" href="/entrar/">Entre na sua conta</a></p>
+        <p class="hero__note">Já usa o Arcondo? <a class="link" href="/entrar/">Entre na sua conta</a></p>
       </div>
       <HeroArt />
     </div>
@@ -143,11 +143,11 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
           <div>
             <h3 class="h3">{g.title}</h3>
             <p>{g.summary}</p>
-            <ul>{g.features.slice(0, 5).map((f) => <li>{f.name}</li>)}</ul>
+            <ul>{g.features.map((f) => <li>{f.name}</li>)}</ul>
           </div>
         ))}
       </div>
-      <div class="center-cta"><a class="btn btn--linha" href="/funcionalidades/">Ver todas as funcionalidades</a></div>
+      <div class="center-cta"><a class="btn btn--linha" href="/funcionalidades/">Ver todas as funcionalidades</a><a class="btn btn--linha" href="/planos/#comparar">Comparar os planos</a></div>
     </div>
   </section>
 
@@ -190,7 +190,7 @@ const coreGroups = featureGroups.filter((g) => g.id !== "em-breve");
     <div class="wrap case">
       <figure style="margin:0">
         <blockquote>
-          O CondoSmart não nasceu numa sala de reunião. Nasceu no balcão de uma portaria, entre o
+          O Arcondo não nasceu numa sala de reunião. Nasceu no balcão de uma portaria, entre o
           interfone e a pilha de caixas.
         </blockquote>
         <figcaption>
