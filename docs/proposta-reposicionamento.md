@@ -1,4 +1,4 @@
-# Proposta de reposicionamento do site — CondoSmart by Arcanos
+# Proposta de reposicionamento do site — Arcondo by Arcanos
 
 > 24/11/2026 · branch `feat/novo-site-condosmart`
 
@@ -7,7 +7,7 @@
 | Problema | Efeito no visitante |
 |---|---|
 | Falava da Arcanos como “iniciativa” que “desenvolve aplicações personalizadas” | Parecia agência ou freelancer, não produto SaaS |
-| O nome do produto (CondoSmart) não aparecia | O visitante não sabia o que estava comprando |
+| O nome do produto (Arcondo) não aparecia | O visitante não sabia o que estava comprando |
 | Nenhuma funcionalidade concreta, nenhuma tela | Não havia o que avaliar, nem motivo para pedir demonstração |
 | Público indefinido (“seu negócio”) | Síndico e administradora não se reconheciam no texto |
 | Único CTA era “Entrar em contato” por e-mail | Nenhum caminho de venda (demo, planos) |
@@ -16,7 +16,7 @@
 
 ## 2. Posicionamento
 
-**Produto:** CondoSmart, a plataforma de gestão de condomínios da Arcanos. A Arcanos é a empresa; o CondoSmart é o que se vende.
+**Produto:** Arcondo, a plataforma de gestão de condomínios da Arcanos. A Arcanos é a empresa; o Arcondo é o que se vende.
 
 **Promessa:** “O condomínio em ordem, do portão ao apartamento.” Encomendas, visitantes, reservas e comunicados num só lugar, com o registro de cada ação.
 
@@ -71,7 +71,7 @@ O resumo do que o Marquinhos faz está em `src/data/site.js` (`assistente`), tir
 | `/seguranca/` | Responder à objeção LGPD do síndico | Agendar demonstração |
 | `/planos/` | Mostrar que existe plano para cada porte | Pedir proposta |
 | `/contato/` | Qualificar o lead (função, unidades, dor) | Pedir demonstração |
-| `/entrar/` | Porta de entrada de quem já é cliente | Acessar o CondoSmart |
+| `/entrar/` | Porta de entrada de quem já é cliente | Acessar o Arcondo |
 
 **Cabeçalho:** Funcionalidades · Para quem · Segurança e LGPD · Planos · Contato · **Entrar** (secundário) · **Agendar demonstração** (principal). O padrão de SaaS B2B: quem já é cliente acha o login em um clique; quem não é, cai na demonstração.
 
@@ -79,7 +79,7 @@ O resumo do que o Marquinhos faz está em `src/data/site.js` (`assistente`), tir
 
 Hoje o app só está montado em `https://www.arcanossolucoes.com/condosmart/teg-vm/` (`condominio-web/src/utils/resolveBasename.js`). Um condomínio novo não tem endereço próprio.
 
-**Feito agora:** página `/entrar/` com “Acessar o CondoSmart”, “Esqueci minha senha”, “Recebi um convite” e orientação por perfil (morador, porteiro, síndico). Todos os links vêm de `src/data/site.js` → `appBaseUrl`.
+**Feito agora:** página `/entrar/` com “Acessar o Arcondo”, “Esqueci minha senha”, “Recebi um convite” e orientação por perfil (morador, porteiro, síndico). Todos os links vêm de `src/data/site.js` → `appBaseUrl`.
 
 **Recomendado (fora deste PR):** um endereço único de login para todos os condomínios, por exemplo `app.arcanossolucoes.com` ou `/condosmart/` sem o slug do condomínio. O login já é por e-mail e o usuário pode ter vários condomínios (Onda 1), então o slug na URL não é necessário. Quando existir, basta trocar `appBaseUrl`.
 
@@ -101,3 +101,13 @@ Hoje o app só está montado em `https://www.arcanossolucoes.com/condosmart/teg-
 6. **Política de Privacidade e encarregado (DPO)** publicados, com link no rodapé.
 7. **Endereço único de login** (seção 5).
 8. **Imagem de compartilhamento (OG)** em PNG 1200×630 com a nova identidade; redes sociais não leem SVG.
+
+## 9. Arcondo e tabela comercial (28/11/2026)
+
+- **Nome do aplicativo:** Arcondo (antes CondoSmart). O caminho de produção `/condosmart/teg-vm` continua no `appBaseUrl`, porque é o endereço real do app.
+- **Planos:** seguem a "Tabela comercial de entrada" (nov/2026): Essencial, Gestão e Inteligência, mais o **Personalizado**, em que o síndico escolhe os módulos. O site **não publica preços**: mostra só as faixas de apartamentos (1 a 50 … 501 ou mais) e leva para "Pedir proposta".
+- **Funcionalidades:** organizadas como na tabela: o que vem em todos os planos, o que depende do plano (QR Code, Analytics do morador, Marquinhos), os 6 módulos adicionais (Gestão inclui 1, Inteligência inclui 2) e "Outros recursos do aplicativo", que existem no app mas não estão na tabela (Modo Expresso, encomendas especiais, mapa e sorteio de vagas, chaves, botão de pânico, área da administradora), marcados como "Consulte".
+- **Dependências do Personalizado** (`dependencias` em `src/data/site.js`): mapa e sorteio exigem Gestão de vagas (no código, `PARKING_MAP` fica sobre `PARKING_SPOTS`); as ações do Marquinhos só funcionam nos módulos contratados (`[RequiresModule]` do endpoint); validação externa faz parte de Reservas; os pares "Chamados e ouvidoria" e "Controle de acesso e visitantes" são um módulo só.
+- **Marquinhos:** recurso fixo do Inteligência, com "ativação após homologação", como diz a tabela. A página `/assistente-ia/` descreve o produto; a disponibilidade fica na nota dos planos.
+- **Implantação:** configuração, 1 importação de planilha, 2 treinamentos remotos de 60 min e 15 dias de apoio. O antigo "treinamento turno a turno, no posto" saiu (a tabela orça presencial à parte).
+- **Logo:** `arcanos-logo-horizontal.png` gerado da arte do PDF (`scripts/marca/`), com o "ARCANOS" geométrico e "SOLUÇÕES INTELIGENTES." com acentos. Só para fundo escuro.

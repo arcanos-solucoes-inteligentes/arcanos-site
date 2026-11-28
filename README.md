@@ -1,6 +1,6 @@
 # Arcanos Site Institucional
 
-Site comercial do **CondoSmart**, a plataforma de gestão de condomínios da **ARCANOS SOLUÇÕES INTELIGENTES LTDA**, construída em Astro com geração estática, HTML semântico, CSS próprio e JavaScript mínimo para navegação e galeria.
+Site comercial do **Arcondo**, a plataforma de gestão de condomínios da **ARCANOS SOLUÇÕES INTELIGENTES LTDA**, construída em Astro com geração estática, HTML semântico, CSS próprio e JavaScript mínimo para navegação e galeria.
 
 ## Objetivo do projeto
 

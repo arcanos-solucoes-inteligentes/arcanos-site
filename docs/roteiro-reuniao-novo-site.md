@@ -4,7 +4,7 @@
 
 > A primeira versão do site cumpriu o papel dela: colocou a Arcanos no ar com uma marca forte, o manifesto e a base técnica pronta. Naquele momento a gente ainda estava se apresentando ao mercado.
 >
-> De lá para cá o produto cresceu. Hoje o CondoSmart tem módulos, clientes em operação, LGPD aplicada e planos pensados para cada porte de condomínio. O site precisa acompanhar essa fase: sair da apresentação e ir para a venda. É uma evolução natural, não uma troca.
+> De lá para cá o produto cresceu. Hoje o Arcondo tem módulos, clientes em operação, LGPD aplicada e planos pensados para cada porte de condomínio. O site precisa acompanhar essa fase: sair da apresentação e ir para a venda. É uma evolução natural, não uma troca.
 
 ## O que continua igual
 
@@ -17,7 +17,7 @@
 
 | Antes (fase de apresentação) | Agora (fase de venda) | Por quê |
 |---|---|---|
-| Falava da Arcanos como empresa | Fala do **CondoSmart** como produto, assinado pela Arcanos | O cliente compra um produto. Quem pesquisa no Google procura "sistema para condomínio", não o nome da empresa. |
+| Falava da Arcanos como empresa | Fala do **Arcondo** como produto, assinado pela Arcanos | O cliente compra um produto. Quem pesquisa no Google procura "sistema para condomínio", não o nome da empresa. |
 | Público amplo | Quatro perfis: síndico, administradora, portaria e morador | Quem decide (síndico, administradora) precisa se reconhecer no texto em segundos. |
 | Proposta de valor | Funcionalidades concretas e telas do produto | Para pedir uma demonstração, o síndico precisa ver o que vai ganhar. |
 | Contato por e-mail | "Agendar demonstração" e "Ver planos" | Dá um próximo passo claro e qualifica o contato (função, unidades, principal problema). |

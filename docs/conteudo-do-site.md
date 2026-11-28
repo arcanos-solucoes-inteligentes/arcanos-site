@@ -33,3 +33,8 @@
 - Não publicar métricas, números de clientes ou percentuais sem confirmação.
 - Não prometer conformidade absoluta com a LGPD.
 - Indicar quando o recurso depende do módulo ou da configuração contratada.
+
+## Preços (28/11/2026)
+
+- O site não publica valores de planos, módulos ou implantação. Mostra as faixas de apartamentos e leva para "Pedir proposta".
+- Planos e módulos seguem a tabela comercial de nov/2026; o que não está nela aparece como "Consulte".

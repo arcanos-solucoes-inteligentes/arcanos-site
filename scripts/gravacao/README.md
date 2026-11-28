@@ -1,6 +1,6 @@
 # Gravação dos vídeos do site
 
-Os vídeos em `public/videos/` são trechos de 7 a 10 segundos do CondoSmart funcionando,
+Os vídeos em `public/videos/` são trechos de 7 a 10 segundos do Arcondo funcionando,
 gravados **no condomínio DEMO rodando na máquina local** (dados fictícios). Nunca grave
 em produção: lá aparecem nomes, unidades e fotos de moradores reais.
 
