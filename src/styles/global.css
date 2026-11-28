@@ -429,6 +429,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .v--nao { color: #a3adbd; }
 .v--nivel { font-weight: 600; color: var(--tinta); }
 .matrix-note { font-size: .92rem; }
+.plans-nota { margin-top: .9rem; font-size: .9rem; }
+.v--contratar { font-weight: 600; color: var(--ouro-texto); }
+.matrix-legenda { margin-top: 1.1rem; display: grid; gap: .45rem; font-size: .92rem; color: var(--nevoa); }
+.matrix-legenda li { display: grid; grid-template-columns: 1.6rem 1fr; }
+.matrix-legenda__mark { font-weight: 700; color: var(--ouro-texto); }
 .matrix-dica { display: none; font-size: .88rem; color: var(--nevoa); margin-bottom: .6rem; }
 @media (max-width: 800px) {
   .matrix-dica { display: block; }
