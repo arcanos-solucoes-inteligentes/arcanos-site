@@ -151,7 +151,7 @@ S.push(`
       ${kicker("O resto da rotina")}
       <h2 class="h2">Do portão à garagem, o condomínio inteiro no mesmo sistema.</h2>
       <ul class="mods">${mods.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
-      <p class="peq">* Módulo adicional: o Gestão inclui 1, o Inteligência inclui 2 e os outros são contratados à parte. No Personalizado, todos são adicionais.</p>
+      <p class="peq">* Módulo adicional: o Gestão inclui 1, o Inteligência inclui 2 e os outros são contratados à parte. No Personalizado, tudo é contratado separadamente.</p>
     </div>
     <div class="imgs">${painel("vagas", "Arcondo · Mapa da garagem", "Mapa da garagem com a vaga S1-08 destacada")}<p class="leg">Mapa da garagem: cada vaga com a situação de hoje.</p></div>
   </div>
@@ -197,7 +197,7 @@ S.push(`
 <section class="slide papel">
   <div class="topo">${kicker("Planos")}<h2 class="h2">Três planos, ou um do jeito do seu condomínio.</h2></div>
   <div class="planos">${plans.map((p) => `<article class="plano${p.highlight ? " plano--hi" : ""}${p.custom ? " plano--custom" : ""}"><h3>${esc(p.name)}</h3><p class="fit">${esc(p.fit)}</p><ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul></article>`).join("")}</div>
-  <p class="fecho fecho--l">Valor mensal por condomínio, pela faixa de apartamentos. * Marquinhos: ativação após homologação.</p>
+  <p class="fecho fecho--l">Valor mensal por condomínio, pela faixa de apartamentos. ** Marquinhos: ativação após homologação.</p>
   ${rod()}
 </section>`);
 

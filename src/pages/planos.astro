@@ -6,7 +6,7 @@ import { plans, planMatrix, featureGroups, dependencias, implantacao, faixas, fa
 // Conteúdo da tabela comercial "Planos e módulos do aplicativo" (nov/2026).
 // O site não publica preços: o valor sai na proposta, pela faixa de apartamentos.
 const adicionais = featureGroups.find((g) => g.id === "adicionais");
-const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : "nivel");
+const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : v.startsWith("Contratar") ? "contratar" : "nivel");
 ---
 
 <BaseLayout
@@ -30,7 +30,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
             <p class="plan__fit">{p.fit}</p>
             <p class="plan__mods">{p.modules}</p>
             <ul class="checks">{p.items.map((i) => <li>{i}</li>)}</ul>
-            <a class={p.highlight ? "btn btn--ouro" : "btn btn--linha"} href={`/contato/?plano=${p.id}`}>
+            <a class={p.highlight ? "btn btn--ouro" : "btn btn--linha"} href={`/contato/?plano=${p.id}&origem=cartao`}>
               {p.custom ? "Montar meu plano" : "Pedir proposta"}
             </a>
           </article>
@@ -40,6 +40,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
         <p>O valor depende da faixa de apartamentos do condomínio:</p>
         <ul>{faixas.map((f) => <li>{f}</li>)}</ul>
       </div>
+      <p class="muted plans-nota">** Marquinhos: ativação após homologação. Detalhes na comparação abaixo.</p>
     </div>
   </section>
 
@@ -47,7 +48,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
     <div class="wrap">
       <div class="sec-head">
         <h2 class="h2">O que vem em cada plano</h2>
-        <p class="lead muted">As funcionalidades fixas de cada plano. No Personalizado, a base é a mesma e o resto entra como adicional.</p>
+        <p class="lead muted">As funcionalidades fixas de cada plano. No Personalizado, cada item é contratado separadamente.</p>
       </div>
       <p class="matrix-dica">Deslize a tabela para o lado para ver os quatro planos.</p>
       <div class="matrix-wrap" role="region" aria-label="Comparação dos planos" tabindex="0">
@@ -65,7 +66,11 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
           </tbody>
         </table>
       </div>
-      <p class="muted mt-2 matrix-note">{planMatrix.note}</p>
+      <ul class="matrix-legenda">
+        {planMatrix.legend.map((l) => (
+          <li><span class="matrix-legenda__mark">{l.mark}</span><span>{l.text}{l.link && <> <a class="link" href={l.link.href}>{l.link.label}</a>.</>}</span></li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -79,7 +84,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
         <div><b>Essencial</b><span>Nenhum incluído</span></div>
         <div><b>Gestão</b><span>1 à escolha</span></div>
         <div><b>Inteligência</b><span>2 à escolha</span></div>
-        <div><b>Personalizado</b><span>Todos como adicionais</span></div>
+        <div><b>Personalizado</b><span>Todos contratados à parte</span></div>
       </div>
       <ul class="addons">
         {adicionais.features.map((f) => (<li><h3>{f.name}</h3><p>{f.text}</p></li>))}
@@ -94,11 +99,11 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
         <p class="kicker">Plano personalizado</p>
         <h2 class="h2">Escolha os módulos um a um. A gente confere se a combinação funciona.</h2>
         <p class="lead muted" style="margin-top:1rem">
-          O Personalizado parte da base de todos os planos. Todo o resto, dos seis módulos à retirada por QR Code,
-          ao Analytics do morador e ao Marquinhos, entra como adicional escolhido pelo síndico. Alguns recursos
-          dependem de outros, e a proposta já sai com essas dependências resolvidas.
+          No Personalizado, o síndico escolhe cada funcionalidade e cada módulo, inclusive a gestão de encomendas,
+          a retirada por QR Code, o Analytics do morador e o Marquinhos. Cada item é contratado separadamente.
+          Alguns dependem de outros para funcionar, e um especialista confere a combinação antes da proposta.
         </p>
-        <a class="btn btn--ouro mt-2" href="/contato/?plano=personalizado">Montar meu plano</a>
+        <a class="btn btn--ouro mt-2" href="/contato/?plano=personalizado&origem=personalizado">Montar meu plano</a>
       </div>
       <ul class="deps">
         {dependencias.map((d) => (<li><b>{d.item}</b><p>{d.rule}</p></li>))}
