@@ -133,7 +133,7 @@ export const featureGroups = [
   {
     id: "plano",
     title: "Conforme o plano",
-    summary: "Recursos que entram a partir de um plano específico, ou à escolha no Personalizado.",
+    summary: "Recursos que entram a partir de um plano específico. No Personalizado, entram como adicionais.",
     features: [
       { name: "Retirada por QR Code", text: "O morador escaneia o QR Code fixo da portaria e o porteiro confirma a baixa.", tag: "Gestão e Inteligência" },
       { name: "Analytics do morador", text: "Painel com os números e o histórico das encomendas do próprio morador.", tag: "Inteligência" },
@@ -143,7 +143,7 @@ export const featureGroups = [
   {
     id: "adicionais",
     title: "Módulos adicionais",
-    summary: "Seis módulos para escolher. O Gestão inclui 1, o Inteligência inclui 2, e os outros podem ser contratados à parte.",
+    summary: "Seis módulos para escolher. O Gestão inclui 1, o Inteligência inclui 2, e os outros podem ser contratados à parte. No Personalizado, todos são adicionais.",
     features: [
       { name: "Comunicados", text: "Publicação de avisos e informações aos moradores, por push e e-mail.", tag: "Adicional" },
       { name: "Achados e perdidos", text: "Registro, acompanhamento e devolução de objetos, com fotos.", tag: "Adicional" },
@@ -253,8 +253,8 @@ export const plans = [
     id: "personalizado",
     name: "Personalizado",
     fit: "O síndico escolhe o que entra",
-    modules: "Os módulos e recursos que o condomínio quiser",
-    items: ["A base de todos os planos", "Qualquer combinação de módulos e recursos", "Dependências conferidas na proposta", "Nível de relatórios definido na proposta"],
+    modules: "Todos os módulos como adicionais",
+    items: ["A base de todos os planos", "Cada módulo escolhido entra como adicional", "Inclusive QR Code, Analytics do morador e Marquinhos", "Dependências conferidas na proposta"],
     custom: true
   }
 ];
@@ -268,11 +268,11 @@ export const planMatrix = {
     { name: "Cadastro de veículos", text: "Veículos dos moradores, sem gestão de vagas", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
     { name: "Cadastro de pets", text: "Animais vinculados aos moradores", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
     { name: "Notificações e 4 idiomas", text: "E-mails operacionais; português, inglês, espanhol e chinês", values: ["Incluído", "Incluído", "Incluído", "Incluído"] },
-    { name: "Retirada por QR Code", text: "Confirmação digital da retirada de encomendas", values: ["—", "Incluído", "Incluído", "À escolha"] },
+    { name: "Retirada por QR Code", text: "Confirmação digital da retirada de encomendas", values: ["—", "Incluído", "Incluído", "Adicional"] },
     { name: "Dashboard e relatórios", text: "Indicadores de encomendas conforme o nível do plano", values: ["Básicos", "Gerenciais", "Ampliados", "Na proposta"] },
-    { name: "Analytics do morador", text: "Painel analítico do morador", values: ["—", "—", "Incluído", "À escolha"] },
-    { name: "Assistente de IA Marquinhos", text: "Consultas a atas, convenção e documentos autorizados", values: ["—", "—", "Incluído*", "À escolha*"] },
-    { name: "Módulos adicionais incluídos", text: "Entre os 6 módulos adicionais", values: ["0", "1", "2", "Quantos quiser"] }
+    { name: "Analytics do morador", text: "Painel analítico do morador", values: ["—", "—", "Incluído", "Adicional"] },
+    { name: "Assistente de IA Marquinhos", text: "Consultas a atas, convenção e documentos autorizados", values: ["—", "—", "Incluído*", "Adicional*"] },
+    { name: "Módulos adicionais incluídos", text: "Entre os 6 módulos adicionais", values: ["0", "1", "2", "Todos à parte"] }
   ],
   note: "* Marquinhos: recurso fixo do Inteligência, sem ocupar a escolha de módulo. Ativação após homologação; a franquia de consultas é informada na proposta."
 };

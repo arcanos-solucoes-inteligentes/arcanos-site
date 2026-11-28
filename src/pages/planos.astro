@@ -47,7 +47,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
     <div class="wrap">
       <div class="sec-head">
         <h2 class="h2">O que vem em cada plano</h2>
-        <p class="lead muted">As funcionalidades fixas de cada plano. No Personalizado, o síndico escolhe.</p>
+        <p class="lead muted">As funcionalidades fixas de cada plano. No Personalizado, a base é a mesma e o resto entra como adicional.</p>
       </div>
       <p class="matrix-dica">Deslize a tabela para o lado para ver os quatro planos.</p>
       <div class="matrix-wrap" role="region" aria-label="Comparação dos planos" tabindex="0">
@@ -79,7 +79,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
         <div><b>Essencial</b><span>Nenhum incluído</span></div>
         <div><b>Gestão</b><span>1 à escolha</span></div>
         <div><b>Inteligência</b><span>2 à escolha</span></div>
-        <div><b>Personalizado</b><span>Quantos quiser</span></div>
+        <div><b>Personalizado</b><span>Todos como adicionais</span></div>
       </div>
       <ul class="addons">
         {adicionais.features.map((f) => (<li><h3>{f.name}</h3><p>{f.text}</p></li>))}
@@ -92,10 +92,11 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
     <div class="wrap split" style="align-items:start">
       <div>
         <p class="kicker">Plano personalizado</p>
-        <h2 class="h2">Escolha qualquer módulo. A gente confere se a combinação funciona.</h2>
+        <h2 class="h2">Escolha os módulos um a um. A gente confere se a combinação funciona.</h2>
         <p class="lead muted" style="margin-top:1rem">
-          O Personalizado parte da base de todos os planos e soma os módulos e recursos que o síndico escolher.
-          Alguns recursos dependem de outros, e a proposta já sai com essas dependências resolvidas.
+          O Personalizado parte da base de todos os planos. Todo o resto, dos seis módulos à retirada por QR Code,
+          ao Analytics do morador e ao Marquinhos, entra como adicional escolhido pelo síndico. Alguns recursos
+          dependem de outros, e a proposta já sai com essas dependências resolvidas.
         </p>
         <a class="btn btn--ouro mt-2" href="/contato/?plano=personalizado">Montar meu plano</a>
       </div>

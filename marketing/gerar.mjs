@@ -151,7 +151,7 @@ S.push(`
       ${kicker("O resto da rotina")}
       <h2 class="h2">Do portão à garagem, o condomínio inteiro no mesmo sistema.</h2>
       <ul class="mods">${mods.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
-      <p class="peq">* Módulo adicional: o Gestão inclui 1, o Inteligência inclui 2 e os outros são contratados à parte.</p>
+      <p class="peq">* Módulo adicional: o Gestão inclui 1, o Inteligência inclui 2 e os outros são contratados à parte. No Personalizado, todos são adicionais.</p>
     </div>
     <div class="imgs">${painel("vagas", "Arcondo · Mapa da garagem", "Mapa da garagem com a vaga S1-08 destacada")}<p class="leg">Mapa da garagem: cada vaga com a situação de hoje.</p></div>
   </div>
