@@ -30,7 +30,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
             <p class="plan__fit">{p.fit}</p>
             <p class="plan__mods">{p.modules}</p>
             <ul class="checks">{p.items.map((i) => <li>{i}</li>)}</ul>
-            <a class={p.highlight ? "btn btn--ouro" : "btn btn--linha"} href={`/contato/?plano=${p.id}`}>
+            <a class={p.highlight ? "btn btn--ouro" : "btn btn--linha"} href={`/contato/?plano=${p.id}&origem=cartao`}>
               {p.custom ? "Montar meu plano" : "Pedir proposta"}
             </a>
           </article>
@@ -103,7 +103,7 @@ const marca = (v) => (v === "—" ? "nao" : v.startsWith("Incluído") ? "sim" : 
           a retirada por QR Code, o Analytics do morador e o Marquinhos. Cada item é contratado separadamente.
           Alguns dependem de outros para funcionar, e um especialista confere a combinação antes da proposta.
         </p>
-        <a class="btn btn--ouro mt-2" href="/contato/?plano=personalizado">Montar meu plano</a>
+        <a class="btn btn--ouro mt-2" href="/contato/?plano=personalizado&origem=personalizado">Montar meu plano</a>
       </div>
       <ul class="deps">
         {dependencias.map((d) => (<li><b>{d.item}</b><p>{d.rule}</p></li>))}

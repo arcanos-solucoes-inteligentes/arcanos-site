@@ -28,3 +28,9 @@ segurança e LGPD → origem (TEG) → implantação → planos → demonstraç�
   trocar os três "fatos" por um depoimento assinado do síndico.
 - Nenhum número de clientes, unidades ou ganho de tempo é citado, de propósito. Quando houver dado medido e
   autorizado (por exemplo, queda de encomendas atrasadas no TEG), ele deve entrar no slide "De onde vem".
+
+## Teste do formulário de contato
+
+Com o site rodando (`npm run dev` na raiz), `node testar-contato.mjs` passa por todos os caminhos até
+o contato (topo, abertura, faixa final, rodapé, Entrar, cartões de plano, Personalizado, legenda e acesso
+direto), envia o formulário e confere o e-mail gerado: assunto conforme o pedido, plano e "Veio de".

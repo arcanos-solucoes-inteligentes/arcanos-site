@@ -42,8 +42,9 @@ import { company, faixas, plans } from "../data/site.js";
         </div>
         <div class="field"><label for="condominio">Condomínio ou administradora</label><input id="condominio" name="condominio" autocomplete="organization" required /></div>
         <div class="field">
-          <label for="unidades">Número de unidades</label>
-          <select id="unidades" name="unidades">
+          <label for="unidades">Faixa de apartamentos</label>
+          <select id="unidades" name="unidades" required>
+            <option value="">Selecione</option>
             {faixas.map((f) => <option>{f} apartamentos</option>)}
             <option>Carteira com vários condomínios</option>
           </select>
@@ -62,10 +63,18 @@ import { company, faixas, plans } from "../data/site.js";
           <small>Opcional. Ex.: encomendas acumulando, reservas no papel, comunicados que ninguém lê.</small>
         </div>
         <div class="form__foot">
-          <p>Usamos estes dados apenas para responder ao seu pedido de demonstração.</p>
-          <button class="btn btn--ouro" type="submit">Pedir demonstração</button>
+          <p>Usamos estes dados apenas para responder ao seu pedido.</p>
+          <button class="btn btn--ouro" type="submit" data-enviar>Pedir demonstração</button>
         </div>
-        <p class="field--full muted" data-sent hidden role="status">Abrimos o seu aplicativo de e-mail com a mensagem pronta. É só enviar.</p>
+        <div class="field--full enviado" data-sent hidden role="status">
+          <p><b>Abrimos o seu aplicativo de e-mail com a mensagem pronta. É só enviar.</b></p>
+          <p class="muted">Se ele não abriu, copie a mensagem e envie para <a class="link" href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>.</p>
+          <pre class="enviado__previa" data-previa></pre>
+          <div class="enviado__acoes">
+            <button class="btn btn--linha btn--sm" type="button" data-copiar>Copiar mensagem</button>
+            <a class="btn btn--linha btn--sm" href="#" data-reabrir>Abrir no e-mail de novo</a>
+          </div>
+        </div>
       </form>
     </div>
   </section>

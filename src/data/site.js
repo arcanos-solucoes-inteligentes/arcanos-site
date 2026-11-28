@@ -276,7 +276,7 @@ export const planMatrix = {
   ],
   // Legenda: "*" é do Personalizado (pedido do comercial); "**" é a nota do Marquinhos da tabela.
   legend: [
-    { mark: "*", text: "No Personalizado, cada item é contratado separadamente. Um módulo pode depender de outro para funcionar:", link: { label: "consulte um especialista", href: "/contato/?plano=personalizado" } },
+    { mark: "*", text: "No Personalizado, cada item é contratado separadamente. Um módulo pode depender de outro para funcionar:", link: { label: "consulte um especialista", href: "/contato/?plano=personalizado&origem=legenda" } },
     { mark: "**", text: "Marquinhos: recurso fixo do Inteligência, sem ocupar a escolha de módulo. Ativação após homologação; a franquia de consultas é informada na proposta." }
   ]
 };
