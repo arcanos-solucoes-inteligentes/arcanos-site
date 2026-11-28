@@ -49,7 +49,7 @@ for (const c of casos) {
   const subject = u.searchParams.get("subject");
   const body = u.searchParams.get("body");
   const linha = (k) => (body.split("\n").find((l) => l.startsWith(k)) || "").slice(k.length).trim();
-  const ok = u.protocol === "mailto:" && u.pathname === "contato@arcanossolucoes.com" && visivel && reabrir === url && previa.includes(subject);
+  const ok = u.protocol === "mailto:" && u.pathname === "contato@arcanossolucoes.com" && subject.startsWith("[Site Arcondo] ") && body.includes("[Site Arcondo] Enviado pelo formulário") && visivel && reabrir === url && previa.includes(subject);
   if (!ok) falhas++;
   console.log(`\n[${ok ? "ok" : "FALHA"}] ${c.nome}  (botão: "${botaoAntes.trim()}"${c.trocar ? ` -> "${botao.trim()}"` : ""})`);
   console.log(`  Assunto do e-mail: ${subject}`);

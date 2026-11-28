@@ -51,6 +51,11 @@ export function rotuloDoBotao(planoId) {
 
 const ou = (v, vazio = "não informado") => (v && String(v).trim()) || vazio;
 
+// Etiqueta fixa no começo de todo assunto que sai do site. É o gatilho do filtro do Gmail
+// que leva os pedidos para o marcador de vendas (ver docs/filtro-email-vendas.md).
+// Não mude sem atualizar o filtro: os e-mails deixariam de cair no marcador.
+export const ETIQUETA = "[Site Arcondo]";
+
 /**
  * @param {object} c
  * @param {string} c.para          e-mail da Arcanos
@@ -63,7 +68,7 @@ const ou = (v, vazio = "não informado") => (v && String(v).trim()) || vazio;
 export function montarEmail({ para, dados, planoId, planoNome, pagina, botao }) {
   const assunto = assuntoDe(planoId, planoNome);
   const veioDe = [pagina ? `página ${pagina}` : "acesso direto ao formulário", BOTOES[botao]].filter(Boolean).join(", ");
-  const subject = `Arcondo | ${assunto} | ${ou(dados.condominio, "sem condomínio")}`;
+  const subject = `${ETIQUETA} ${assunto} | ${ou(dados.condominio, "sem condomínio")}`;
   const body = [
     `Pedido: ${assunto}`,
     `Plano de interesse: ${planoId ? planoNome : "Ainda não sei"}`,
@@ -76,7 +81,10 @@ export function montarEmail({ para, dados, planoId, planoNome, pagina, botao }) 
     `Telefone ou WhatsApp: ${ou(dados.telefone)}`,
     "",
     "O que mais pesa hoje no condomínio:",
-    ou(dados.mensagem)
+    ou(dados.mensagem),
+    "",
+    "--",
+    `${ETIQUETA} Enviado pelo formulário de contato do site arcanossolucoes.com.`
   ].join("\n");
   const url = `mailto:${para}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   return { assunto, subject, body, url };
