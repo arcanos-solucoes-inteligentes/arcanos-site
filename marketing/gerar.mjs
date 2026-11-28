@@ -1,9 +1,9 @@
-// Apresentação comercial do CondoSmart (PDF 16:9, para projetar ou mandar por e-mail).
+// Apresentação comercial do Arcondo (PDF 16:9, para projetar ou mandar por e-mail).
 // Planos, etapas de implantação e contato vêm de ../src/data/site.js; o restante é texto de venda
 // escrito para slides (uma ideia por slide, título que afirma o benefício, pouco texto).
 //
 //   npm install && npx playwright install chromium   (uma vez)
-//   node gerar.mjs                                    -> CondoSmart-apresentacao.pdf
+//   node gerar.mjs                                    -> Arcondo-apresentacao.pdf
 //   REPRESENTANTE="Nome" TELEFONE="(11) 90000-0000" node gerar.mjs   (opcional, último slide)
 import { chromium } from "playwright";
 import fs from "node:fs";
@@ -14,13 +14,13 @@ import { company, plans, onboardingSteps } from "../src/data/site.js";
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const fachada = fs.readFileSync(path.join(DIR, "img/fachada.svg"), "utf8").replace(/^<svg class="facade"/, '<svg class="fachada"');
-const logo = "../public/images/brand/arcanos-lockup.svg";
+const logo = "../public/images/brand/arcanos-logo-horizontal.png";
 const simbolo = "../public/images/brand/arcanos-symbol.svg";
 const REP = process.env.REPRESENTANTE, TEL = process.env.TELEFONE;
 const DEMO = "Telas do condomínio de demonstração, com dados fictícios.";
 let n = 1; // a capa é o slide 1 e não leva número
 
-const rod = (nota) => `<footer class="rod"><span class="rod__m"><img src="${simbolo}" alt="">CondoSmart by Arcanos</span>${nota ? `<span>${esc(nota)}</span>` : ""}<span>${++n}</span></footer>`;
+const rod = (nota) => `<footer class="rod"><span class="rod__m"><img src="${simbolo}" alt="">Arcondo by Arcanos</span>${nota ? `<span>${esc(nota)}</span>` : ""}<span>${++n}</span></footer>`;
 const phone = (img, alt, cls = "") => `<div class="phone ${cls}"><img src="img/${img}.jpg" alt="${esc(alt)}"></div>`;
 const painel = (img, titulo, alt) => `<div class="painel"><div class="painel__top"><i></i><i></i><i></i><em>${esc(titulo)}</em></div><img src="img/${img}.jpg" alt="${esc(alt)}"></div>`;
 const kicker = (t) => `<p class="kicker">${esc(t)}</p>`;
@@ -32,13 +32,13 @@ S.push(`
 <section class="slide noite capa">
   <div class="capa__txt">
     <img class="capa__logo" src="${logo}" alt="Arcanos Soluções Inteligentes">
-    ${kicker("CondoSmart · apresentação comercial")}
+    ${kicker("Arcondo · apresentação comercial")}
     <h1 class="display">O condomínio em ordem, do portão ao apartamento.</h1>
     <p class="lead">Portaria, moradores e síndico no mesmo lugar, com um assistente de IA que conhece o regimento.</p>
   </div>
   <div class="capa__art">${fachada}
     <div class="notif"><div class="notif__ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
-      <div><p class="notif__app"><span>CondoSmart</span><span>agora</span></p><p class="notif__t">Sua encomenda chegou</p><p class="notif__b">Apto 72, Bloco B. Para retirar, escaneie o QR Code da portaria.</p></div></div>
+      <div><p class="notif__app"><span>Arcondo</span><span>agora</span></p><p class="notif__t">Sua encomenda chegou</p><p class="notif__b">Apto 72, Bloco B. Para retirar, escaneie o QR Code da portaria.</p></div></div>
   </div>
 </section>`);
 
@@ -117,7 +117,7 @@ S.push(`
         <div><h3>Portaria</h3><ul><li>Registrar encomenda</li><li>Entrada e saída de visitante</li><li>Emprestar chave</li><li>Registrar achado</li></ul></div>
         <div><h3>Síndico</h3><ul><li>Pendências e resumo do mês</li><li>Aprovar reserva</li><li>Publicar comunicado</li><li>Cadastrar morador</li></ul></div>
       </div>
-      <p class="aviso">Nada é gravado sem a sua confirmação. Quem não pode fazer algo na tela também não pode pelo chat.</p>
+      <p class="aviso">No plano Inteligência ou no Personalizado. Nada é gravado sem a sua confirmação, e ele só age nos módulos que o condomínio contratou.</p>
     </div>
   </div>
   ${rod(DEMO)}
@@ -137,13 +137,13 @@ S.push(`
         <li>Exportação em PDF e planilha</li>
       </ul>
     </div>
-    <div class="imgs">${painel("sindico", "CondoSmart · Relatórios do síndico", "Relatórios do síndico: encomendas em 90 dias")}</div>
+    <div class="imgs">${painel("sindico", "Arcondo · Relatórios do síndico", "Relatórios do síndico: encomendas em 90 dias")}</div>
   </div>
   ${rod(DEMO)}
 </section>`);
 
 // 8. Módulos
-const mods = ["Visitantes e prestadores", "Reservas de áreas comuns", "Comunicados por push e e-mail", "Manutenção e chamados", "Vagas e sorteio auditável", "Ouvidoria, inclusive anônima", "Achados e perdidos", "Chaves e ocorrências", "Veículos, pets e ausências", "Controle de acesso*", "Botão de pânico*", "Mapa da garagem"];
+const mods = ["Gestão de encomendas", "Moradores e unidades", "Veículos e pets", "Notificações em 4 idiomas", "Retirada por QR Code", "Dashboard e relatórios", "Comunicados*", "Achados e perdidos*", "Chamados e ouvidoria*", "Reservas de ambientes*", "Controle de acesso e visitantes*", "Gestão de vagas*"];
 S.push(`
 <section class="slide papel">
   <div class="duas duas--g">
@@ -151,9 +151,9 @@ S.push(`
       ${kicker("O resto da rotina")}
       <h2 class="h2">Do portão à garagem, o condomínio inteiro no mesmo sistema.</h2>
       <ul class="mods">${mods.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
-      <p class="peq">* Módulo adicional. Cada condomínio liga só o que usa.</p>
+      <p class="peq">* Módulo adicional: o Gestão inclui 1, o Inteligência inclui 2 e os outros são contratados à parte.</p>
     </div>
-    <div class="imgs">${painel("vagas", "CondoSmart · Mapa da garagem", "Mapa da garagem com a vaga S1-08 destacada")}<p class="leg">Mapa da garagem: cada vaga com a situação de hoje.</p></div>
+    <div class="imgs">${painel("vagas", "Arcondo · Mapa da garagem", "Mapa da garagem com a vaga S1-08 destacada")}<p class="leg">Mapa da garagem: cada vaga com a situação de hoje.</p></div>
   </div>
   ${rod(DEMO)}
 </section>`);
@@ -195,9 +195,9 @@ S.push(`
 // 12. Planos
 S.push(`
 <section class="slide papel">
-  <div class="topo">${kicker("Planos")}<h2 class="h2">Um plano para cada porte de condomínio.</h2></div>
-  <div class="planos">${plans.map((p) => `<article class="plano${p.highlight ? " plano--hi" : ""}"><h3>${esc(p.name)}</h3><p class="fit">${esc(p.fit)}</p><ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul></article>`).join("")}</div>
-  <p class="fecho fecho--l">Valor por proposta, calculado pelo número de unidades e pelos módulos. O assistente de IA entra em qualquer plano.</p>
+  <div class="topo">${kicker("Planos")}<h2 class="h2">Três planos, ou um do jeito do seu condomínio.</h2></div>
+  <div class="planos">${plans.map((p) => `<article class="plano${p.highlight ? " plano--hi" : ""}${p.custom ? " plano--custom" : ""}"><h3>${esc(p.name)}</h3><p class="fit">${esc(p.fit)}</p><ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul></article>`).join("")}</div>
+  <p class="fecho fecho--l">Valor mensal por condomínio, pela faixa de apartamentos. * Marquinhos: ativação após homologação.</p>
   ${rod()}
 </section>`);
 
@@ -206,7 +206,7 @@ S.push(`
 <section class="slide noite fim">
   <div class="fim__txt">
     <img class="capa__logo" src="${logo}" alt="Arcanos Soluções Inteligentes">
-    <h2 class="display">Veja o CondoSmart funcionando na rotina do seu condomínio.</h2>
+    <h2 class="display">Veja o Arcondo funcionando na rotina do seu condomínio.</h2>
     <p class="lead">Uma demonstração de 30 minutos, com os fluxos que você usa hoje.</p>
   </div>
   <div class="card">
@@ -240,7 +240,7 @@ p,ul,ol,figure,blockquote { margin:0; padding:0; } ul,ol { list-style:none; } im
 
 /* capa */
 .capa { display:grid; grid-template-columns:1.1fr 1fr; align-items:center; gap:20px; padding-right:40px; }
-.capa__logo { height:54px; width:auto; margin-bottom:52px; } .capa__txt .kicker { margin-bottom:20px; }
+.capa__logo { height:72px; width:auto; margin-bottom:44px; } .capa__txt .kicker { margin-bottom:20px; }
 .capa__txt .lead { max-width:560px; }
 .capa__art { position:relative; height:640px; margin-top:-10px; } .fachada { width:100%; height:100%; }
 .fachada .win{fill:#13254a} .fachada .win--on{fill:#f4c46a} .fachada .win--alvo{fill:#ffd27a}
@@ -277,7 +277,7 @@ p,ul,ol,figure,blockquote { margin:0; padding:0; } ul,ol { list-style:none; } im
 .aviso { margin-top:34px; font:500 19px/1.45 "Red Hat Display"; color:var(--nevoa); padding-left:18px; border-left:3px solid var(--ouro); max-width:760px; }
 .lista { margin-top:34px; } .lista li { position:relative; padding:12px 0 12px 38px; font-size:23px; border-bottom:1px solid var(--linha); }
 .lista li::before { content:""; position:absolute; left:2px; top:20px; width:17px; height:9px; border-left:3px solid var(--ouro); border-bottom:3px solid var(--ouro); transform:rotate(-45deg); }
-.mods { margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; } .mods li { background:#fff; border:1px solid var(--linha); border-left:4px solid var(--ouro); border-radius:8px; padding:11px 14px; font-size:17px; line-height:1.25; }
+.mods { margin-top:26px; display:grid; grid-template-columns:1fr 1fr; gap:8px 18px; } .mods li { background:#fff; border:1px solid var(--linha); border-left:4px solid var(--ouro); border-radius:8px; padding:9px 14px; font-size:17px; line-height:1.25; }
 .peq { margin-top:16px; font-size:15px; color:var(--nevoa); }
 
 /* segurança */
@@ -294,9 +294,9 @@ p,ul,ol,figure,blockquote { margin:0; padding:0; } ul,ol { list-style:none; } im
 .etapas::before { content:""; position:absolute; left:0; right:0; top:25px; height:3px; background:linear-gradient(90deg,var(--ouro),rgba(233,165,34,.2)); }
 .etapas li { counter-increment:e; position:relative; padding-top:68px; } .etapas li::before { content:counter(e); position:absolute; top:0; left:0; width:52px; height:52px; border-radius:50%; background:var(--noite); color:var(--ouro-c); border:3px solid var(--ouro); font:700 22px "Red Hat Display"; display:grid; place-items:center; }
 .etapas h3 { font-size:28px; margin-bottom:10px; } .etapas p { font-size:20px; color:var(--nevoa); }
-.planos { margin-bottom:6px; display:grid; grid-template-columns:repeat(3,1fr); gap:28px; } .plano { background:#fff; border:1px solid var(--linha); border-radius:16px; padding:30px 30px 26px; }
-.plano--hi { border:3px solid var(--ouro); } .plano h3 { font-size:27px; } .fit { font-size:17px; color:var(--nevoa); margin:6px 0 18px; padding-bottom:16px; border-bottom:1px solid var(--linha); }
-.plano li { position:relative; font-size:18px; padding:7px 0 7px 28px; } .plano li::before { content:""; position:absolute; left:2px; top:15px; width:12px; height:7px; border-left:2.5px solid var(--ouro); border-bottom:2.5px solid var(--ouro); transform:rotate(-45deg); }
+.planos { margin-bottom:6px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; } .plano { background:#fff; border:1px solid var(--linha); border-radius:16px; padding:24px 22px 20px; } .plano--custom { border-style:dashed; border-color:#9fb0c8; }
+.plano--hi { border:3px solid var(--ouro); } .plano h3 { font-size:24px; } .fit { font-size:15px; color:var(--nevoa); margin:6px 0 18px; padding-bottom:16px; border-bottom:1px solid var(--linha); }
+.plano li { position:relative; font-size:16px; line-height:1.3; padding:6px 0 6px 24px; } .plano li::before { content:""; position:absolute; left:2px; top:15px; width:12px; height:7px; border-left:2.5px solid var(--ouro); border-bottom:2.5px solid var(--ouro); transform:rotate(-45deg); }
 
 /* fim */
 .fim { display:grid; grid-template-columns:1.2fr 1fr; gap:60px; align-items:center; } .fim .display { font-size:52px; } .fim .lead { margin-top:22px; }
@@ -305,7 +305,7 @@ p,ul,ol,figure,blockquote { margin:0; padding:0; } ul,ol { list-style:none; } im
 .frase { position:absolute; left:80px; bottom:34px; font:500 17px "Red Hat Display"; color:var(--ouro-c); }
 `;
 
-const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>CondoSmart by Arcanos | Apresentação comercial</title>
+const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Arcondo by Arcanos | Apresentação comercial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;600;700&family=Red+Hat+Text:wght@400;500;600&display=swap">
 <style>${css}</style></head><body>${S.join("\n")}</body></html>`;
@@ -322,6 +322,6 @@ const estouro = await page.evaluate(() => [...document.querySelectorAll(".slide"
   return `${i + 1}:${Math.round(pior)}`;
 }));
 console.log("px além da área útil (>0 = invade o rodapé):", estouro.join("  "));
-await page.pdf({ path: path.join(DIR, "CondoSmart-apresentacao.pdf"), width: "1280px", height: "720px", printBackground: true, preferCSSPageSize: true });
+await page.pdf({ path: path.join(DIR, "Arcondo-apresentacao.pdf"), width: "1280px", height: "720px", printBackground: true, preferCSSPageSize: true });
 await browser.close();
 console.log("PDF gerado");

@@ -1,6 +1,6 @@
 # Apresentação comercial (PDF)
 
-`CondoSmart-apresentacao.pdf` é a apresentação para o marketing mostrar o CondoSmart a síndicos, conselhos e
+`Arcondo-apresentacao.pdf` é a apresentação para o marketing mostrar o Arcondo a síndicos, conselhos e
 administradoras: 13 slides em 16:9 (projeta bem e abre em qualquer leitor de PDF), com pouco texto, título que
 afirma o benefício e imagens grandes. Mesmas cores, fontes e logotipo do site.
 
