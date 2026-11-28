@@ -1,0 +1,22 @@
+---
+// Trecho curto do sistema funcionando, gravado no condomínio DEMO (dados fictícios).
+// Sem som e em loop. Só carrega quando entra na tela (scripts/videos.js);
+// com "reduzir movimento" ou economia de dados, fica a imagem parada.
+const { name, label, width, height } = Astro.props;
+---
+
+<video
+  class="pvideo"
+  data-pvideo
+  muted
+  loop
+  playsinline
+  preload="none"
+  poster={`/videos/${name}.jpg`}
+  width={width}
+  height={height}
+  aria-label={label}
+>
+  <source data-src={`/videos/${name}.webm`} type="video/webm" />
+  <source data-src={`/videos/${name}.mp4`} type="video/mp4" />
+</video>

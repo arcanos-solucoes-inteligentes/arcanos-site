@@ -1,0 +1,38 @@
+---
+// Painel do síndico desenhado em HTML. Dados fictícios.
+const bars = [38, 52, 45, 61, 70, 48, 30, 55, 66, 58, 80, 62];
+---
+
+<div class="panel" role="img" aria-label="Painel do síndico no Arcondo com encomendas do dia, atrasadas, reservas e gráfico de encomendas por dia.">
+  <div class="panel__top" aria-hidden="true"><span></span><span></span><span></span><em>Arcondo · Painel do síndico</em></div>
+  <div class="panel__grid" aria-hidden="true">
+    <div class="panel__side">
+      <b>Residencial Aurora</b>
+      <span class="on">Visão geral</span>
+      <span>Encomendas</span>
+      <span>Reservas</span>
+      <span>Comunicados</span>
+      <span>Chamados</span>
+      <span>Relatórios</span>
+      <span>Auditoria</span>
+    </div>
+    <div class="panel__main">
+      <div class="kpis">
+        <div class="kpi"><small>Encomendas hoje</small><b>47</b></div>
+        <div class="kpi"><small>Aguardando retirada</small><b>18</b></div>
+        <div class="kpi"><small>Atrasadas</small><b style="color:#9b2316">3</b></div>
+      </div>
+      <div>
+        <small class="muted">Encomendas por dia, últimas duas semanas</small>
+        <div class="bars">{bars.map((h, i) => <i class={i === 10 ? "hi" : ""} style={`height:${h}%`}></i>)}</div>
+      </div>
+      <table class="tbl">
+        <tbody>
+          <tr><td>Salão de festas</td><td class="muted">Sáb, 19h · Apto 31A</td><td><span class="pill pill--ok">Aprovada</span></td></tr>
+          <tr><td>Encomenda Apto 104</td><td class="muted">Há 6 dias</td><td><span class="pill pill--late">Atrasada</span></td></tr>
+          <tr><td>Chamado: portão da garagem</td><td class="muted">Aberto ontem</td><td><span class="pill">Em andamento</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

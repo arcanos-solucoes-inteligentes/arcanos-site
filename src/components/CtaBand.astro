@@ -1,0 +1,22 @@
+---
+const {
+  title = "Veja o Arcondo funcionando na rotina do seu condomínio.",
+  text = "Uma demonstração de 30 minutos com os fluxos que você usa hoje: encomendas, visitantes, reservas e comunicados."
+} = Astro.props;
+---
+
+<section class="cta on-dark">
+  <svg class="cta__trail" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-20 292 C 320 292, 560 250, 820 262 S 1080 210, 1220 150" fill="none" stroke="#e9a522" stroke-width="2" opacity=".55" />
+  </svg>
+  <div class="wrap cta__in">
+    <div>
+      <h2 class="h2">{title}</h2>
+      <p class="lead">{text}</p>
+    </div>
+    <div class="cta__actions">
+      <a class="btn btn--ouro" href="/contato/">Agendar demonstração</a>
+      <a class="btn btn--linha" href="/planos/">Ver planos</a>
+    </div>
+  </div>
+</section>

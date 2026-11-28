@@ -1,6 +1,6 @@
 # Arcanos Site Institucional
 
-Primeira base técnica do site institucional da **ARCANOS SOLUÇÕES INTELIGENTES LTDA**, construída em Astro com geração estática, HTML semântico, CSS próprio e JavaScript mínimo para navegação e galeria.
+Site comercial do **Arcondo**, a plataforma de gestão de condomínios da **ARCANOS SOLUÇÕES INTELIGENTES LTDA**, construída em Astro com geração estática, HTML semântico, CSS próprio e JavaScript mínimo para navegação e galeria.
 
 ## Objetivo do projeto
 
@@ -81,8 +81,8 @@ arcanos-site/
 
 ## Alteração das cores
 
-- Tokens visuais centralizados em `src/styles/tokens.css`.
-- Ajuste ali as cores principais, superfícies, sombras, espaçamentos e tipografia.
+- Tokens visuais no topo de `src/styles/global.css` (`:root`).
+- Racional da identidade e do mapa do site: `docs/proposta-reposicionamento.md`.
 
 ## Substituição dos logos
 
@@ -99,13 +99,13 @@ arcanos-site/
 
 ## Edição dos dados da empresa
 
-- Dados institucionais, contato e metadados base ficam em `src/data/company.js`.
-- Navegação fica em `src/data/navigation.js`.
+- Todo o conteúdo (empresa, links do app, navegação, perfis, funcionalidades, planos, FAQ) fica em `src/data/site.js`.
+- O endereço de login do app é `appBaseUrl` em `src/data/site.js`.
 - As seções da home ficam em `src/pages/index.astro`.
 
 ## Edição dos contatos
 
-- Atualize o e-mail institucional e os textos de contato em `src/data/company.js`.
+- Atualize o e-mail institucional em `src/data/site.js`.
 - Validar antes da publicação:
   - `contato@arcanossolucoes.com`
 

@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import { app } from "../data/site.js";
+---
+
+<BaseLayout
+  path="/entrar/"
+  title="Entrar | Arcondo"
+  description="Acesse o Arcondo como morador, porteiro, síndico ou administradora."
+>
+  <PageHead title="Entrar no Arcondo" lead="Moradores, portaria, síndicos e administradoras usam o mesmo acesso. O sistema abre a área certa para a sua função." />
+
+  <section class="sec">
+    <div class="wrap login">
+      <div class="login__box">
+        <h2 class="h3" style="font-size:1.4rem">Já tenho conta</h2>
+        <p class="muted" style="margin-top:.5rem">Entre com o e-mail e a senha cadastrados no seu condomínio.</p>
+        <a class="btn btn--ouro" href={app.login}>Acessar o Arcondo</a>
+        <div class="login__links">
+          <a href={app.forgotPassword}>Esqueci minha senha <small>Enviamos um link por e-mail</small></a>
+          <a href={app.invite}>Recebi um convite <small>Crie seu acesso</small></a>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="h3" style="font-size:1.25rem">Ainda não tenho acesso</h2>
+        <ul class="roles">
+          <li><b>Sou morador</b><p>O acesso é criado pelo condomínio. Peça o convite à administração ou à portaria. Se a portaria tiver o QR Code de cadastro, é só apontar a câmera.</p></li>
+          <li><b>Sou porteiro ou funcionário</b><p>O síndico ou a administradora cria o seu usuário com as permissões da sua função.</p></li>
+          <li><b>Sou síndico ou administradora e quero o Arcondo</b><p><a class="link" href="/contato/">Agende uma demonstração</a> e montamos o acesso do seu condomínio.</p></li>
+        </ul>
+        <p class="muted mt-2">Dica para moradores: depois de entrar, use a opção do navegador “Adicionar à tela inicial” para abrir o Arcondo como um aplicativo.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

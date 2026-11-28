@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import AssistenteShowcase from "../components/AssistenteShowcase.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { assistente } from "../data/site.js";
+---
+
+<BaseLayout
+  path="/assistente-ia/"
+  title="Marquinhos, assistente de IA do condomínio | Arcondo"
+  description="O Marquinhos responde pelo regimento com a fonte citada, faz reservas, autoriza visitantes e registra encomendas pelo chat, e avisa o síndico do que está pendente. Com as mesmas regras de acesso da tela e LGPD."
+>
+  <PageHead
+    kicker="Assistente de IA"
+    title="Marquinhos responde, faz e avisa."
+    lead={assistente.promise + " Para o morador, a portaria e o síndico, dentro do Arcondo."}
+  />
+
+  <section class="sec sec--noite on-dark">
+    <div class="wrap">
+      <AssistenteShowcase full />
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2">O que cada perfil pede ao Marquinhos</h2>
+        <p class="lead muted">Cada ação usa a mesma tela e as mesmas regras do app. O Marquinhos só monta o pedido e espera a confirmação.</p>
+      </div>
+      <div class="modrow">
+        {assistente.actions.map((a) => (
+          <div>
+            <h3 class="h3">{a.profile}</h3>
+            <ul class="checks">{a.items.map((i) => <li>{i}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--branco">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2">Uma IA que segue as regras do condomínio</h2>
+        <p class="lead muted">O síndico decide o que o Marquinhos pode fazer, para quem e com quais documentos.</p>
+      </div>
+      <div class="trust">
+        {assistente.safety.map((t) => (<div><h3>{t.title}</h3><p>{t.text}</p></div>))}
+      </div>
+      <ul class="checks mt-2" style="max-width:44rem">
+        {assistente.tech.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand title="Veja o Marquinhos respondendo pelo regimento do seu condomínio." text="Na demonstração, carregamos um regimento de exemplo e você faz as perguntas." />
+</BaseLayout>

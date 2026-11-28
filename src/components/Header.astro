@@ -1,56 +1,29 @@
 ---
-interface NavigationItem {
-  label: string;
-  href: string;
-}
-
-interface CompanySummary {
-  name: string;
-  brandLogo: string;
-}
-
-const { items, company } = Astro.props as {
-  items: NavigationItem[];
-  company: CompanySummary;
-};
+import { company, navigation } from "../data/site.js";
+const { path = "/" } = Astro.props;
 ---
 
-<header class="site-header" data-site-header>
-  <div class="container site-header__inner">
-    <a class="brand" href="/" aria-label={`Página inicial da ${company.name}`}>
-      <img
-        class="brand__image"
-        src={company.brandLogo}
-        alt="Logo oficial da Arcanos."
-        width="260"
-        height="60"
-      />
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="/" aria-label="Arcanos, página inicial">
+      <img src={company.brandLogo} alt="" width="230" height="46" />
+      <span class="brand__product">{company.product}</span>
     </a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-navigation"
-      data-menu-toggle
-    >
-      Menu
-    </button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" data-menu>Menu</button>
 
-    <nav class="site-nav" id="primary-navigation" aria-label="Navegação principal" data-menu-panel>
-      <button class="menu-close" type="button" data-menu-close>
-        Fechar
-      </button>
-
-      <ul>
-        {items.map((item) => (
+    <nav class="nav" id="nav" aria-label="Principal" data-nav>
+      <ul class="nav__links">
+        {navigation.map((item) => (
           <li>
-            <a href={item.href}>{item.label}</a>
+            <a href={item.href} aria-current={item.href === path ? "page" : undefined}>{item.label}</a>
           </li>
         ))}
       </ul>
-
-      <a class="button button--small" href="#contato">Entrar em contato</a>
+      <div class="nav__cta">
+        <a class="btn btn--linha btn--sm" href="/entrar/">Entrar</a>
+        <a class="btn btn--ouro btn--sm" href="/contato/">Agendar demonstração</a>
+      </div>
     </nav>
   </div>
 </header>

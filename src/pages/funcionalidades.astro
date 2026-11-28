@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
+import CtaBand from "../components/CtaBand.astro";
+import VagasShowcase from "../components/VagasShowcase.astro";
+import { featureGroups } from "../data/site.js";
+---
+
+<BaseLayout
+  path="/funcionalidades/"
+  title="Funcionalidades | Arcondo, gestão de condomínios"
+  description="O que vem em todos os planos do Arcondo, o que depende do plano e os seis módulos adicionais: comunicados, achados e perdidos, chamados e ouvidoria, reservas, controle de acesso e visitantes, e gestão de vagas."
+>
+  <PageHead
+    kicker="Funcionalidades"
+    title="O que vem no plano, e o que você soma."
+    lead="Uma base comum a todos os planos, recursos que entram conforme o plano e seis módulos adicionais. A portaria, o síndico e os moradores veem apenas o que é da sua função."
+  />
+
+  <section class="sec">
+    <div class="wrap">
+      {featureGroups.map((g) => (
+        <div class="fgroup" id={g.id}>
+          <div class="fgroup__head">
+            <h2 class="h3" style="font-size:1.45rem">{g.title}</h2>
+            <p>{g.summary}</p>
+            {g.id === "adicionais" && <a class="link fgroup__link" href="/planos/#adicionais">Como entram em cada plano</a>}
+            {g.id === "plano" && <a class="link fgroup__link" href="/planos/#comparar">Comparar os planos</a>}
+          </div>
+          <ul class="flist">
+            {g.features.map((f) => (
+              <li>
+                <h3>
+                  {f.name}
+                  {f.tag && <span class={`tag tag--${g.id}`}>{f.tag}</span>}
+                  {f.status === "em-breve" && <span class="tag tag--breve">Em breve</span>}
+                </h3>
+                <p>{f.text}</p>
+                {f.note && <p class="fnote">{f.note}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec sec--branco" id="mapa-da-garagem">
+    <div class="wrap">
+      <VagasShowcase />
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <div>
+        <h2 class="h2">Funciona no aparelho que o condomínio já tem.</h2>
+        <p class="lead muted" style="margin-top:1rem">
+          O Arcondo roda no navegador e pode ser instalado na tela inicial do celular, sem passar pela loja de aplicativos.
+        </p>
+      </div>
+      <ul class="checks">
+        <li>Celular ou tablet com câmera para a portaria</li>
+        <li>Computador para o síndico e a administração</li>
+        <li>Qualquer celular para os moradores</li>
+        <li>Interface em português, inglês, espanhol ou chinês</li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

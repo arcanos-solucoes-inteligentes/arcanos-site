@@ -1,0 +1,113 @@
+# Proposta de reposicionamento do site — Arcondo by Arcanos
+
+> 24/11/2026 · branch `feat/novo-site-condosmart`
+
+## 1. Diagnóstico do site anterior
+
+| Problema | Efeito no visitante |
+|---|---|
+| Falava da Arcanos como “iniciativa” que “desenvolve aplicações personalizadas” | Parecia agência ou freelancer, não produto SaaS |
+| O nome do produto (Arcondo) não aparecia | O visitante não sabia o que estava comprando |
+| Nenhuma funcionalidade concreta, nenhuma tela | Não havia o que avaliar, nem motivo para pedir demonstração |
+| Público indefinido (“seu negócio”) | Síndico e administradora não se reconheciam no texto |
+| Único CTA era “Entrar em contato” por e-mail | Nenhum caminho de venda (demo, planos) |
+| Nenhum link de login | Morador e porteiro não tinham como chegar ao app pelo site |
+| Navegação por âncoras institucionais (Quem somos, Objetivo) | Estrutura de apresentação, não de venda |
+
+## 2. Posicionamento
+
+**Produto:** Arcondo, a plataforma de gestão de condomínios da Arcanos. A Arcanos é a empresa; o Arcondo é o que se vende.
+
+**Promessa:** “O condomínio em ordem, do portão ao apartamento.” Encomendas, visitantes, reservas e comunicados num só lugar, com o registro de cada ação.
+
+**Diferencial que o site sustenta:** nasceu dentro de uma portaria real (TEG Vila Guilherme). A encomenda é o ponto de entrada, porque é a dor número um da portaria e a mais fácil de demonstrar.
+
+**Quem compra × quem usa:**
+
+| Perfil | Papel | O que o site fala para ele |
+|---|---|---|
+| Síndico e conselho | Decide | Prestação de contas, relatórios, trilha de auditoria |
+| Administradora / síndico profissional | Decide em escala | Carteira na mesma plataforma, padrão de operação |
+| Portaria | Usa todo dia | Modo Expresso, menos digitação, QR na retirada |
+| Morador | Usa e pressiona o síndico | Aviso no celular, retirada por QR, reservas |
+
+## 3. Identidade visual
+
+Mantidas as cores da marca. O que mudou foi o **uso**:
+
+| Token | Hex | Uso |
+|---|---|---|
+| Noite | `#071225` | Seções de promessa (hero, encomendas, segurança, CTA) |
+| Abismo | `#020817` | Rodapé, profundidade do hero |
+| Ouro | `#E9A522` | Botão principal, rastro, marcadores de lista |
+| Ouro claro | `#F4B942` | Detalhes sobre fundo escuro |
+| Ouro texto | `#9A6A07` | Dourado legível sobre fundo claro (contraste AA) |
+| Papel | `#F6F7FA` | Seções de produto (frio, não creme) |
+
+- **Tipografia:** Red Hat Display (títulos) + Red Hat Text (texto). Geométrica e sóbria, conversa com o logotipo sem copiar o espaçamento largo dele. Substitui a serifada “Iowan Old Style”, que dava ar de escritório de advocacia.
+- **O elemento memorável:** o *rastro dourado* da marca virou literal. No hero ele é o caminho da encomenda, da portaria até a janela do apartamento, que acende quando o aviso chega no celular. É a única animação do site e respeita `prefers-reduced-motion`.
+- **Telas do produto:** desenhadas em HTML (Modo Expresso, QR de retirada, painel do síndico) com dados fictícios, no lugar dos SVGs “placeholder”. Ficam nítidas em qualquer tela e não expõem dado real.
+- **O que foi evitado de propósito:** grade de cartões idênticos, rótulos em caixa alta sobre cada título, numeração decorativa. Só há números onde existe sequência real (jornada da encomenda e etapas de implantação).
+
+### Vídeos do produto
+
+Três trechos de 7 a 10 segundos, sem som e em loop, gravados no **condomínio DEMO local** (dados fictícios, nunca produção): a portaria (retirada urgente), o morador (encomenda que chegou hoje) e o síndico (relatório de encomendas em 90 dias). Ficam dentro das molduras de celular e de navegador, carregam só quando aparecem na tela (0,4 a 0,7 MB cada) e respeitam "reduzir movimento" e economia de dados.
+
+A chave `productMedia` em `src/data/site.js` alterna entre `"video"` e `"desenho"` (as telas desenhadas em HTML). Para regravar quando o sistema mudar: `scripts/gravacao/README.md`.
+
+### Foco em IA (25/11/2026)
+
+O Marquinhos é o diferencial que nenhum concorrente analisado tem: responde pelo regimento com a fonte, faz pelo chat o que a função permite e avisa o síndico. Ele ganhou seção logo depois de "Para quem", item no menu, página `/assistente-ia/` e menção no hero. A abertura continua na operação (portaria e encomendas), porque é o que o síndico compra; a IA é o motivo para escolher a Arcanos. Para manter a home focada, "Implantação" foi para `/planos/`.
+
+O resumo do que o Marquinhos faz está em `src/data/site.js` (`assistente`), tirado de `condominio-api/docs/ASSISTENTE-ACOES-E-LGPD.md`, `ASSISTENTE-GUARDRAILS.md` e `ASSISTENTE-BEDROCK.md`.
+
+## 4. Mapa do site
+
+| Página | Objetivo | CTA principal |
+|---|---|---|
+| `/` | Convencer em 1 rolagem: promessa, para quem, encomenda, módulos, síndico, segurança, origem, implantação, FAQ | Agendar demonstração |
+| `/funcionalidades/` | Catálogo completo por área, com selo “Módulo adicional” e “Em breve” | Agendar demonstração |
+| `/assistente-ia/` | Mostrar o Marquinhos: o que responde, o que faz por perfil e por que é seguro | Agendar demonstração |
+| `/seguranca/` | Responder à objeção LGPD do síndico | Agendar demonstração |
+| `/planos/` | Mostrar que existe plano para cada porte | Pedir proposta |
+| `/contato/` | Qualificar o lead (função, unidades, dor) | Pedir demonstração |
+| `/entrar/` | Porta de entrada de quem já é cliente | Acessar o Arcondo |
+
+**Cabeçalho:** Funcionalidades · Para quem · Segurança e LGPD · Planos · Contato · **Entrar** (secundário) · **Agendar demonstração** (principal). O padrão de SaaS B2B: quem já é cliente acha o login em um clique; quem não é, cai na demonstração.
+
+## 5. Como um cliente acessa o login
+
+Hoje o app só está montado em `https://www.arcanossolucoes.com/condosmart/teg-vm/` (`condominio-web/src/utils/resolveBasename.js`). Um condomínio novo não tem endereço próprio.
+
+**Feito agora:** página `/entrar/` com “Acessar o Arcondo”, “Esqueci minha senha”, “Recebi um convite” e orientação por perfil (morador, porteiro, síndico). Todos os links vêm de `src/data/site.js` → `appBaseUrl`.
+
+**Recomendado (fora deste PR):** um endereço único de login para todos os condomínios, por exemplo `app.arcanossolucoes.com` ou `/condosmart/` sem o slug do condomínio. O login já é por e-mail e o usuário pode ter vários condomínios (Onda 1), então o slug na URL não é necessário. Quando existir, basta trocar `appBaseUrl`.
+
+## 6. Regras de comunicação aplicadas
+
+- Nada em desenvolvimento aparece como pronto. Só os avisos por WhatsApp estão em “Em desenvolvimento”, com selo “Em breve”. O assistente de IA (Marquinhos) e o mapa da garagem estão na `main` (PRs #368, #382, #391, #400–#413) e foram marcados como disponíveis em 25/11/2026, a pedido.
+- Nenhum número de clientes, unidades ou métrica publicado.
+- Nenhum depoimento inventado. A seção de origem usa fatos (onde, quem usa) e deixa `TODO` para um depoimento real e autorizado.
+- LGPD descrita pelo que o sistema faz, sem prometer “conformidade total”.
+- Preços como “Sob proposta” até o catálogo ser aprovado.
+
+## 7. Pendências para aprovação dos sócios
+
+1. **Validar afirmações técnicas** antes de publicar: Marquinhos e mapa de vagas ligados em produção (Bedrock, plano Pro, permissão de vagas para a portaria), modo offline “em operações suportadas” (as fases do plano offline estão em branches não pushadas), push em produção, exportação de dados do titular pelo app, retenção automática de fotos.
+2. **Depoimento** do síndico do TEG, por escrito, com autorização de uso.
+3. **Vídeo × desenho:** escolher qual versão vai ao ar (`productMedia`).
+4. **Preços:** publicar faixa “a partir de” quando o catálogo da Plataforma Deus for fechado.
+5. **Formulário:** trocar o envio por `mailto` por um CRM (HubSpot, RD Station) para não perder lead de quem não tem cliente de e-mail configurado.
+6. **Política de Privacidade e encarregado (DPO)** publicados, com link no rodapé.
+7. **Endereço único de login** (seção 5).
+8. **Imagem de compartilhamento (OG)** em PNG 1200×630 com a nova identidade; redes sociais não leem SVG.
+
+## 9. Arcondo e tabela comercial (28/11/2026)
+
+- **Nome do aplicativo:** Arcondo (antes CondoSmart). O caminho de produção `/condosmart/teg-vm` continua no `appBaseUrl`, porque é o endereço real do app.
+- **Planos:** seguem a "Tabela comercial de entrada" (nov/2026): Essencial, Gestão e Inteligência, mais o **Personalizado**, em que o síndico escolhe os módulos. O site **não publica preços**: mostra só as faixas de apartamentos (1 a 50 … 501 ou mais) e leva para "Pedir proposta".
+- **Funcionalidades:** organizadas como na tabela: o que vem em todos os planos, o que depende do plano (QR Code, Analytics do morador, Marquinhos), os 6 módulos adicionais (Gestão inclui 1, Inteligência inclui 2) e "Outros recursos do aplicativo", que existem no app mas não estão na tabela (Modo Expresso, encomendas especiais, mapa e sorteio de vagas, chaves, botão de pânico, área da administradora), marcados como "Consulte".
+- **Dependências do Personalizado** (`dependencias` em `src/data/site.js`): mapa e sorteio exigem Gestão de vagas (no código, `PARKING_MAP` fica sobre `PARKING_SPOTS`); as ações do Marquinhos só funcionam nos módulos contratados (`[RequiresModule]` do endpoint); validação externa faz parte de Reservas; os pares "Chamados e ouvidoria" e "Controle de acesso e visitantes" são um módulo só.
+- **Marquinhos:** recurso fixo do Inteligência, com "ativação após homologação", como diz a tabela. A página `/assistente-ia/` descreve o produto; a disponibilidade fica na nota dos planos.
+- **Implantação:** configuração, 1 importação de planilha, 2 treinamentos remotos de 60 min e 15 dias de apoio. O antigo "treinamento turno a turno, no posto" saiu (a tabela orça presencial à parte).
+- **Logo:** `arcanos-logo-horizontal.png` gerado da arte do PDF (`scripts/marca/`), com o "ARCANOS" geométrico e "SOLUÇÕES INTELIGENTES." com acentos. Só para fundo escuro.

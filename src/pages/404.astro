@@ -1,19 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHead from "../components/PageHead.astro";
 ---
 
-<BaseLayout
-  title="Página não encontrada | Arcanos"
-  description="A página solicitada não foi encontrada."
-  path="/404"
-  noIndex={true}
->
-  <section class="section section--dark not-found">
-    <div class="container not-found__content" data-reveal>
-      <p class="eyebrow">Erro 404</p>
-      <h1>Esta página não foi encontrada.</h1>
-      <p>Volte para a página inicial para continuar conhecendo a proposta institucional da Arcanos.</p>
-      <a class="button" href="/">Ir para a home</a>
+<BaseLayout title="Página não encontrada | Arcondo" description="A página procurada não existe." path="/404" noIndex={true}>
+  <PageHead title="Esta página não existe." lead="O endereço pode ter mudado. Escolha para onde seguir.">
+    <div class="hero__ctas">
+      <a class="btn btn--ouro" href="/">Página inicial</a>
+      <a class="btn btn--linha" style="color:#fff" href="/entrar/">Entrar no Arcondo</a>
     </div>
-  </section>
+  </PageHead>
 </BaseLayout>

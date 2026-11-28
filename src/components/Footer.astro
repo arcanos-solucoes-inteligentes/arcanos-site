@@ -1,30 +1,43 @@
 ---
-const { company } = Astro.props;
+import { company, app } from "../data/site.js";
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
-  <div class="container site-footer__inner">
+<footer class="ftr">
+  <div class="wrap ftr__in">
     <div>
-      <img
-        class="site-footer__brand-image"
-        src={company.brandLogo}
-        alt="Logo oficial da Arcanos no rodapé."
-        width="260"
-        height="60"
-      />
-      <p>{company.legalName}</p>
-      <p>{company.footerNote}</p>
+      <img src={company.brandLogo} alt="Arcanos Soluções Inteligentes" width="250" height="50" loading="lazy" />
+      <p>{company.product} é a plataforma de gestão de condomínios da Arcanos.</p>
+      <p class="mt-2"><a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a></p>
     </div>
-
-    <div class="site-footer__links">
-      <a href="/">Início</a>
-      <a href="#contato">Contato</a>
-      <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
+    <div>
+      <h2>Produto</h2>
+      <ul>
+        <li><a href="/funcionalidades/">Funcionalidades</a></li>
+        <li><a href="/assistente-ia/">Assistente de IA</a></li>
+        <li><a href="/planos/">Planos</a></li>
+        <li><a href="/seguranca/">Segurança e LGPD</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Para quem</h2>
+      <ul>
+        <li><a href="/#para-quem">Síndicos e conselhos</a></li>
+        <li><a href="/#para-quem">Administradoras</a></li>
+        <li><a href="/#para-quem">Portaria e moradores</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Acesso</h2>
+      <ul>
+        <li><a href="/entrar/">Entrar no Arcondo</a></li>
+        <li><a href={app.forgotPassword}>Recuperar senha</a></li>
+        <li><a href="/contato/">Falar com a Arcanos</a></li>
+      </ul>
     </div>
   </div>
-
-  <div class="container site-footer__meta">
-    <p>&copy; {year} Arcanos. Todos os direitos reservados.</p>
+  <div class="wrap ftr__meta">
+    <p>&copy; {year} {company.legalName}</p>
+    <p>{company.brandQuote}</p>
   </div>
 </footer>
